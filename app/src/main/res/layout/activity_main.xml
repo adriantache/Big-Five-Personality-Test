@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.adriantache.bigfivepersonalitytest.MainActivity">
 
+    <!-- title -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
@@ -23,6 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- instructions -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
@@ -40,6 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <!-- questions -->
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
@@ -3064,6 +3067,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- result graph, initially hidden -->
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
@@ -3078,6 +3082,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <!-- //todo add results text  -->
+
+    <!-- submit button -->
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -3091,6 +3098,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- RadioButton labels -->
     <TextView
         android:id="@+id/textView14"
         android:layout_width="30dp"
@@ -3102,7 +3110,6 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/scrollView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <TextView
         android:id="@+id/textView16"
         android:layout_width="30dp"
@@ -3114,7 +3121,6 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <TextView
         android:id="@+id/textView17"
         android:layout_width="30dp"
@@ -3126,7 +3132,6 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <TextView
         android:id="@+id/textView18"
         android:layout_width="30dp"
@@ -3138,7 +3143,6 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <TextView
         android:id="@+id/textView19"
         android:layout_width="30dp"
@@ -3150,4 +3154,5 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 </android.support.constraint.ConstraintLayout>
