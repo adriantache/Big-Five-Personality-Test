@@ -10,6 +10,12 @@ import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 public class MainActivity extends AppCompatActivity {
 
     //define answers array
@@ -265,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton question50radioButton3;
     RadioButton question50radioButton4;
     RadioButton question50radioButton5;
+    // todo remove this after testing
     private static final String TAG = "MainActivity";
 
 
@@ -526,6 +533,12 @@ public class MainActivity extends AppCompatActivity {
         question50radioButton5 = findViewById(R.id.question50radioButton5);
 
     }
+
+    int extraversion;
+    int agreeableness;
+    int conscientiousness;
+    int emotionalStability;
+    int intellectImagination;
 
     public void submit(View view) {
         verify();
@@ -984,6 +997,9 @@ public class MainActivity extends AppCompatActivity {
             notCompleted(50, question50radioButton1);
             return;
         }
+
+        //if all ok goto calculation
+        calculate();
     }
 
     //shows a message with the first question that hasn't been answered
@@ -994,9 +1010,79 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //todo function that calculates score using mod 5 and a flippable boolean
+    //todo function that calculates score using mod 5 and mod 2 and special cases
+    public void calculate() {
+        int i = 0;
+        extraversion = 0;
+        agreeableness = 0;
+        conscientiousness = 0;
+        emotionalStability = 0;
+        intellectImagination = 0;
+
+        while (i < 50) {
+            i++;
+            switch (i % 5) {
+                case 1:
+                    if (i % 2 == 0) extraversion -= answers[i];
+                    else extraversion += answers[i];
+                    break;
+                case 2:
+                    if (i == 42) agreeableness += answers[i];
+                    else if (i % 2 == 0) agreeableness -= answers[i];
+                    else agreeableness += answers[i];
+                    break;
+                case 3:
+                    if (i == 48) conscientiousness += answers[i];
+                    else if (i % 2 == 0) conscientiousness -= answers[i];
+                    else conscientiousness += answers[i];
+                    break;
+                case 4:
+                    if (i == 29 | i == 39 | i == 49) emotionalStability -= answers[i];
+                    else if (i % 2 == 0) emotionalStability -= answers[i];
+                    else emotionalStability += answers[i];
+                    break;
+                case 0:
+                    if (i == 40 | i == 50) intellectImagination += answers[i];
+                    else if (i % 2 == 0) intellectImagination -= answers[i];
+                    else intellectImagination += answers[i];
+                    break;
+            }
+        }
+
+        //todo decide if negative values are allowed
+    }
+
+    //this function plots the Big Five Markers onto a GraphView graph
+    public void graph() {
+        GraphView graph = findViewById(R.id.graph);
+
+        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
+                new DataPoint(0, extraversion),
+                new DataPoint(1, agreeableness),
+                new DataPoint(2, conscientiousness),
+                new DataPoint(3, emotionalStability),
+                new DataPoint(4, intellectImagination)
+        });
+        graph.addSeries(series);
+
+        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"Extraversion", "Agreeableness", "Conscientiousness", "Emotional Stability", "Intellect/Imagination"});
+        graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
+        graph.setVisibility(View.VISIBLE);
+    }
 
     //todo function that creates score display (use graphs?)
+    public void displayScore() {
+        //hide questions
+
+        //generate text
+
+        //show graph and text
+        graph();
+
+
+    }
 
     //todo function that hides test and shows results
 
