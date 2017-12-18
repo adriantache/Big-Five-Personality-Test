@@ -3071,12 +3071,12 @@
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="400dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -3091,9 +3091,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Thank you for completing the 50-item IPIP version of the Big Five Markers"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/wiki"
         app:layout_constraintTop_toBottomOf="@+id/graph"
-        android:visibility="gone"
+        android:visibility="invisible"
         />
 
     <Button
@@ -3105,8 +3105,9 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/graph"
+        app:layout_constraintTop_toBottomOf="@+id/results_text"
         android:onClick="wiki"
+        android:visibility="invisible"
         />
 
     <!-- submit button -->

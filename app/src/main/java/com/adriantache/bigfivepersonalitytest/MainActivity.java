@@ -1,6 +1,7 @@
 package com.adriantache.bigfivepersonalitytest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,8 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.w3c.dom.Text;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -545,18 +548,22 @@ public class MainActivity extends AppCompatActivity {
     int conscientiousness;
     int emotionalStability;
     int intellectImagination;
+    boolean allOK = false;
 
     public void submit(View view) {
         //todo add check whether to reset or not
 
-        //todo remove test function
-        int i=0;
+
+        /** function to seed the questions for testing
+         * todo remove this when app is final
+         * int i=0;
+        Random rand = new Random();
         while (i<50){
             i++;
-            answers[i]=1;
+            answers[i]=rand.nextInt(5);
         }
-        calculate();
-        //todo remove test function
+        calculate();*/
+
 
         //verify all questions are answered
         //verify();
@@ -1086,10 +1093,15 @@ public class MainActivity extends AppCompatActivity {
                 new DataPoint(3, emotionalStability),
                 new DataPoint(4, intellectImagination)
         });
+
         graph.addSeries(series);
 
+        series.setSpacing(5);
+        series.setDrawValuesOnTop(true);
+        series.setValuesOnTopColor(Color.BLACK);
+
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setHorizontalLabels(new String[]{"Extraversion", "Agreeableness", "Conscientiousness", "Emotional Stability", "Intellect/Imagination"});
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"Extraversion", "Agreeableness", "Conscientiousness", "Emotional\nStability", "Intellect/\nImagination"});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
         graph.setVisibility(View.VISIBLE);
@@ -1099,16 +1111,31 @@ public class MainActivity extends AppCompatActivity {
     public void displayScore() {
         //hide instructions and questions
         ScrollView scroll = findViewById(R.id.scrollView2);
-        scroll.setVisibility(View.GONE);
+        scroll.setVisibility(View.INVISIBLE);
         TextView textView = findViewById(R.id.textView2);
-        textView.setVisibility(View.GONE);
+        textView.setVisibility(View.INVISIBLE);
+        TextView textView2 = findViewById(R.id.textView14);
+        textView2.setVisibility(View.INVISIBLE);
+        TextView textView3 = findViewById(R.id.textView16);
+        textView3.setVisibility(View.INVISIBLE);
+        TextView textView4 = findViewById(R.id.textView17);
+        textView4.setVisibility(View.INVISIBLE);
+        TextView textView5 = findViewById(R.id.textView18);
+        textView5.setVisibility(View.INVISIBLE);
+        TextView textView6 = findViewById(R.id.textView19);
+        textView6.setVisibility(View.INVISIBLE);
+
+        //change title text
+        TextView tV = findViewById(R.id.textView);
+        tV.setText("Test Results");
 
         //generate text for automatic assessment
 
+
         //show graph and text and wiki button
         graph();
-        TextView textView2 = findViewById(R.id.results_text);
-        textView2.setVisibility(View.VISIBLE);
+        TextView textView7 = findViewById(R.id.results_text);
+        textView7.setVisibility(View.VISIBLE);
         Button button = findViewById(R.id.wiki);
         button.setVisibility(View.VISIBLE);
 
