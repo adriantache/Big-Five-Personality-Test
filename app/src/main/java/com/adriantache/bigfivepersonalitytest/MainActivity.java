@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -263,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton question50radioButton4;
     RadioButton question50radioButton5;
     private static final String TAG = "MainActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -535,7 +538,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question1radioButton4.isChecked()) answers[1]=4;
         else if (question1radioButton5.isChecked()) answers[1]=5;
         else {
-            notCompleted(1);
+            notCompleted(1, question1radioButton1);
             return;
         }
 
@@ -546,9 +549,17 @@ public class MainActivity extends AppCompatActivity {
 
     //shows a message with the first question that hasn't been answered
     //todo move ScrollView to that question
-    public void notCompleted(int i){
+    public void notCompleted(int i, View v){
         Toast toast = Toast.makeText(MainActivity.this,"Please answer question "+i+" before proceeding!",Toast.LENGTH_SHORT);
         toast.show();
+
+        // moves to first unanswered question
+        // get position of a View
+        int nY_Pos = v.getTop(); // getBottom(); X_pos  getLeft(); getRight();
+        // scroll to top of hEdit
+        ScrollView scroll = findViewById(R.id.scrollView2);
+        scroll.scrollTo(0,nY_Pos);
+
     }
     //todo function that calculates score using mod 5 and a flippable boolean
 
