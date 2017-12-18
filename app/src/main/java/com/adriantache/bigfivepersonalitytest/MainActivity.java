@@ -1,13 +1,17 @@
 package com.adriantache.bigfivepersonalitytest;
 
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
@@ -15,6 +19,8 @@ import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -541,7 +547,21 @@ public class MainActivity extends AppCompatActivity {
     int intellectImagination;
 
     public void submit(View view) {
-        verify();
+        //todo add check whether to reset or not
+
+        //todo remove test function
+        int i=0;
+        while (i<50){
+            i++;
+            answers[i]=1;
+        }
+        calculate();
+        //todo remove test function
+
+        //verify all questions are answered
+        //verify();
+
+
     }
 
     // verify all checkboxes and codify them into an array
@@ -1050,6 +1070,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //todo decide if negative values are allowed
+
+        //todo decide if this is where we call for score display
+        displayScore();
     }
 
     //this function plots the Big Five Markers onto a GraphView graph
@@ -1074,14 +1097,33 @@ public class MainActivity extends AppCompatActivity {
 
     //todo function that creates score display (use graphs?)
     public void displayScore() {
-        //hide questions
+        //hide instructions and questions
+        ScrollView scroll = findViewById(R.id.scrollView2);
+        scroll.setVisibility(View.GONE);
+        TextView textView = findViewById(R.id.textView2);
+        textView.setVisibility(View.GONE);
 
-        //generate text
+        //generate text for automatic assessment
 
-        //show graph and text
+        //show graph and text and wiki button
         graph();
+        TextView textView2 = findViewById(R.id.results_text);
+        textView2.setVisibility(View.VISIBLE);
+        Button button = findViewById(R.id.wiki);
+        button.setVisibility(View.VISIBLE);
+
+        //change Submit button to reset
 
 
+    }
+
+    //todo wiki() function to open wikipedia article
+    public void wiki(View v) {
+        Uri webpage = Uri.parse("https://en.wikipedia.org/wiki/Big_Five_personality_traits");
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     //todo function that hides test and shows results
