@@ -2,8 +2,10 @@ package com.adriantache.bigfivepersonalitytest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -260,6 +262,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton question50radioButton3;
     RadioButton question50radioButton4;
     RadioButton question50radioButton5;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -531,13 +534,21 @@ public class MainActivity extends AppCompatActivity {
         else if (question1radioButton3.isChecked()) answers[1]=3;
         else if (question1radioButton4.isChecked()) answers[1]=4;
         else if (question1radioButton5.isChecked()) answers[1]=5;
-        else notCompleted(1);
+        else {
+            notCompleted(1);
+            return;
+        }
 
-        
+
+
+
     }
 
+    //shows a message with the first question that hasn't been answered
+    //todo move ScrollView to that question
     public void notCompleted(int i){
-
+        Toast toast = Toast.makeText(MainActivity.this,"Please answer question "+i+" before proceeding!",Toast.LENGTH_SHORT);
+        toast.show();
     }
     //todo function that calculates score using mod 5 and a flippable boolean
 
