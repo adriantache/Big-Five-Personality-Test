@@ -1,5 +1,6 @@
 package com.adriantache.bigfivepersonalitytest;
 
+import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -526,41 +527,473 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void submit (View view) {
+    public void submit(View view) {
         verify();
     }
 
-    //todo function that verifies all checkboxes and codifies them into an array
-    public void verify (){
-        if (question1radioButton1.isChecked()) answers[1]=1;
-        else if (question1radioButton2.isChecked()) answers[1]=2;
-        else if (question1radioButton3.isChecked()) answers[1]=3;
-        else if (question1radioButton4.isChecked()) answers[1]=4;
-        else if (question1radioButton5.isChecked()) answers[1]=5;
+    // verify all checkboxes and codify them into an array
+    // if a question is not filled it, the method stops, and calls notCompleted(question, view)
+    public void verify() {
+        if (question1radioButton1.isChecked()) answers[1] = 1;
+        else if (question1radioButton2.isChecked()) answers[1] = 2;
+        else if (question1radioButton3.isChecked()) answers[1] = 3;
+        else if (question1radioButton4.isChecked()) answers[1] = 4;
+        else if (question1radioButton5.isChecked()) answers[1] = 5;
         else {
             notCompleted(1, question1radioButton1);
             return;
         }
-
-
-
-
+        if (question2radioButton1.isChecked()) answers[2] = 1;
+        else if (question2radioButton2.isChecked()) answers[2] = 2;
+        else if (question2radioButton3.isChecked()) answers[2] = 3;
+        else if (question2radioButton4.isChecked()) answers[2] = 4;
+        else if (question2radioButton5.isChecked()) answers[2] = 5;
+        else {
+            notCompleted(2, question2radioButton1);
+            return;
+        }
+        if (question3radioButton1.isChecked()) answers[3] = 1;
+        else if (question3radioButton2.isChecked()) answers[3] = 2;
+        else if (question3radioButton3.isChecked()) answers[3] = 3;
+        else if (question3radioButton4.isChecked()) answers[3] = 4;
+        else if (question3radioButton5.isChecked()) answers[3] = 5;
+        else {
+            notCompleted(3, question3radioButton1);
+            return;
+        }
+        if (question4radioButton1.isChecked()) answers[4] = 1;
+        else if (question4radioButton2.isChecked()) answers[4] = 2;
+        else if (question4radioButton3.isChecked()) answers[4] = 3;
+        else if (question4radioButton4.isChecked()) answers[4] = 4;
+        else if (question4radioButton5.isChecked()) answers[4] = 5;
+        else {
+            notCompleted(4, question4radioButton1);
+            return;
+        }
+        if (question5radioButton1.isChecked()) answers[5] = 1;
+        else if (question5radioButton2.isChecked()) answers[5] = 2;
+        else if (question5radioButton3.isChecked()) answers[5] = 3;
+        else if (question5radioButton4.isChecked()) answers[5] = 4;
+        else if (question5radioButton5.isChecked()) answers[5] = 5;
+        else {
+            notCompleted(5, question5radioButton1);
+            return;
+        }
+        if (question6radioButton1.isChecked()) answers[6] = 1;
+        else if (question6radioButton2.isChecked()) answers[6] = 2;
+        else if (question6radioButton3.isChecked()) answers[6] = 3;
+        else if (question6radioButton4.isChecked()) answers[6] = 4;
+        else if (question6radioButton5.isChecked()) answers[6] = 5;
+        else {
+            notCompleted(6, question6radioButton1);
+            return;
+        }
+        if (question7radioButton1.isChecked()) answers[7] = 1;
+        else if (question7radioButton2.isChecked()) answers[7] = 2;
+        else if (question7radioButton3.isChecked()) answers[7] = 3;
+        else if (question7radioButton4.isChecked()) answers[7] = 4;
+        else if (question7radioButton5.isChecked()) answers[7] = 5;
+        else {
+            notCompleted(7, question7radioButton1);
+            return;
+        }
+        if (question8radioButton1.isChecked()) answers[8] = 1;
+        else if (question8radioButton2.isChecked()) answers[8] = 2;
+        else if (question8radioButton3.isChecked()) answers[8] = 3;
+        else if (question8radioButton4.isChecked()) answers[8] = 4;
+        else if (question8radioButton5.isChecked()) answers[8] = 5;
+        else {
+            notCompleted(8, question8radioButton1);
+            return;
+        }
+        if (question9radioButton1.isChecked()) answers[9] = 1;
+        else if (question9radioButton2.isChecked()) answers[9] = 2;
+        else if (question9radioButton3.isChecked()) answers[9] = 3;
+        else if (question9radioButton4.isChecked()) answers[9] = 4;
+        else if (question9radioButton5.isChecked()) answers[9] = 5;
+        else {
+            notCompleted(9, question9radioButton1);
+            return;
+        }
+        if (question10radioButton1.isChecked()) answers[10] = 1;
+        else if (question10radioButton2.isChecked()) answers[10] = 2;
+        else if (question10radioButton3.isChecked()) answers[10] = 3;
+        else if (question10radioButton4.isChecked()) answers[10] = 4;
+        else if (question10radioButton5.isChecked()) answers[10] = 5;
+        else {
+            notCompleted(10, question10radioButton1);
+            return;
+        }
+        if (question11radioButton1.isChecked()) answers[11] = 1;
+        else if (question11radioButton2.isChecked()) answers[11] = 2;
+        else if (question11radioButton3.isChecked()) answers[11] = 3;
+        else if (question11radioButton4.isChecked()) answers[11] = 4;
+        else if (question11radioButton5.isChecked()) answers[11] = 5;
+        else {
+            notCompleted(11, question11radioButton1);
+            return;
+        }
+        if (question12radioButton1.isChecked()) answers[12] = 1;
+        else if (question12radioButton2.isChecked()) answers[12] = 2;
+        else if (question12radioButton3.isChecked()) answers[12] = 3;
+        else if (question12radioButton4.isChecked()) answers[12] = 4;
+        else if (question12radioButton5.isChecked()) answers[12] = 5;
+        else {
+            notCompleted(12, question12radioButton1);
+            return;
+        }
+        if (question13radioButton1.isChecked()) answers[13] = 1;
+        else if (question13radioButton2.isChecked()) answers[13] = 2;
+        else if (question13radioButton3.isChecked()) answers[13] = 3;
+        else if (question13radioButton4.isChecked()) answers[13] = 4;
+        else if (question13radioButton5.isChecked()) answers[13] = 5;
+        else {
+            notCompleted(13, question13radioButton1);
+            return;
+        }
+        if (question14radioButton1.isChecked()) answers[14] = 1;
+        else if (question14radioButton2.isChecked()) answers[14] = 2;
+        else if (question14radioButton3.isChecked()) answers[14] = 3;
+        else if (question14radioButton4.isChecked()) answers[14] = 4;
+        else if (question14radioButton5.isChecked()) answers[14] = 5;
+        else {
+            notCompleted(14, question14radioButton1);
+            return;
+        }
+        if (question15radioButton1.isChecked()) answers[15] = 1;
+        else if (question15radioButton2.isChecked()) answers[15] = 2;
+        else if (question15radioButton3.isChecked()) answers[15] = 3;
+        else if (question15radioButton4.isChecked()) answers[15] = 4;
+        else if (question15radioButton5.isChecked()) answers[15] = 5;
+        else {
+            notCompleted(15, question15radioButton1);
+            return;
+        }
+        if (question16radioButton1.isChecked()) answers[16] = 1;
+        else if (question16radioButton2.isChecked()) answers[16] = 2;
+        else if (question16radioButton3.isChecked()) answers[16] = 3;
+        else if (question16radioButton4.isChecked()) answers[16] = 4;
+        else if (question16radioButton5.isChecked()) answers[16] = 5;
+        else {
+            notCompleted(16, question16radioButton1);
+            return;
+        }
+        if (question17radioButton1.isChecked()) answers[17] = 1;
+        else if (question17radioButton2.isChecked()) answers[17] = 2;
+        else if (question17radioButton3.isChecked()) answers[17] = 3;
+        else if (question17radioButton4.isChecked()) answers[17] = 4;
+        else if (question17radioButton5.isChecked()) answers[17] = 5;
+        else {
+            notCompleted(17, question17radioButton1);
+            return;
+        }
+        if (question18radioButton1.isChecked()) answers[18] = 1;
+        else if (question18radioButton2.isChecked()) answers[18] = 2;
+        else if (question18radioButton3.isChecked()) answers[18] = 3;
+        else if (question18radioButton4.isChecked()) answers[18] = 4;
+        else if (question18radioButton5.isChecked()) answers[18] = 5;
+        else {
+            notCompleted(18, question18radioButton1);
+            return;
+        }
+        if (question19radioButton1.isChecked()) answers[19] = 1;
+        else if (question19radioButton2.isChecked()) answers[19] = 2;
+        else if (question19radioButton3.isChecked()) answers[19] = 3;
+        else if (question19radioButton4.isChecked()) answers[19] = 4;
+        else if (question19radioButton5.isChecked()) answers[19] = 5;
+        else {
+            notCompleted(19, question19radioButton1);
+            return;
+        }
+        if (question20radioButton1.isChecked()) answers[20] = 1;
+        else if (question20radioButton2.isChecked()) answers[20] = 2;
+        else if (question20radioButton3.isChecked()) answers[20] = 3;
+        else if (question20radioButton4.isChecked()) answers[20] = 4;
+        else if (question20radioButton5.isChecked()) answers[20] = 5;
+        else {
+            notCompleted(20, question20radioButton1);
+            return;
+        }
+        if (question21radioButton1.isChecked()) answers[21] = 1;
+        else if (question21radioButton2.isChecked()) answers[21] = 2;
+        else if (question21radioButton3.isChecked()) answers[21] = 3;
+        else if (question21radioButton4.isChecked()) answers[21] = 4;
+        else if (question21radioButton5.isChecked()) answers[21] = 5;
+        else {
+            notCompleted(21, question21radioButton1);
+            return;
+        }
+        if (question22radioButton1.isChecked()) answers[22] = 1;
+        else if (question22radioButton2.isChecked()) answers[22] = 2;
+        else if (question22radioButton3.isChecked()) answers[22] = 3;
+        else if (question22radioButton4.isChecked()) answers[22] = 4;
+        else if (question22radioButton5.isChecked()) answers[22] = 5;
+        else {
+            notCompleted(22, question22radioButton1);
+            return;
+        }
+        if (question23radioButton1.isChecked()) answers[23] = 1;
+        else if (question23radioButton2.isChecked()) answers[23] = 2;
+        else if (question23radioButton3.isChecked()) answers[23] = 3;
+        else if (question23radioButton4.isChecked()) answers[23] = 4;
+        else if (question23radioButton5.isChecked()) answers[23] = 5;
+        else {
+            notCompleted(23, question23radioButton1);
+            return;
+        }
+        if (question24radioButton1.isChecked()) answers[24] = 1;
+        else if (question24radioButton2.isChecked()) answers[24] = 2;
+        else if (question24radioButton3.isChecked()) answers[24] = 3;
+        else if (question24radioButton4.isChecked()) answers[24] = 4;
+        else if (question24radioButton5.isChecked()) answers[24] = 5;
+        else {
+            notCompleted(24, question24radioButton1);
+            return;
+        }
+        if (question25radioButton1.isChecked()) answers[25] = 1;
+        else if (question25radioButton2.isChecked()) answers[25] = 2;
+        else if (question25radioButton3.isChecked()) answers[25] = 3;
+        else if (question25radioButton4.isChecked()) answers[25] = 4;
+        else if (question25radioButton5.isChecked()) answers[25] = 5;
+        else {
+            notCompleted(25, question25radioButton1);
+            return;
+        }
+        if (question26radioButton1.isChecked()) answers[26] = 1;
+        else if (question26radioButton2.isChecked()) answers[26] = 2;
+        else if (question26radioButton3.isChecked()) answers[26] = 3;
+        else if (question26radioButton4.isChecked()) answers[26] = 4;
+        else if (question26radioButton5.isChecked()) answers[26] = 5;
+        else {
+            notCompleted(26, question26radioButton1);
+            return;
+        }
+        if (question27radioButton1.isChecked()) answers[27] = 1;
+        else if (question27radioButton2.isChecked()) answers[27] = 2;
+        else if (question27radioButton3.isChecked()) answers[27] = 3;
+        else if (question27radioButton4.isChecked()) answers[27] = 4;
+        else if (question27radioButton5.isChecked()) answers[27] = 5;
+        else {
+            notCompleted(27, question27radioButton1);
+            return;
+        }
+        if (question28radioButton1.isChecked()) answers[28] = 1;
+        else if (question28radioButton2.isChecked()) answers[28] = 2;
+        else if (question28radioButton3.isChecked()) answers[28] = 3;
+        else if (question28radioButton4.isChecked()) answers[28] = 4;
+        else if (question28radioButton5.isChecked()) answers[28] = 5;
+        else {
+            notCompleted(28, question28radioButton1);
+            return;
+        }
+        if (question29radioButton1.isChecked()) answers[29] = 1;
+        else if (question29radioButton2.isChecked()) answers[29] = 2;
+        else if (question29radioButton3.isChecked()) answers[29] = 3;
+        else if (question29radioButton4.isChecked()) answers[29] = 4;
+        else if (question29radioButton5.isChecked()) answers[29] = 5;
+        else {
+            notCompleted(29, question29radioButton1);
+            return;
+        }
+        if (question30radioButton1.isChecked()) answers[30] = 1;
+        else if (question30radioButton2.isChecked()) answers[30] = 2;
+        else if (question30radioButton3.isChecked()) answers[30] = 3;
+        else if (question30radioButton4.isChecked()) answers[30] = 4;
+        else if (question30radioButton5.isChecked()) answers[30] = 5;
+        else {
+            notCompleted(30, question30radioButton1);
+            return;
+        }
+        if (question31radioButton1.isChecked()) answers[31] = 1;
+        else if (question31radioButton2.isChecked()) answers[31] = 2;
+        else if (question31radioButton3.isChecked()) answers[31] = 3;
+        else if (question31radioButton4.isChecked()) answers[31] = 4;
+        else if (question31radioButton5.isChecked()) answers[31] = 5;
+        else {
+            notCompleted(31, question31radioButton1);
+            return;
+        }
+        if (question32radioButton1.isChecked()) answers[32] = 1;
+        else if (question32radioButton2.isChecked()) answers[32] = 2;
+        else if (question32radioButton3.isChecked()) answers[32] = 3;
+        else if (question32radioButton4.isChecked()) answers[32] = 4;
+        else if (question32radioButton5.isChecked()) answers[32] = 5;
+        else {
+            notCompleted(32, question32radioButton1);
+            return;
+        }
+        if (question33radioButton1.isChecked()) answers[33] = 1;
+        else if (question33radioButton2.isChecked()) answers[33] = 2;
+        else if (question33radioButton3.isChecked()) answers[33] = 3;
+        else if (question33radioButton4.isChecked()) answers[33] = 4;
+        else if (question33radioButton5.isChecked()) answers[33] = 5;
+        else {
+            notCompleted(33, question33radioButton1);
+            return;
+        }
+        if (question34radioButton1.isChecked()) answers[34] = 1;
+        else if (question34radioButton2.isChecked()) answers[34] = 2;
+        else if (question34radioButton3.isChecked()) answers[34] = 3;
+        else if (question34radioButton4.isChecked()) answers[34] = 4;
+        else if (question34radioButton5.isChecked()) answers[34] = 5;
+        else {
+            notCompleted(34, question34radioButton1);
+            return;
+        }
+        if (question35radioButton1.isChecked()) answers[35] = 1;
+        else if (question35radioButton2.isChecked()) answers[35] = 2;
+        else if (question35radioButton3.isChecked()) answers[35] = 3;
+        else if (question35radioButton4.isChecked()) answers[35] = 4;
+        else if (question35radioButton5.isChecked()) answers[35] = 5;
+        else {
+            notCompleted(35, question35radioButton1);
+            return;
+        }
+        if (question36radioButton1.isChecked()) answers[36] = 1;
+        else if (question36radioButton2.isChecked()) answers[36] = 2;
+        else if (question36radioButton3.isChecked()) answers[36] = 3;
+        else if (question36radioButton4.isChecked()) answers[36] = 4;
+        else if (question36radioButton5.isChecked()) answers[36] = 5;
+        else {
+            notCompleted(36, question36radioButton1);
+            return;
+        }
+        if (question37radioButton1.isChecked()) answers[37] = 1;
+        else if (question37radioButton2.isChecked()) answers[37] = 2;
+        else if (question37radioButton3.isChecked()) answers[37] = 3;
+        else if (question37radioButton4.isChecked()) answers[37] = 4;
+        else if (question37radioButton5.isChecked()) answers[37] = 5;
+        else {
+            notCompleted(37, question37radioButton1);
+            return;
+        }
+        if (question38radioButton1.isChecked()) answers[38] = 1;
+        else if (question38radioButton2.isChecked()) answers[38] = 2;
+        else if (question38radioButton3.isChecked()) answers[38] = 3;
+        else if (question38radioButton4.isChecked()) answers[38] = 4;
+        else if (question38radioButton5.isChecked()) answers[38] = 5;
+        else {
+            notCompleted(38, question38radioButton1);
+            return;
+        }
+        if (question39radioButton1.isChecked()) answers[39] = 1;
+        else if (question39radioButton2.isChecked()) answers[39] = 2;
+        else if (question39radioButton3.isChecked()) answers[39] = 3;
+        else if (question39radioButton4.isChecked()) answers[39] = 4;
+        else if (question39radioButton5.isChecked()) answers[39] = 5;
+        else {
+            notCompleted(39, question39radioButton1);
+            return;
+        }
+        if (question40radioButton1.isChecked()) answers[40] = 1;
+        else if (question40radioButton2.isChecked()) answers[40] = 2;
+        else if (question40radioButton3.isChecked()) answers[40] = 3;
+        else if (question40radioButton4.isChecked()) answers[40] = 4;
+        else if (question40radioButton5.isChecked()) answers[40] = 5;
+        else {
+            notCompleted(40, question40radioButton1);
+            return;
+        }
+        if (question41radioButton1.isChecked()) answers[41] = 1;
+        else if (question41radioButton2.isChecked()) answers[41] = 2;
+        else if (question41radioButton3.isChecked()) answers[41] = 3;
+        else if (question41radioButton4.isChecked()) answers[41] = 4;
+        else if (question41radioButton5.isChecked()) answers[41] = 5;
+        else {
+            notCompleted(41, question41radioButton1);
+            return;
+        }
+        if (question42radioButton1.isChecked()) answers[42] = 1;
+        else if (question42radioButton2.isChecked()) answers[42] = 2;
+        else if (question42radioButton3.isChecked()) answers[42] = 3;
+        else if (question42radioButton4.isChecked()) answers[42] = 4;
+        else if (question42radioButton5.isChecked()) answers[42] = 5;
+        else {
+            notCompleted(42, question42radioButton1);
+            return;
+        }
+        if (question43radioButton1.isChecked()) answers[43] = 1;
+        else if (question43radioButton2.isChecked()) answers[43] = 2;
+        else if (question43radioButton3.isChecked()) answers[43] = 3;
+        else if (question43radioButton4.isChecked()) answers[43] = 4;
+        else if (question43radioButton5.isChecked()) answers[43] = 5;
+        else {
+            notCompleted(43, question43radioButton1);
+            return;
+        }
+        if (question44radioButton1.isChecked()) answers[44] = 1;
+        else if (question44radioButton2.isChecked()) answers[44] = 2;
+        else if (question44radioButton3.isChecked()) answers[44] = 3;
+        else if (question44radioButton4.isChecked()) answers[44] = 4;
+        else if (question44radioButton5.isChecked()) answers[44] = 5;
+        else {
+            notCompleted(44, question44radioButton1);
+            return;
+        }
+        if (question45radioButton1.isChecked()) answers[45] = 1;
+        else if (question45radioButton2.isChecked()) answers[45] = 2;
+        else if (question45radioButton3.isChecked()) answers[45] = 3;
+        else if (question45radioButton4.isChecked()) answers[45] = 4;
+        else if (question45radioButton5.isChecked()) answers[45] = 5;
+        else {
+            notCompleted(45, question45radioButton1);
+            return;
+        }
+        if (question46radioButton1.isChecked()) answers[46] = 1;
+        else if (question46radioButton2.isChecked()) answers[46] = 2;
+        else if (question46radioButton3.isChecked()) answers[46] = 3;
+        else if (question46radioButton4.isChecked()) answers[46] = 4;
+        else if (question46radioButton5.isChecked()) answers[46] = 5;
+        else {
+            notCompleted(46, question46radioButton1);
+            return;
+        }
+        if (question47radioButton1.isChecked()) answers[47] = 1;
+        else if (question47radioButton2.isChecked()) answers[47] = 2;
+        else if (question47radioButton3.isChecked()) answers[47] = 3;
+        else if (question47radioButton4.isChecked()) answers[47] = 4;
+        else if (question47radioButton5.isChecked()) answers[47] = 5;
+        else {
+            notCompleted(47, question47radioButton1);
+            return;
+        }
+        if (question48radioButton1.isChecked()) answers[48] = 1;
+        else if (question48radioButton2.isChecked()) answers[48] = 2;
+        else if (question48radioButton3.isChecked()) answers[48] = 3;
+        else if (question48radioButton4.isChecked()) answers[48] = 4;
+        else if (question48radioButton5.isChecked()) answers[48] = 5;
+        else {
+            notCompleted(48, question48radioButton1);
+            return;
+        }
+        if (question49radioButton1.isChecked()) answers[49] = 1;
+        else if (question49radioButton2.isChecked()) answers[49] = 2;
+        else if (question49radioButton3.isChecked()) answers[49] = 3;
+        else if (question49radioButton4.isChecked()) answers[49] = 4;
+        else if (question49radioButton5.isChecked()) answers[49] = 5;
+        else {
+            notCompleted(49, question49radioButton1);
+            return;
+        }
+        if (question50radioButton1.isChecked()) answers[50] = 1;
+        else if (question50radioButton2.isChecked()) answers[50] = 2;
+        else if (question50radioButton3.isChecked()) answers[50] = 3;
+        else if (question50radioButton4.isChecked()) answers[50] = 4;
+        else if (question50radioButton5.isChecked()) answers[50] = 5;
+        else {
+            notCompleted(50, question50radioButton1);
+            return;
+        }
     }
 
     //shows a message with the first question that hasn't been answered
     //todo move ScrollView to that question
-    public void notCompleted(int i, View v){
-        Toast toast = Toast.makeText(MainActivity.this,"Please answer question "+i+" before proceeding!",Toast.LENGTH_SHORT);
+    public void notCompleted(int i, RadioButton v) {
+        Toast toast = Toast.makeText(MainActivity.this, "Please answer question " + i + " before proceeding!", Toast.LENGTH_SHORT);
         toast.show();
 
-        // moves to first unanswered question
-        // get position of a View
-        int nY_Pos = v.getTop(); // getBottom(); X_pos  getLeft(); getRight();
-        // scroll to top of hEdit
-        ScrollView scroll = findViewById(R.id.scrollView2);
-        scroll.scrollTo(0,nY_Pos);
-
     }
+    
     //todo function that calculates score using mod 5 and a flippable boolean
 
     //todo function that creates score display (use graphs?)
@@ -568,8 +1001,6 @@ public class MainActivity extends AppCompatActivity {
     //todo function that hides test and shows results
 
     //todo reset function
-
-
 
 
 }
