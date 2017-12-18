@@ -993,7 +993,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
 
     }
-    
+
     //todo function that calculates score using mod 5 and a flippable boolean
 
     //todo function that creates score display (use graphs?)
