@@ -1180,7 +1180,7 @@ public class MainActivity extends AppCompatActivity {
         series.setValuesOnTopColor(Color.BLACK);
 
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setHorizontalLabels(new String[]{"Extraversion", "Agreeableness", "Conscientiousness", "Emotional\nStability", "Intellect/\nImagination"});
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"Extraversion\n"+extraversion, "Agreeableness\n"+agreeableness, "Conscientiousness\n"+conscientiousness, "Emotional\nStability\n"+emotionalStability, "Intellect/\nImagination\n"+intellectImagination});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
         graph.setVisibility(View.VISIBLE);
