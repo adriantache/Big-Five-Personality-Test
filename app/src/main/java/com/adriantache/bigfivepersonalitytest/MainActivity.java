@@ -2,14 +2,11 @@ package com.adriantache.bigfivepersonalitytest;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -17,15 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
-
-import org.w3c.dom.Text;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -282,9 +273,67 @@ public class MainActivity extends AppCompatActivity {
     RadioButton question50radioButton3;
     RadioButton question50radioButton4;
     RadioButton question50radioButton5;
-    // todo remove this after testing
-    private static final String TAG = "MainActivity";
+    RadioGroup radioGroup1;
+    RadioGroup radioGroup2;
+    RadioGroup radioGroup3;
+    RadioGroup radioGroup4;
+    RadioGroup radioGroup5;
+    RadioGroup radioGroup6;
+    RadioGroup radioGroup7;
+    RadioGroup radioGroup8;
+    RadioGroup radioGroup9;
+    RadioGroup radioGroup10;
+    RadioGroup radioGroup11;
+    RadioGroup radioGroup12;
+    RadioGroup radioGroup13;
+    RadioGroup radioGroup14;
+    RadioGroup radioGroup15;
+    RadioGroup radioGroup16;
+    RadioGroup radioGroup17;
+    RadioGroup radioGroup18;
+    RadioGroup radioGroup19;
+    RadioGroup radioGroup20;
+    RadioGroup radioGroup21;
+    RadioGroup radioGroup22;
+    RadioGroup radioGroup23;
+    RadioGroup radioGroup24;
+    RadioGroup radioGroup25;
+    RadioGroup radioGroup26;
+    RadioGroup radioGroup27;
+    RadioGroup radioGroup28;
+    RadioGroup radioGroup29;
+    RadioGroup radioGroup30;
+    RadioGroup radioGroup31;
+    RadioGroup radioGroup32;
+    RadioGroup radioGroup33;
+    RadioGroup radioGroup34;
+    RadioGroup radioGroup35;
+    RadioGroup radioGroup36;
+    RadioGroup radioGroup37;
+    RadioGroup radioGroup38;
+    RadioGroup radioGroup39;
+    RadioGroup radioGroup40;
+    RadioGroup radioGroup41;
+    RadioGroup radioGroup42;
+    RadioGroup radioGroup43;
+    RadioGroup radioGroup44;
+    RadioGroup radioGroup45;
+    RadioGroup radioGroup46;
+    RadioGroup radioGroup47;
+    RadioGroup radioGroup48;
+    RadioGroup radioGroup49;
+    RadioGroup radioGroup50;
+    ScrollView scroll;
 
+    //define main traits
+    int extraversion;
+    int agreeableness;
+    int conscientiousness;
+    int emotionalStability;
+    int intellectImagination;
+
+    //define reset flag
+    boolean allOK = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -542,33 +591,62 @@ public class MainActivity extends AppCompatActivity {
         question50radioButton3 = findViewById(R.id.question50radioButton3);
         question50radioButton4 = findViewById(R.id.question50radioButton4);
         question50radioButton5 = findViewById(R.id.question50radioButton5);
-
+        radioGroup1=findViewById(R.id.radioGroup1);
+        radioGroup2=findViewById(R.id.radioGroup2);
+        radioGroup3=findViewById(R.id.radioGroup3);
+        radioGroup4=findViewById(R.id.radioGroup4);
+        radioGroup5=findViewById(R.id.radioGroup5);
+        radioGroup6=findViewById(R.id.radioGroup6);
+        radioGroup7=findViewById(R.id.radioGroup7);
+        radioGroup8=findViewById(R.id.radioGroup8);
+        radioGroup9=findViewById(R.id.radioGroup9);
+        radioGroup10=findViewById(R.id.radioGroup10);
+        radioGroup11=findViewById(R.id.radioGroup11);
+        radioGroup12=findViewById(R.id.radioGroup12);
+        radioGroup13=findViewById(R.id.radioGroup13);
+        radioGroup14=findViewById(R.id.radioGroup14);
+        radioGroup15=findViewById(R.id.radioGroup15);
+        radioGroup16=findViewById(R.id.radioGroup16);
+        radioGroup17=findViewById(R.id.radioGroup17);
+        radioGroup18=findViewById(R.id.radioGroup18);
+        radioGroup19=findViewById(R.id.radioGroup19);
+        radioGroup20=findViewById(R.id.radioGroup20);
+        radioGroup21=findViewById(R.id.radioGroup21);
+        radioGroup22=findViewById(R.id.radioGroup22);
+        radioGroup23=findViewById(R.id.radioGroup23);
+        radioGroup24=findViewById(R.id.radioGroup24);
+        radioGroup25=findViewById(R.id.radioGroup25);
+        radioGroup26=findViewById(R.id.radioGroup26);
+        radioGroup27=findViewById(R.id.radioGroup27);
+        radioGroup28=findViewById(R.id.radioGroup28);
+        radioGroup29=findViewById(R.id.radioGroup29);
+        radioGroup30=findViewById(R.id.radioGroup30);
+        radioGroup31=findViewById(R.id.radioGroup31);
+        radioGroup32=findViewById(R.id.radioGroup32);
+        radioGroup33=findViewById(R.id.radioGroup33);
+        radioGroup34=findViewById(R.id.radioGroup34);
+        radioGroup35=findViewById(R.id.radioGroup35);
+        radioGroup36=findViewById(R.id.radioGroup36);
+        radioGroup37=findViewById(R.id.radioGroup37);
+        radioGroup38=findViewById(R.id.radioGroup38);
+        radioGroup39=findViewById(R.id.radioGroup39);
+        radioGroup40=findViewById(R.id.radioGroup40);
+        radioGroup41=findViewById(R.id.radioGroup41);
+        radioGroup42=findViewById(R.id.radioGroup42);
+        radioGroup43=findViewById(R.id.radioGroup43);
+        radioGroup44=findViewById(R.id.radioGroup44);
+        radioGroup45=findViewById(R.id.radioGroup45);
+        radioGroup46=findViewById(R.id.radioGroup46);
+        radioGroup47=findViewById(R.id.radioGroup47);
+        radioGroup48=findViewById(R.id.radioGroup48);
+        radioGroup49=findViewById(R.id.radioGroup49);
+        radioGroup50=findViewById(R.id.radioGroup50);
+        scroll = findViewById(R.id.scrollView2);
     }
 
-    int extraversion;
-    int agreeableness;
-    int conscientiousness;
-    int emotionalStability;
-    int intellectImagination;
-    boolean allOK = false;
-
     public void submit(View view) {
-        //todo add back check whether to reset or not
-        if (allOK) {
-            allOK = false;
-            reset();
-        } else verify();
-
-        /** function to seed the questions for testing
-         * todo remove this when app is final
-         int i = 0;
-         Random rand = new Random();
-         while (i < 50) {
-         i++;
-         answers[i] = rand.nextInt(6);
-         }
-         calculate();
-         * end seed function*/
+        if (allOK) reset();
+        else verify();
     }
 
     // verify all checkboxes and codify them into an array
@@ -580,7 +658,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question1radioButton4.isChecked()) answers[1] = 4;
         else if (question1radioButton5.isChecked()) answers[1] = 5;
         else {
-            notCompleted(1, question1radioButton1);
+            notCompleted(1, radioGroup1);
             return;
         }
         if (question2radioButton1.isChecked()) answers[2] = 1;
@@ -589,7 +667,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question2radioButton4.isChecked()) answers[2] = 4;
         else if (question2radioButton5.isChecked()) answers[2] = 5;
         else {
-            notCompleted(2, question2radioButton1);
+            notCompleted(2, radioGroup2);
             return;
         }
         if (question3radioButton1.isChecked()) answers[3] = 1;
@@ -598,7 +676,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question3radioButton4.isChecked()) answers[3] = 4;
         else if (question3radioButton5.isChecked()) answers[3] = 5;
         else {
-            notCompleted(3, question3radioButton1);
+            notCompleted(3, radioGroup3);
             return;
         }
         if (question4radioButton1.isChecked()) answers[4] = 1;
@@ -607,7 +685,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question4radioButton4.isChecked()) answers[4] = 4;
         else if (question4radioButton5.isChecked()) answers[4] = 5;
         else {
-            notCompleted(4, question4radioButton1);
+            notCompleted(4, radioGroup4);
             return;
         }
         if (question5radioButton1.isChecked()) answers[5] = 1;
@@ -616,7 +694,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question5radioButton4.isChecked()) answers[5] = 4;
         else if (question5radioButton5.isChecked()) answers[5] = 5;
         else {
-            notCompleted(5, question5radioButton1);
+            notCompleted(5, radioGroup5);
             return;
         }
         if (question6radioButton1.isChecked()) answers[6] = 1;
@@ -625,7 +703,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question6radioButton4.isChecked()) answers[6] = 4;
         else if (question6radioButton5.isChecked()) answers[6] = 5;
         else {
-            notCompleted(6, question6radioButton1);
+            notCompleted(6, radioGroup6);
             return;
         }
         if (question7radioButton1.isChecked()) answers[7] = 1;
@@ -634,7 +712,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question7radioButton4.isChecked()) answers[7] = 4;
         else if (question7radioButton5.isChecked()) answers[7] = 5;
         else {
-            notCompleted(7, question7radioButton1);
+            notCompleted(7, radioGroup7);
             return;
         }
         if (question8radioButton1.isChecked()) answers[8] = 1;
@@ -643,7 +721,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question8radioButton4.isChecked()) answers[8] = 4;
         else if (question8radioButton5.isChecked()) answers[8] = 5;
         else {
-            notCompleted(8, question8radioButton1);
+            notCompleted(8, radioGroup8);
             return;
         }
         if (question9radioButton1.isChecked()) answers[9] = 1;
@@ -652,7 +730,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question9radioButton4.isChecked()) answers[9] = 4;
         else if (question9radioButton5.isChecked()) answers[9] = 5;
         else {
-            notCompleted(9, question9radioButton1);
+            notCompleted(9, radioGroup9);
             return;
         }
         if (question10radioButton1.isChecked()) answers[10] = 1;
@@ -661,7 +739,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question10radioButton4.isChecked()) answers[10] = 4;
         else if (question10radioButton5.isChecked()) answers[10] = 5;
         else {
-            notCompleted(10, question10radioButton1);
+            notCompleted(10, radioGroup10);
             return;
         }
         if (question11radioButton1.isChecked()) answers[11] = 1;
@@ -670,7 +748,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question11radioButton4.isChecked()) answers[11] = 4;
         else if (question11radioButton5.isChecked()) answers[11] = 5;
         else {
-            notCompleted(11, question11radioButton1);
+            notCompleted(11, radioGroup11);
             return;
         }
         if (question12radioButton1.isChecked()) answers[12] = 1;
@@ -679,7 +757,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question12radioButton4.isChecked()) answers[12] = 4;
         else if (question12radioButton5.isChecked()) answers[12] = 5;
         else {
-            notCompleted(12, question12radioButton1);
+            notCompleted(12, radioGroup12);
             return;
         }
         if (question13radioButton1.isChecked()) answers[13] = 1;
@@ -688,7 +766,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question13radioButton4.isChecked()) answers[13] = 4;
         else if (question13radioButton5.isChecked()) answers[13] = 5;
         else {
-            notCompleted(13, question13radioButton1);
+            notCompleted(13, radioGroup13);
             return;
         }
         if (question14radioButton1.isChecked()) answers[14] = 1;
@@ -697,7 +775,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question14radioButton4.isChecked()) answers[14] = 4;
         else if (question14radioButton5.isChecked()) answers[14] = 5;
         else {
-            notCompleted(14, question14radioButton1);
+            notCompleted(14, radioGroup14);
             return;
         }
         if (question15radioButton1.isChecked()) answers[15] = 1;
@@ -706,7 +784,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question15radioButton4.isChecked()) answers[15] = 4;
         else if (question15radioButton5.isChecked()) answers[15] = 5;
         else {
-            notCompleted(15, question15radioButton1);
+            notCompleted(15, radioGroup15);
             return;
         }
         if (question16radioButton1.isChecked()) answers[16] = 1;
@@ -715,7 +793,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question16radioButton4.isChecked()) answers[16] = 4;
         else if (question16radioButton5.isChecked()) answers[16] = 5;
         else {
-            notCompleted(16, question16radioButton1);
+            notCompleted(16, radioGroup16);
             return;
         }
         if (question17radioButton1.isChecked()) answers[17] = 1;
@@ -724,7 +802,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question17radioButton4.isChecked()) answers[17] = 4;
         else if (question17radioButton5.isChecked()) answers[17] = 5;
         else {
-            notCompleted(17, question17radioButton1);
+            notCompleted(17, radioGroup17);
             return;
         }
         if (question18radioButton1.isChecked()) answers[18] = 1;
@@ -733,7 +811,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question18radioButton4.isChecked()) answers[18] = 4;
         else if (question18radioButton5.isChecked()) answers[18] = 5;
         else {
-            notCompleted(18, question18radioButton1);
+            notCompleted(18, radioGroup18);
             return;
         }
         if (question19radioButton1.isChecked()) answers[19] = 1;
@@ -742,7 +820,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question19radioButton4.isChecked()) answers[19] = 4;
         else if (question19radioButton5.isChecked()) answers[19] = 5;
         else {
-            notCompleted(19, question19radioButton1);
+            notCompleted(19, radioGroup19);
             return;
         }
         if (question20radioButton1.isChecked()) answers[20] = 1;
@@ -751,7 +829,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question20radioButton4.isChecked()) answers[20] = 4;
         else if (question20radioButton5.isChecked()) answers[20] = 5;
         else {
-            notCompleted(20, question20radioButton1);
+            notCompleted(20, radioGroup20);
             return;
         }
         if (question21radioButton1.isChecked()) answers[21] = 1;
@@ -760,7 +838,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question21radioButton4.isChecked()) answers[21] = 4;
         else if (question21radioButton5.isChecked()) answers[21] = 5;
         else {
-            notCompleted(21, question21radioButton1);
+            notCompleted(21, radioGroup21);
             return;
         }
         if (question22radioButton1.isChecked()) answers[22] = 1;
@@ -769,7 +847,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question22radioButton4.isChecked()) answers[22] = 4;
         else if (question22radioButton5.isChecked()) answers[22] = 5;
         else {
-            notCompleted(22, question22radioButton1);
+            notCompleted(22, radioGroup22);
             return;
         }
         if (question23radioButton1.isChecked()) answers[23] = 1;
@@ -778,7 +856,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question23radioButton4.isChecked()) answers[23] = 4;
         else if (question23radioButton5.isChecked()) answers[23] = 5;
         else {
-            notCompleted(23, question23radioButton1);
+            notCompleted(23, radioGroup23);
             return;
         }
         if (question24radioButton1.isChecked()) answers[24] = 1;
@@ -787,7 +865,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question24radioButton4.isChecked()) answers[24] = 4;
         else if (question24radioButton5.isChecked()) answers[24] = 5;
         else {
-            notCompleted(24, question24radioButton1);
+            notCompleted(24, radioGroup24);
             return;
         }
         if (question25radioButton1.isChecked()) answers[25] = 1;
@@ -796,7 +874,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question25radioButton4.isChecked()) answers[25] = 4;
         else if (question25radioButton5.isChecked()) answers[25] = 5;
         else {
-            notCompleted(25, question25radioButton1);
+            notCompleted(25, radioGroup25);
             return;
         }
         if (question26radioButton1.isChecked()) answers[26] = 1;
@@ -805,7 +883,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question26radioButton4.isChecked()) answers[26] = 4;
         else if (question26radioButton5.isChecked()) answers[26] = 5;
         else {
-            notCompleted(26, question26radioButton1);
+            notCompleted(26, radioGroup26);
             return;
         }
         if (question27radioButton1.isChecked()) answers[27] = 1;
@@ -814,7 +892,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question27radioButton4.isChecked()) answers[27] = 4;
         else if (question27radioButton5.isChecked()) answers[27] = 5;
         else {
-            notCompleted(27, question27radioButton1);
+            notCompleted(27, radioGroup27);
             return;
         }
         if (question28radioButton1.isChecked()) answers[28] = 1;
@@ -823,7 +901,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question28radioButton4.isChecked()) answers[28] = 4;
         else if (question28radioButton5.isChecked()) answers[28] = 5;
         else {
-            notCompleted(28, question28radioButton1);
+            notCompleted(28, radioGroup28);
             return;
         }
         if (question29radioButton1.isChecked()) answers[29] = 1;
@@ -832,7 +910,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question29radioButton4.isChecked()) answers[29] = 4;
         else if (question29radioButton5.isChecked()) answers[29] = 5;
         else {
-            notCompleted(29, question29radioButton1);
+            notCompleted(29, radioGroup29);
             return;
         }
         if (question30radioButton1.isChecked()) answers[30] = 1;
@@ -841,7 +919,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question30radioButton4.isChecked()) answers[30] = 4;
         else if (question30radioButton5.isChecked()) answers[30] = 5;
         else {
-            notCompleted(30, question30radioButton1);
+            notCompleted(30, radioGroup30);
             return;
         }
         if (question31radioButton1.isChecked()) answers[31] = 1;
@@ -850,7 +928,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question31radioButton4.isChecked()) answers[31] = 4;
         else if (question31radioButton5.isChecked()) answers[31] = 5;
         else {
-            notCompleted(31, question31radioButton1);
+            notCompleted(31, radioGroup31);
             return;
         }
         if (question32radioButton1.isChecked()) answers[32] = 1;
@@ -859,7 +937,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question32radioButton4.isChecked()) answers[32] = 4;
         else if (question32radioButton5.isChecked()) answers[32] = 5;
         else {
-            notCompleted(32, question32radioButton1);
+            notCompleted(32, radioGroup32);
             return;
         }
         if (question33radioButton1.isChecked()) answers[33] = 1;
@@ -868,7 +946,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question33radioButton4.isChecked()) answers[33] = 4;
         else if (question33radioButton5.isChecked()) answers[33] = 5;
         else {
-            notCompleted(33, question33radioButton1);
+            notCompleted(33, radioGroup33);
             return;
         }
         if (question34radioButton1.isChecked()) answers[34] = 1;
@@ -877,7 +955,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question34radioButton4.isChecked()) answers[34] = 4;
         else if (question34radioButton5.isChecked()) answers[34] = 5;
         else {
-            notCompleted(34, question34radioButton1);
+            notCompleted(34, radioGroup34);
             return;
         }
         if (question35radioButton1.isChecked()) answers[35] = 1;
@@ -886,7 +964,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question35radioButton4.isChecked()) answers[35] = 4;
         else if (question35radioButton5.isChecked()) answers[35] = 5;
         else {
-            notCompleted(35, question35radioButton1);
+            notCompleted(35, radioGroup35);
             return;
         }
         if (question36radioButton1.isChecked()) answers[36] = 1;
@@ -895,7 +973,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question36radioButton4.isChecked()) answers[36] = 4;
         else if (question36radioButton5.isChecked()) answers[36] = 5;
         else {
-            notCompleted(36, question36radioButton1);
+            notCompleted(36, radioGroup36);
             return;
         }
         if (question37radioButton1.isChecked()) answers[37] = 1;
@@ -904,7 +982,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question37radioButton4.isChecked()) answers[37] = 4;
         else if (question37radioButton5.isChecked()) answers[37] = 5;
         else {
-            notCompleted(37, question37radioButton1);
+            notCompleted(37, radioGroup37);
             return;
         }
         if (question38radioButton1.isChecked()) answers[38] = 1;
@@ -913,7 +991,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question38radioButton4.isChecked()) answers[38] = 4;
         else if (question38radioButton5.isChecked()) answers[38] = 5;
         else {
-            notCompleted(38, question38radioButton1);
+            notCompleted(38, radioGroup38);
             return;
         }
         if (question39radioButton1.isChecked()) answers[39] = 1;
@@ -922,7 +1000,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question39radioButton4.isChecked()) answers[39] = 4;
         else if (question39radioButton5.isChecked()) answers[39] = 5;
         else {
-            notCompleted(39, question39radioButton1);
+            notCompleted(39, radioGroup39);
             return;
         }
         if (question40radioButton1.isChecked()) answers[40] = 1;
@@ -931,7 +1009,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question40radioButton4.isChecked()) answers[40] = 4;
         else if (question40radioButton5.isChecked()) answers[40] = 5;
         else {
-            notCompleted(40, question40radioButton1);
+            notCompleted(40, radioGroup40);
             return;
         }
         if (question41radioButton1.isChecked()) answers[41] = 1;
@@ -940,7 +1018,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question41radioButton4.isChecked()) answers[41] = 4;
         else if (question41radioButton5.isChecked()) answers[41] = 5;
         else {
-            notCompleted(41, question41radioButton1);
+            notCompleted(41, radioGroup41);
             return;
         }
         if (question42radioButton1.isChecked()) answers[42] = 1;
@@ -949,7 +1027,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question42radioButton4.isChecked()) answers[42] = 4;
         else if (question42radioButton5.isChecked()) answers[42] = 5;
         else {
-            notCompleted(42, question42radioButton1);
+            notCompleted(42, radioGroup42);
             return;
         }
         if (question43radioButton1.isChecked()) answers[43] = 1;
@@ -958,7 +1036,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question43radioButton4.isChecked()) answers[43] = 4;
         else if (question43radioButton5.isChecked()) answers[43] = 5;
         else {
-            notCompleted(43, question43radioButton1);
+            notCompleted(43, radioGroup43);
             return;
         }
         if (question44radioButton1.isChecked()) answers[44] = 1;
@@ -967,7 +1045,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question44radioButton4.isChecked()) answers[44] = 4;
         else if (question44radioButton5.isChecked()) answers[44] = 5;
         else {
-            notCompleted(44, question44radioButton1);
+            notCompleted(44, radioGroup44);
             return;
         }
         if (question45radioButton1.isChecked()) answers[45] = 1;
@@ -976,7 +1054,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question45radioButton4.isChecked()) answers[45] = 4;
         else if (question45radioButton5.isChecked()) answers[45] = 5;
         else {
-            notCompleted(45, question45radioButton1);
+            notCompleted(45, radioGroup45);
             return;
         }
         if (question46radioButton1.isChecked()) answers[46] = 1;
@@ -985,7 +1063,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question46radioButton4.isChecked()) answers[46] = 4;
         else if (question46radioButton5.isChecked()) answers[46] = 5;
         else {
-            notCompleted(46, question46radioButton1);
+            notCompleted(46, radioGroup46);
             return;
         }
         if (question47radioButton1.isChecked()) answers[47] = 1;
@@ -994,7 +1072,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question47radioButton4.isChecked()) answers[47] = 4;
         else if (question47radioButton5.isChecked()) answers[47] = 5;
         else {
-            notCompleted(47, question47radioButton1);
+            notCompleted(47, radioGroup47);
             return;
         }
         if (question48radioButton1.isChecked()) answers[48] = 1;
@@ -1003,7 +1081,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question48radioButton4.isChecked()) answers[48] = 4;
         else if (question48radioButton5.isChecked()) answers[48] = 5;
         else {
-            notCompleted(48, question48radioButton1);
+            notCompleted(48, radioGroup48);
             return;
         }
         if (question49radioButton1.isChecked()) answers[49] = 1;
@@ -1012,7 +1090,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question49radioButton4.isChecked()) answers[49] = 4;
         else if (question49radioButton5.isChecked()) answers[49] = 5;
         else {
-            notCompleted(49, question49radioButton1);
+            notCompleted(49, radioGroup49);
             return;
         }
         if (question50radioButton1.isChecked()) answers[50] = 1;
@@ -1021,7 +1099,7 @@ public class MainActivity extends AppCompatActivity {
         else if (question50radioButton4.isChecked()) answers[50] = 4;
         else if (question50radioButton5.isChecked()) answers[50] = 5;
         else {
-            notCompleted(50, question50radioButton1);
+            notCompleted(50, radioGroup50);
             return;
         }
 
@@ -1031,13 +1109,16 @@ public class MainActivity extends AppCompatActivity {
 
     //shows a message with the first question that hasn't been answered
     //todo move ScrollView to that question
-    public void notCompleted(int i, RadioButton v) {
+    public void notCompleted(int i, RadioGroup v) {
         Toast toast = Toast.makeText(MainActivity.this, "Please answer question " + i + " before proceeding!", Toast.LENGTH_SHORT);
         toast.show();
 
+        int yPos = v.getTop();
+        scroll.scrollTo(0,yPos);
     }
 
-    //todo function that calculates score using mod 5 and mod 2 and special cases
+    //calculates score using mod 5 and mod 2 and special cases according to IPIP scoring key
+    //at http://ipip.ori.org/New_IPIP-50-item-scale.htm
     public void calculate() {
         int i = 0;
         extraversion = 0;
@@ -1076,9 +1157,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        //todo decide if negative values are allowed
-
-        //todo decide if this is where we call for score display
         displayScore();
     }
 
@@ -1110,7 +1188,6 @@ public class MainActivity extends AppCompatActivity {
     //todo function that creates score display (use graphs?)
     public void displayScore() {
         //hide instructions and questions
-        ScrollView scroll = findViewById(R.id.scrollView2);
         scroll.setVisibility(View.INVISIBLE);
         TextView textView = findViewById(R.id.textView2);
         textView.setVisibility(View.INVISIBLE);
@@ -1272,109 +1349,58 @@ public class MainActivity extends AppCompatActivity {
         allOK = false;
 
         //reset all RadioGroups
-        RadioGroup radioGroup1 = findViewById(R.id.radioGroup1);
         radioGroup1.clearCheck();
-        RadioGroup radioGroup2 = findViewById(R.id.radioGroup2);
         radioGroup2.clearCheck();
-        RadioGroup radioGroup3 = findViewById(R.id.radioGroup3);
         radioGroup3.clearCheck();
-        RadioGroup radioGroup4 = findViewById(R.id.radioGroup4);
         radioGroup4.clearCheck();
-        RadioGroup radioGroup5 = findViewById(R.id.radioGroup5);
         radioGroup5.clearCheck();
-        RadioGroup radioGroup6 = findViewById(R.id.radioGroup6);
         radioGroup6.clearCheck();
-        RadioGroup radioGroup7 = findViewById(R.id.radioGroup7);
         radioGroup7.clearCheck();
-        RadioGroup radioGroup8 = findViewById(R.id.radioGroup8);
         radioGroup8.clearCheck();
-        RadioGroup radioGroup9 = findViewById(R.id.radioGroup9);
         radioGroup9.clearCheck();
-        RadioGroup radioGroup10 = findViewById(R.id.radioGroup10);
         radioGroup10.clearCheck();
-        RadioGroup radioGroup11 = findViewById(R.id.radioGroup11);
         radioGroup11.clearCheck();
-        RadioGroup radioGroup12 = findViewById(R.id.radioGroup12);
         radioGroup12.clearCheck();
-        RadioGroup radioGroup13 = findViewById(R.id.radioGroup13);
         radioGroup13.clearCheck();
-        RadioGroup radioGroup14 = findViewById(R.id.radioGroup14);
         radioGroup14.clearCheck();
-        RadioGroup radioGroup15 = findViewById(R.id.radioGroup15);
         radioGroup15.clearCheck();
-        RadioGroup radioGroup16 = findViewById(R.id.radioGroup16);
         radioGroup16.clearCheck();
-        RadioGroup radioGroup17 = findViewById(R.id.radioGroup17);
         radioGroup17.clearCheck();
-        RadioGroup radioGroup18 = findViewById(R.id.radioGroup18);
         radioGroup18.clearCheck();
-        RadioGroup radioGroup19 = findViewById(R.id.radioGroup19);
         radioGroup19.clearCheck();
-        RadioGroup radioGroup20 = findViewById(R.id.radioGroup20);
         radioGroup20.clearCheck();
-        RadioGroup radioGroup21 = findViewById(R.id.radioGroup21);
         radioGroup21.clearCheck();
-        RadioGroup radioGroup22 = findViewById(R.id.radioGroup22);
         radioGroup22.clearCheck();
-        RadioGroup radioGroup23 = findViewById(R.id.radioGroup23);
         radioGroup23.clearCheck();
-        RadioGroup radioGroup24 = findViewById(R.id.radioGroup24);
         radioGroup24.clearCheck();
-        RadioGroup radioGroup25 = findViewById(R.id.radioGroup25);
         radioGroup25.clearCheck();
-        RadioGroup radioGroup26 = findViewById(R.id.radioGroup26);
         radioGroup26.clearCheck();
-        RadioGroup radioGroup27 = findViewById(R.id.radioGroup27);
         radioGroup27.clearCheck();
-        RadioGroup radioGroup28 = findViewById(R.id.radioGroup28);
         radioGroup28.clearCheck();
-        RadioGroup radioGroup29 = findViewById(R.id.radioGroup29);
         radioGroup29.clearCheck();
-        RadioGroup radioGroup30 = findViewById(R.id.radioGroup30);
         radioGroup30.clearCheck();
-        RadioGroup radioGroup31 = findViewById(R.id.radioGroup31);
         radioGroup31.clearCheck();
-        RadioGroup radioGroup32 = findViewById(R.id.radioGroup32);
         radioGroup32.clearCheck();
-        RadioGroup radioGroup33 = findViewById(R.id.radioGroup33);
         radioGroup33.clearCheck();
-        RadioGroup radioGroup34 = findViewById(R.id.radioGroup34);
         radioGroup34.clearCheck();
-        RadioGroup radioGroup35 = findViewById(R.id.radioGroup35);
         radioGroup35.clearCheck();
-        RadioGroup radioGroup36 = findViewById(R.id.radioGroup36);
         radioGroup36.clearCheck();
-        RadioGroup radioGroup37 = findViewById(R.id.radioGroup37);
         radioGroup37.clearCheck();
-        RadioGroup radioGroup38 = findViewById(R.id.radioGroup38);
         radioGroup38.clearCheck();
-        RadioGroup radioGroup39 = findViewById(R.id.radioGroup39);
         radioGroup39.clearCheck();
-        RadioGroup radioGroup40 = findViewById(R.id.radioGroup40);
         radioGroup40.clearCheck();
-        RadioGroup radioGroup41 = findViewById(R.id.radioGroup41);
         radioGroup41.clearCheck();
-        RadioGroup radioGroup42 = findViewById(R.id.radioGroup42);
         radioGroup42.clearCheck();
-        RadioGroup radioGroup43 = findViewById(R.id.radioGroup43);
         radioGroup43.clearCheck();
-        RadioGroup radioGroup44 = findViewById(R.id.radioGroup44);
         radioGroup44.clearCheck();
-        RadioGroup radioGroup45 = findViewById(R.id.radioGroup45);
         radioGroup45.clearCheck();
-        RadioGroup radioGroup46 = findViewById(R.id.radioGroup46);
         radioGroup46.clearCheck();
-        RadioGroup radioGroup47 = findViewById(R.id.radioGroup47);
         radioGroup47.clearCheck();
-        RadioGroup radioGroup48 = findViewById(R.id.radioGroup48);
         radioGroup48.clearCheck();
-        RadioGroup radioGroup49 = findViewById(R.id.radioGroup49);
         radioGroup49.clearCheck();
-        RadioGroup radioGroup50 = findViewById(R.id.radioGroup50);
         radioGroup50.clearCheck();
 
         //set visibility back to default
-        ScrollView scroll = findViewById(R.id.scrollView2);
         scroll.scrollTo(0, 0);
         scroll.setVisibility(View.VISIBLE);
         TextView textView = findViewById(R.id.textView2);
