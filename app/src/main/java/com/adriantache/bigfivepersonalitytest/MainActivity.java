@@ -1524,6 +1524,7 @@ public class MainActivity extends AppCompatActivity {
 
         //set visibility back to default
         ScrollView scroll = findViewById(R.id.scrollView2);
+        scroll.scrollTo(0,0);
         scroll.setVisibility(View.VISIBLE);
         TextView textView = findViewById(R.id.textView2);
         textView.setVisibility(View.VISIBLE);
