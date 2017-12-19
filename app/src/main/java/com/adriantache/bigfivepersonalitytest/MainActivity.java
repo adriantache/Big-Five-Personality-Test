@@ -552,17 +552,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void submit(View view) {
         //todo add check whether to reset or not
-
+        if (allOK = true) {
+            allOK = false;
+            reset();
+        } else verify();
 
         /** function to seed the questions for testing
          * todo remove this when app is final
          * int i=0;
-        Random rand = new Random();
-        while (i<50){
-            i++;
-            answers[i]=rand.nextInt(5);
-        }
-        calculate();*/
+         Random rand = new Random();
+         while (i<50){
+         i++;
+         answers[i]=rand.nextInt(5);
+         }
+         calculate();*/
 
 
         //verify all questions are answered
@@ -1129,8 +1132,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tV = findViewById(R.id.textView);
         tV.setText("Test Results");
 
-        //generate text for automatic assessment
-
+        //todo generate text for automatic assessment
 
         //show graph and text and wiki button
         graph();
@@ -1140,14 +1142,15 @@ public class MainActivity extends AppCompatActivity {
         button.setVisibility(View.VISIBLE);
 
         //change Submit button to reset
-
+        TextView tV = findViewById(R.id.textView);
+        tV.setText("Reset");
 
     }
 
-    //todo wiki() function to open wikipedia article
+    // function to open wikipedia article regarding Big Five Markers
     public void wiki(View v) {
-        Uri webpage = Uri.parse("https://en.wikipedia.org/wiki/Big_Five_personality_traits");
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        Uri webPage = Uri.parse("https://en.wikipedia.org/wiki/Big_Five_personality_traits");
+        Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
@@ -1156,6 +1159,297 @@ public class MainActivity extends AppCompatActivity {
     //todo function that hides test and shows results
 
     //todo reset function
+    public void reset() {
+        //reset button text
+        TextView tV = findViewById(R.id.textView);
+        tV.setText("Submit");
 
+        //reset and hide graph series
+        GraphView graph = findViewById(R.id.graph);
+        graph.setVisibility(View.INVISIBLE);
+        graph.removeAllSeries();
+
+
+        //reset variables
+        answers = new int[51];
+        extraversion = 0;
+        agreeableness = 0;
+        conscientiousness = 0;
+        emotionalStability = 0;
+        intellectImagination = 0;
+        allOK = false;
+
+        //reset all RadioButtons
+        question1radioButton1.setChecked(false);
+        question1radioButton2.setChecked(false);
+        question1radioButton3.setChecked(false);
+        question1radioButton4.setChecked(false);
+        question1radioButton5.setChecked(false);
+        question2radioButton1.setChecked(false);
+        question2radioButton2.setChecked(false);
+        question2radioButton3.setChecked(false);
+        question2radioButton4.setChecked(false);
+        question2radioButton5.setChecked(false);
+        question3radioButton1.setChecked(false);
+        question3radioButton2.setChecked(false);
+        question3radioButton3.setChecked(false);
+        question3radioButton4.setChecked(false);
+        question3radioButton5.setChecked(false);
+        question4radioButton1.setChecked(false);
+        question4radioButton2.setChecked(false);
+        question4radioButton3.setChecked(false);
+        question4radioButton4.setChecked(false);
+        question4radioButton5.setChecked(false);
+        question5radioButton1.setChecked(false);
+        question5radioButton2.setChecked(false);
+        question5radioButton3.setChecked(false);
+        question5radioButton4.setChecked(false);
+        question5radioButton5.setChecked(false);
+        question6radioButton1.setChecked(false);
+        question6radioButton2.setChecked(false);
+        question6radioButton3.setChecked(false);
+        question6radioButton4.setChecked(false);
+        question6radioButton5.setChecked(false);
+        question7radioButton1.setChecked(false);
+        question7radioButton2.setChecked(false);
+        question7radioButton3.setChecked(false);
+        question7radioButton4.setChecked(false);
+        question7radioButton5.setChecked(false);
+        question8radioButton1.setChecked(false);
+        question8radioButton2.setChecked(false);
+        question8radioButton3.setChecked(false);
+        question8radioButton4.setChecked(false);
+        question8radioButton5.setChecked(false);
+        question9radioButton1.setChecked(false);
+        question9radioButton2.setChecked(false);
+        question9radioButton3.setChecked(false);
+        question9radioButton4.setChecked(false);
+        question9radioButton5.setChecked(false);
+        question10radioButton1.setChecked(false);
+        question10radioButton2.setChecked(false);
+        question10radioButton3.setChecked(false);
+        question10radioButton4.setChecked(false);
+        question10radioButton5.setChecked(false);
+        question11radioButton1.setChecked(false);
+        question11radioButton2.setChecked(false);
+        question11radioButton3.setChecked(false);
+        question11radioButton4.setChecked(false);
+        question11radioButton5.setChecked(false);
+        question12radioButton1.setChecked(false);
+        question12radioButton2.setChecked(false);
+        question12radioButton3.setChecked(false);
+        question12radioButton4.setChecked(false);
+        question12radioButton5.setChecked(false);
+        question13radioButton1.setChecked(false);
+        question13radioButton2.setChecked(false);
+        question13radioButton3.setChecked(false);
+        question13radioButton4.setChecked(false);
+        question13radioButton5.setChecked(false);
+        question14radioButton1.setChecked(false);
+        question14radioButton2.setChecked(false);
+        question14radioButton3.setChecked(false);
+        question14radioButton4.setChecked(false);
+        question14radioButton5.setChecked(false);
+        question15radioButton1.setChecked(false);
+        question15radioButton2.setChecked(false);
+        question15radioButton3.setChecked(false);
+        question15radioButton4.setChecked(false);
+        question15radioButton5.setChecked(false);
+        question16radioButton1.setChecked(false);
+        question16radioButton2.setChecked(false);
+        question16radioButton3.setChecked(false);
+        question16radioButton4.setChecked(false);
+        question16radioButton5.setChecked(false);
+        question17radioButton1.setChecked(false);
+        question17radioButton2.setChecked(false);
+        question17radioButton3.setChecked(false);
+        question17radioButton4.setChecked(false);
+        question17radioButton5.setChecked(false);
+        question18radioButton1.setChecked(false);
+        question18radioButton2.setChecked(false);
+        question18radioButton3.setChecked(false);
+        question18radioButton4.setChecked(false);
+        question18radioButton5.setChecked(false);
+        question19radioButton1.setChecked(false);
+        question19radioButton2.setChecked(false);
+        question19radioButton3.setChecked(false);
+        question19radioButton4.setChecked(false);
+        question19radioButton5.setChecked(false);
+        question20radioButton1.setChecked(false);
+        question20radioButton2.setChecked(false);
+        question20radioButton3.setChecked(false);
+        question20radioButton4.setChecked(false);
+        question20radioButton5.setChecked(false);
+        question21radioButton1.setChecked(false);
+        question21radioButton2.setChecked(false);
+        question21radioButton3.setChecked(false);
+        question21radioButton4.setChecked(false);
+        question21radioButton5.setChecked(false);
+        question22radioButton1.setChecked(false);
+        question22radioButton2.setChecked(false);
+        question22radioButton3.setChecked(false);
+        question22radioButton4.setChecked(false);
+        question22radioButton5.setChecked(false);
+        question23radioButton1.setChecked(false);
+        question23radioButton2.setChecked(false);
+        question23radioButton3.setChecked(false);
+        question23radioButton4.setChecked(false);
+        question23radioButton5.setChecked(false);
+        question24radioButton1.setChecked(false);
+        question24radioButton2.setChecked(false);
+        question24radioButton3.setChecked(false);
+        question24radioButton4.setChecked(false);
+        question24radioButton5.setChecked(false);
+        question25radioButton1.setChecked(false);
+        question25radioButton2.setChecked(false);
+        question25radioButton3.setChecked(false);
+        question25radioButton4.setChecked(false);
+        question25radioButton5.setChecked(false);
+        question26radioButton1.setChecked(false);
+        question26radioButton2.setChecked(false);
+        question26radioButton3.setChecked(false);
+        question26radioButton4.setChecked(false);
+        question26radioButton5.setChecked(false);
+        question27radioButton1.setChecked(false);
+        question27radioButton2.setChecked(false);
+        question27radioButton3.setChecked(false);
+        question27radioButton4.setChecked(false);
+        question27radioButton5.setChecked(false);
+        question28radioButton1.setChecked(false);
+        question28radioButton2.setChecked(false);
+        question28radioButton3.setChecked(false);
+        question28radioButton4.setChecked(false);
+        question28radioButton5.setChecked(false);
+        question29radioButton1.setChecked(false);
+        question29radioButton2.setChecked(false);
+        question29radioButton3.setChecked(false);
+        question29radioButton4.setChecked(false);
+        question29radioButton5.setChecked(false);
+        question30radioButton1.setChecked(false);
+        question30radioButton2.setChecked(false);
+        question30radioButton3.setChecked(false);
+        question30radioButton4.setChecked(false);
+        question30radioButton5.setChecked(false);
+        question31radioButton1.setChecked(false);
+        question31radioButton2.setChecked(false);
+        question31radioButton3.setChecked(false);
+        question31radioButton4.setChecked(false);
+        question31radioButton5.setChecked(false);
+        question32radioButton1.setChecked(false);
+        question32radioButton2.setChecked(false);
+        question32radioButton3.setChecked(false);
+        question32radioButton4.setChecked(false);
+        question32radioButton5.setChecked(false);
+        question33radioButton1.setChecked(false);
+        question33radioButton2.setChecked(false);
+        question33radioButton3.setChecked(false);
+        question33radioButton4.setChecked(false);
+        question33radioButton5.setChecked(false);
+        question34radioButton1.setChecked(false);
+        question34radioButton2.setChecked(false);
+        question34radioButton3.setChecked(false);
+        question34radioButton4.setChecked(false);
+        question34radioButton5.setChecked(false);
+        question35radioButton1.setChecked(false);
+        question35radioButton2.setChecked(false);
+        question35radioButton3.setChecked(false);
+        question35radioButton4.setChecked(false);
+        question35radioButton5.setChecked(false);
+        question36radioButton1.setChecked(false);
+        question36radioButton2.setChecked(false);
+        question36radioButton3.setChecked(false);
+        question36radioButton4.setChecked(false);
+        question36radioButton5.setChecked(false);
+        question37radioButton1.setChecked(false);
+        question37radioButton2.setChecked(false);
+        question37radioButton3.setChecked(false);
+        question37radioButton4.setChecked(false);
+        question37radioButton5.setChecked(false);
+        question38radioButton1.setChecked(false);
+        question38radioButton2.setChecked(false);
+        question38radioButton3.setChecked(false);
+        question38radioButton4.setChecked(false);
+        question38radioButton5.setChecked(false);
+        question39radioButton1.setChecked(false);
+        question39radioButton2.setChecked(false);
+        question39radioButton3.setChecked(false);
+        question39radioButton4.setChecked(false);
+        question39radioButton5.setChecked(false);
+        question40radioButton1.setChecked(false);
+        question40radioButton2.setChecked(false);
+        question40radioButton3.setChecked(false);
+        question40radioButton4.setChecked(false);
+        question40radioButton5.setChecked(false);
+        question41radioButton1.setChecked(false);
+        question41radioButton2.setChecked(false);
+        question41radioButton3.setChecked(false);
+        question41radioButton4.setChecked(false);
+        question41radioButton5.setChecked(false);
+        question42radioButton1.setChecked(false);
+        question42radioButton2.setChecked(false);
+        question42radioButton3.setChecked(false);
+        question42radioButton4.setChecked(false);
+        question42radioButton5.setChecked(false);
+        question43radioButton1.setChecked(false);
+        question43radioButton2.setChecked(false);
+        question43radioButton3.setChecked(false);
+        question43radioButton4.setChecked(false);
+        question43radioButton5.setChecked(false);
+        question44radioButton1.setChecked(false);
+        question44radioButton2.setChecked(false);
+        question44radioButton3.setChecked(false);
+        question44radioButton4.setChecked(false);
+        question44radioButton5.setChecked(false);
+        question45radioButton1.setChecked(false);
+        question45radioButton2.setChecked(false);
+        question45radioButton3.setChecked(false);
+        question45radioButton4.setChecked(false);
+        question45radioButton5.setChecked(false);
+        question46radioButton1.setChecked(false);
+        question46radioButton2.setChecked(false);
+        question46radioButton3.setChecked(false);
+        question46radioButton4.setChecked(false);
+        question46radioButton5.setChecked(false);
+        question47radioButton1.setChecked(false);
+        question47radioButton2.setChecked(false);
+        question47radioButton3.setChecked(false);
+        question47radioButton4.setChecked(false);
+        question47radioButton5.setChecked(false);
+        question48radioButton1.setChecked(false);
+        question48radioButton2.setChecked(false);
+        question48radioButton3.setChecked(false);
+        question48radioButton4.setChecked(false);
+        question48radioButton5.setChecked(false);
+        question49radioButton1.setChecked(false);
+        question49radioButton2.setChecked(false);
+        question49radioButton3.setChecked(false);
+        question49radioButton4.setChecked(false);
+        question49radioButton5.setChecked(false);
+        question50radioButton1.setChecked(false);
+        question50radioButton2.setChecked(false);
+        question50radioButton3.setChecked(false);
+        question50radioButton4.setChecked(false);
+        question50radioButton5.setChecked(false);
+
+        //set visibility back to default
+        ScrollView scroll = findViewById(R.id.scrollView2);
+        scroll.setVisibility(View.VISIBLE);
+        TextView textView = findViewById(R.id.textView2);
+        textView.setVisibility(View.VISIBLE);
+        TextView textView2 = findViewById(R.id.textView14);
+        textView2.setVisibility(View.VISIBLE);
+        TextView textView3 = findViewById(R.id.textView16);
+        textView3.setVisibility(View.VISIBLE);
+        TextView textView4 = findViewById(R.id.textView17);
+        textView4.setVisibility(View.VISIBLE);
+        TextView textView5 = findViewById(R.id.textView18);
+        textView5.setVisibility(View.VISIBLE);
+        TextView textView6 = findViewById(R.id.textView19);
+        textView6.setVisibility(View.VISIBLE);
+        TextView textView7 = findViewById(R.id.results_text);
+        textView7.setVisibility(View.INVISIBLE);
+        Button button = findViewById(R.id.wiki);
+        button.setVisibility(View.INVISIBLE);
+    }
 
 }
