@@ -552,27 +552,22 @@ public class MainActivity extends AppCompatActivity {
     boolean allOK = false;
 
     public void submit(View view) {
-        //todo add check whether to reset or not
-        if (allOK) {
+        //todo add back check whether to reset or not
+        /*if (allOK) {
             allOK = false;
             reset();
-        } else verify();
+        } else verify();*/
 
         /** function to seed the questions for testing
-         * todo remove this when app is final
-         * int i=0;
+         * todo remove this when app is final*/
+         int i=0;
          Random rand = new Random();
          while (i<50){
          i++;
-         answers[i]=rand.nextInt(5);
+         answers[i]=rand.nextInt(6);
          }
-         calculate();*/
-
-
-        //verify all questions are answered
-        //verify();
-
-
+         calculate();
+         /** end seed function*/
     }
 
     // verify all checkboxes and codify them into an array
@@ -1146,31 +1141,97 @@ public class MainActivity extends AppCompatActivity {
         //change Submit button to reset
         Button button2 = findViewById(R.id.button);
         button2.setText("Reset");
-
     }
 
     //todo generate text for automatic assessment
     public void resultsTextAuto() {
-        String resultsText;
-
+        StringBuilder resultsText=null;
+        Log.i(TAG, "resultsTextAuto: 1");
+        //generate text for top trait(s)
         int max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(emotionalStability, intellectImagination))));
-        if (extraversion==max) resultsText="It seems Extraversion is your most powerful positive marker. ";
-        else if (agreeableness==max) resultsText="It seems Agreeableness is your most powerful positive marker. ";
-        else if (conscientiousness==max) resultsText="It seems Conscientiousness is your most powerful positive marker. ";
-        else if (emotionalStability==max) resultsText="It seems Emotional Stability is your most powerful positive marker. ";
-        else if (intellectImagination==max) resultsText="It seems Intellect/Imagination is your most powerful positive marker. ";
-
+        Log.i(TAG, "resultsTextAuto: 1b");
+        String[] selectedTraits = new String[5];
+        Log.i(TAG, "resultsTextAuto: 1c");
+        int and = 0;
+        if (extraversion == max) {
+            selectedTraits[1] = "Extraversion";
+            and += 1;
+        } else if (agreeableness == max) {
+            selectedTraits[2] = "Agreeableness";
+            and += 1;
+        } else if (conscientiousness == max) {
+            selectedTraits[3] = "Conscientiousness";
+            and += 1;
+        } else if (emotionalStability == max) {
+            selectedTraits[4] = "Emotional Stability";
+            and += 1;
+        } else {
+            selectedTraits[5] = "Intellect/Imagination";
+            and += 1;
+        }
+        Log.i(TAG, "resultsTextAuto: 2");
+        int i = 0;
+        int are = and;
+        boolean first = true;
+        resultsText.append("It seems ");
+        Log.i(TAG, "resultsTextAuto: 3");
+        while (i < 5) {
+            if (and > 0 && !first && selectedTraits[i].length() > 0) resultsText.append(" and ");
+            else if (and > 0 && first && selectedTraits[i].length() > 0 ) first = false;
+            resultsText.append(selectedTraits[i]);
+            if (selectedTraits[i].length() > 0 && and > 0) and--;
+            i++;
+        }
+        Log.i(TAG, "resultsTextAuto: 4");
+        if (are > 1) resultsText.append(" are ");
+        else resultsText.append(" is ");
+        resultsText.append("your most powerful positive");
+        if (are > 1) resultsText.append(" markers.");
+        else resultsText.append(" marker.");
+        Log.i(TAG, "resultsTextAuto: 5");
+        // same for top negative traits
         int min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(emotionalStability, intellectImagination))));
-        if (extraversion==min) resultsText+="It seems Extraversion is your most powerful negative marker. ";
-        else if (agreeableness==min) resultsText+="It seems Agreeableness is your most powerful negative marker. ";
-        else if (conscientiousness==min) resultsText+="It seems Conscientiousness is your most powerful negative marker. ";
-        else if (emotionalStability==min) resultsText+="It seems Emotional Stability is your most powerful negative marker. ";
-        else if (intellectImagination==min) resultsText+="It seems Intellect/Imagination is your most powerful negative marker. ";
-
-        resultsText+="Please click the button below to open the Wikipedia article on the Big Five Markers and understand their meaning and significance.";
-
+        selectedTraits = new String[5];
+        and = 0;
+        if (extraversion == min) {
+            selectedTraits[1] = "Extraversion";
+            and += 1;
+        } else if (agreeableness == min) {
+            selectedTraits[2] = "Agreeableness";
+            and += 1;
+        } else if (conscientiousness == min) {
+            selectedTraits[3] = "Conscientiousness";
+            and += 1;
+        } else if (emotionalStability == min) {
+            selectedTraits[4] = "Emotional Stability";
+            and += 1;
+        } else {
+            selectedTraits[5] = "Intellect/Imagination";
+            and += 1;
+        }
+        i = 0;
+        are = and;
+        first = true;
+        resultsText.append(" It seems ");
+        while (i < 5) {
+            if (and > 0 && !first && selectedTraits[i].length() > 0 ) resultsText.append(" and ");
+            else if (and > 0 && first && selectedTraits[i].length() > 0 ) first = false;
+            resultsText.append(selectedTraits[i]);
+            if (selectedTraits[i].length() > 0 && and > 0) and--;
+            i++;
+        }
+        if (are > 1) resultsText.append(" are ");
+        else resultsText.append(" is ");
+        resultsText.append("your most powerful negative");
+        if (are > 1) resultsText.append(" markers.");
+        else resultsText.append(" marker.");
+        Log.i(TAG, "resultsTextAuto: 6");
+        resultsText.append("Please click the button below to open the Wikipedia article on the Big Five Markers and understand their meaning and significance.");
+        Log.i(TAG, "resultsTextAuto: 7");
         TextView textView = findViewById(R.id.results_text_auto);
-        textView.setText(resultsText);
+        textView.setText(resultsText.toString());
+        textView.setVisibility(View.VISIBLE);
+        Log.i(TAG, "resultsTextAuto: 8");
     }
 
     // function to open wikipedia article regarding Big Five Markers
@@ -1186,6 +1247,10 @@ public class MainActivity extends AppCompatActivity {
 
     //todo reset function
     public void reset() {
+
+        //set reset bootlean
+        allOK = false;
+
         //reset title and button text
         TextView tV = findViewById(R.id.textView);
         tV.setText("How Accurately Can You Describe Yourself?");
@@ -1477,6 +1542,8 @@ public class MainActivity extends AppCompatActivity {
         textView7.setVisibility(View.INVISIBLE);
         Button button = findViewById(R.id.wiki);
         button.setVisibility(View.INVISIBLE);
+        TextView textView9 = findViewById(R.id.results_text_auto);
+        textView9.setVisibility(View.INVISIBLE);
     }
 
 }
