@@ -553,21 +553,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void submit(View view) {
         //todo add back check whether to reset or not
-        /*if (allOK) {
+        if (allOK) {
             allOK = false;
             reset();
-        } else verify();*/
+        } else verify();
 
         /** function to seed the questions for testing
-         * todo remove this when app is final*/
-         int i=0;
-         Random rand = new Random();
-         while (i<50){
-         i++;
-         answers[i]=rand.nextInt(6);
-         }
-         calculate();
-         /** end seed function*/
+         * todo remove this when app is final
+        int i = 0;
+        Random rand = new Random();
+        while (i < 50) {
+            i++;
+            answers[i] = rand.nextInt(6);
+        }
+        calculate();
+        * end seed function*/
     }
 
     // verify all checkboxes and codify them into an array
@@ -1138,100 +1138,99 @@ public class MainActivity extends AppCompatActivity {
         Button button = findViewById(R.id.wiki);
         button.setVisibility(View.VISIBLE);
 
-        //change Submit button to reset
+        //change Submit button to reset and flip
+        /** @param allOK reset flag */
         Button button2 = findViewById(R.id.button);
         button2.setText("Reset");
+        allOK = true;
+
     }
 
     //todo generate text for automatic assessment
     public void resultsTextAuto() {
-        StringBuilder resultsText=null;
-        Log.i(TAG, "resultsTextAuto: 1");
+        StringBuilder resultsText = new StringBuilder();
+
         //generate text for top trait(s)
         int max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(emotionalStability, intellectImagination))));
-        Log.i(TAG, "resultsTextAuto: 1b");
-        String[] selectedTraits = new String[5];
-        Log.i(TAG, "resultsTextAuto: 1c");
-        int and = 0;
+        StringBuilder selectedTraits = new StringBuilder();
+        boolean plural = false;
+
         if (extraversion == max) {
-            selectedTraits[1] = "Extraversion";
-            and += 1;
+            selectedTraits.append("Extraversion");
         } else if (agreeableness == max) {
-            selectedTraits[2] = "Agreeableness";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Agreeableness");
+                plural = true;
+            } else selectedTraits.append("Agreeableness");
         } else if (conscientiousness == max) {
-            selectedTraits[3] = "Conscientiousness";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Conscientiousness");
+                plural = true;
+            } else selectedTraits.append("Conscientiousness");
         } else if (emotionalStability == max) {
-            selectedTraits[4] = "Emotional Stability";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Emotional Stability");
+                plural = true;
+            } else selectedTraits.append("Emotional Stability");
         } else {
-            selectedTraits[5] = "Intellect/Imagination";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Intellect/Imagination");
+                plural = true;
+            } else selectedTraits.append("Intellect/Imagination");
         }
-        Log.i(TAG, "resultsTextAuto: 2");
-        int i = 0;
-        int are = and;
-        boolean first = true;
+
         resultsText.append("It seems ");
-        Log.i(TAG, "resultsTextAuto: 3");
-        while (i < 5) {
-            if (and > 0 && !first && selectedTraits[i].length() > 0) resultsText.append(" and ");
-            else if (and > 0 && first && selectedTraits[i].length() > 0 ) first = false;
-            resultsText.append(selectedTraits[i]);
-            if (selectedTraits[i].length() > 0 && and > 0) and--;
-            i++;
-        }
-        Log.i(TAG, "resultsTextAuto: 4");
-        if (are > 1) resultsText.append(" are ");
+        resultsText.append(selectedTraits);
+        if (plural) resultsText.append(" are ");
         else resultsText.append(" is ");
         resultsText.append("your most powerful positive");
-        if (are > 1) resultsText.append(" markers.");
+        if (plural) resultsText.append(" markers.");
         else resultsText.append(" marker.");
-        Log.i(TAG, "resultsTextAuto: 5");
-        // same for top negative traits
+
+        // same for top negative trait(s)
         int min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(emotionalStability, intellectImagination))));
-        selectedTraits = new String[5];
-        and = 0;
+        selectedTraits = new StringBuilder();
+        plural = false;
+
         if (extraversion == min) {
-            selectedTraits[1] = "Extraversion";
-            and += 1;
+            selectedTraits.append("Extraversion");
         } else if (agreeableness == min) {
-            selectedTraits[2] = "Agreeableness";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Agreeableness");
+                plural = true;
+            } else selectedTraits.append("Agreeableness");
         } else if (conscientiousness == min) {
-            selectedTraits[3] = "Conscientiousness";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Conscientiousness");
+                plural = true;
+            } else selectedTraits.append("Conscientiousness");
         } else if (emotionalStability == min) {
-            selectedTraits[4] = "Emotional Stability";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Emotional Stability");
+                plural = true;
+            } else selectedTraits.append("Emotional Stability");
         } else {
-            selectedTraits[5] = "Intellect/Imagination";
-            and += 1;
+            if (selectedTraits.length() > 0) {
+                selectedTraits.append(" and Intellect/Imagination");
+                plural = true;
+            } else selectedTraits.append("Intellect/Imagination");
         }
-        i = 0;
-        are = and;
-        first = true;
+
         resultsText.append(" It seems ");
-        while (i < 5) {
-            if (and > 0 && !first && selectedTraits[i].length() > 0 ) resultsText.append(" and ");
-            else if (and > 0 && first && selectedTraits[i].length() > 0 ) first = false;
-            resultsText.append(selectedTraits[i]);
-            if (selectedTraits[i].length() > 0 && and > 0) and--;
-            i++;
-        }
-        if (are > 1) resultsText.append(" are ");
+        resultsText.append(selectedTraits);
+        if (plural) resultsText.append(" are ");
         else resultsText.append(" is ");
         resultsText.append("your most powerful negative");
-        if (are > 1) resultsText.append(" markers.");
+        if (plural) resultsText.append(" markers.");
         else resultsText.append(" marker.");
-        Log.i(TAG, "resultsTextAuto: 6");
-        resultsText.append("Please click the button below to open the Wikipedia article on the Big Five Markers and understand their meaning and significance.");
-        Log.i(TAG, "resultsTextAuto: 7");
+
+        resultsText.append(" Please click the button below to open the Wikipedia article on the Big Five Markers and understand their meaning and significance.");
+
+        //update result text with findings
         TextView textView = findViewById(R.id.results_text_auto);
         textView.setText(resultsText.toString());
         textView.setVisibility(View.VISIBLE);
-        Log.i(TAG, "resultsTextAuto: 8");
+
     }
 
     // function to open wikipedia article regarding Big Five Markers
