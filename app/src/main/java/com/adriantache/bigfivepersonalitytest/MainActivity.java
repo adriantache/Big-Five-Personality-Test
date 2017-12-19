@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
@@ -552,7 +553,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void submit(View view) {
         //todo add check whether to reset or not
-        if (allOK = true) {
+        if (allOK) {
             allOK = false;
             reset();
         } else verify();
@@ -1132,7 +1133,8 @@ public class MainActivity extends AppCompatActivity {
         TextView tV = findViewById(R.id.textView);
         tV.setText("Test Results");
 
-        //todo generate text for automatic assessment
+        //generate customized test results
+        resultsTextAuto();
 
         //show graph and text and wiki button
         graph();
@@ -1142,9 +1144,33 @@ public class MainActivity extends AppCompatActivity {
         button.setVisibility(View.VISIBLE);
 
         //change Submit button to reset
-        TextView tV = findViewById(R.id.textView);
-        tV.setText("Reset");
+        Button button2 = findViewById(R.id.button);
+        button2.setText("Reset");
 
+    }
+
+    //todo generate text for automatic assessment
+    public void resultsTextAuto() {
+        String resultsText;
+
+        int max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(emotionalStability, intellectImagination))));
+        if (extraversion==max) resultsText="It seems Extraversion is your most powerful positive marker. ";
+        else if (agreeableness==max) resultsText="It seems Agreeableness is your most powerful positive marker. ";
+        else if (conscientiousness==max) resultsText="It seems Conscientiousness is your most powerful positive marker. ";
+        else if (emotionalStability==max) resultsText="It seems Emotional Stability is your most powerful positive marker. ";
+        else if (intellectImagination==max) resultsText="It seems Intellect/Imagination is your most powerful positive marker. ";
+
+        int min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(emotionalStability, intellectImagination))));
+        if (extraversion==min) resultsText+="It seems Extraversion is your most powerful negative marker. ";
+        else if (agreeableness==min) resultsText+="It seems Agreeableness is your most powerful negative marker. ";
+        else if (conscientiousness==min) resultsText+="It seems Conscientiousness is your most powerful negative marker. ";
+        else if (emotionalStability==min) resultsText+="It seems Emotional Stability is your most powerful negative marker. ";
+        else if (intellectImagination==min) resultsText+="It seems Intellect/Imagination is your most powerful negative marker. ";
+
+        resultsText+="Please click the button below to open the Wikipedia article on the Big Five Markers and understand their meaning and significance.";
+
+        TextView textView = findViewById(R.id.results_text_auto);
+        textView.setText(resultsText);
     }
 
     // function to open wikipedia article regarding Big Five Markers
@@ -1160,15 +1186,16 @@ public class MainActivity extends AppCompatActivity {
 
     //todo reset function
     public void reset() {
-        //reset button text
+        //reset title and button text
         TextView tV = findViewById(R.id.textView);
-        tV.setText("Submit");
+        tV.setText("How Accurately Can You Describe Yourself?");
+        Button button2 = findViewById(R.id.button);
+        button2.setText("Submit");
 
         //reset and hide graph series
         GraphView graph = findViewById(R.id.graph);
         graph.setVisibility(View.INVISIBLE);
         graph.removeAllSeries();
-
 
         //reset variables
         answers = new int[51];
