@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     //define answers array
     int[] answers = new int[51];
-    //define all radio buttons for later use
+    //define all RadioButtons and RadioGroups for later use
     RadioButton question1radioButton1;
     RadioButton question1radioButton2;
     RadioButton question1radioButton3;
@@ -340,7 +340,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //find all radio button views for later use
+        //find all RadioButtons and RadioGroups for later use
         question1radioButton1 = findViewById(R.id.question1radioButton1);
         question1radioButton2 = findViewById(R.id.question1radioButton2);
         question1radioButton3 = findViewById(R.id.question1radioButton3);
@@ -1113,12 +1113,13 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(MainActivity.this, "Please answer question " + i + " before proceeding!", Toast.LENGTH_SHORT);
         toast.show();
 
-        int yPos = v.getTop();
-        scroll.scrollTo(0,yPos);
+        /** sadly, does not work*/
+        /*int yPos = v.getTop();
+        scroll.scrollTo(0,yPos);*/
     }
 
-    //calculates score using mod 5 and mod 2 and special cases according to IPIP scoring key
-    //at http://ipip.ori.org/New_IPIP-50-item-scale.htm
+    //calculates score using mod 5 and mod 2 and special cases according to IPIP scoring key at
+    /** http://ipip.ori.org/New_IPIP-50-item-scale.htm */
     public void calculate() {
         int i = 0;
         extraversion = 0;
@@ -1185,7 +1186,7 @@ public class MainActivity extends AppCompatActivity {
         graph.setVisibility(View.VISIBLE);
     }
 
-    //todo function that creates score display (use graphs?)
+    //function that switches display from questions to scores, and calls resultsTextAuto()
     public void displayScore() {
         //hide instructions and questions
         scroll.setVisibility(View.INVISIBLE);
@@ -1221,10 +1222,9 @@ public class MainActivity extends AppCompatActivity {
         Button button2 = findViewById(R.id.button);
         button2.setText("Reset");
         allOK = true;
-
     }
 
-    //todo generate text for automatic assessment
+    //generate text for automatic assessment
     public void resultsTextAuto() {
         StringBuilder resultsText = new StringBuilder();
 
@@ -1320,11 +1320,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //todo function that hides test and shows results
-
-    //todo reset function
+    // reset function
     public void reset() {
-
         //set reset bootlean
         allOK = false;
 
@@ -1422,5 +1419,4 @@ public class MainActivity extends AppCompatActivity {
         TextView textView9 = findViewById(R.id.results_text_auto);
         textView9.setVisibility(View.INVISIBLE);
     }
-
 }
