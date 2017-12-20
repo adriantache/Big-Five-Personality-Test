@@ -18,6 +18,8 @@ import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     //define answers array
@@ -591,62 +593,72 @@ public class MainActivity extends AppCompatActivity {
         question50radioButton3 = findViewById(R.id.question50radioButton3);
         question50radioButton4 = findViewById(R.id.question50radioButton4);
         question50radioButton5 = findViewById(R.id.question50radioButton5);
-        radioGroup1=findViewById(R.id.radioGroup1);
-        radioGroup2=findViewById(R.id.radioGroup2);
-        radioGroup3=findViewById(R.id.radioGroup3);
-        radioGroup4=findViewById(R.id.radioGroup4);
-        radioGroup5=findViewById(R.id.radioGroup5);
-        radioGroup6=findViewById(R.id.radioGroup6);
-        radioGroup7=findViewById(R.id.radioGroup7);
-        radioGroup8=findViewById(R.id.radioGroup8);
-        radioGroup9=findViewById(R.id.radioGroup9);
-        radioGroup10=findViewById(R.id.radioGroup10);
-        radioGroup11=findViewById(R.id.radioGroup11);
-        radioGroup12=findViewById(R.id.radioGroup12);
-        radioGroup13=findViewById(R.id.radioGroup13);
-        radioGroup14=findViewById(R.id.radioGroup14);
-        radioGroup15=findViewById(R.id.radioGroup15);
-        radioGroup16=findViewById(R.id.radioGroup16);
-        radioGroup17=findViewById(R.id.radioGroup17);
-        radioGroup18=findViewById(R.id.radioGroup18);
-        radioGroup19=findViewById(R.id.radioGroup19);
-        radioGroup20=findViewById(R.id.radioGroup20);
-        radioGroup21=findViewById(R.id.radioGroup21);
-        radioGroup22=findViewById(R.id.radioGroup22);
-        radioGroup23=findViewById(R.id.radioGroup23);
-        radioGroup24=findViewById(R.id.radioGroup24);
-        radioGroup25=findViewById(R.id.radioGroup25);
-        radioGroup26=findViewById(R.id.radioGroup26);
-        radioGroup27=findViewById(R.id.radioGroup27);
-        radioGroup28=findViewById(R.id.radioGroup28);
-        radioGroup29=findViewById(R.id.radioGroup29);
-        radioGroup30=findViewById(R.id.radioGroup30);
-        radioGroup31=findViewById(R.id.radioGroup31);
-        radioGroup32=findViewById(R.id.radioGroup32);
-        radioGroup33=findViewById(R.id.radioGroup33);
-        radioGroup34=findViewById(R.id.radioGroup34);
-        radioGroup35=findViewById(R.id.radioGroup35);
-        radioGroup36=findViewById(R.id.radioGroup36);
-        radioGroup37=findViewById(R.id.radioGroup37);
-        radioGroup38=findViewById(R.id.radioGroup38);
-        radioGroup39=findViewById(R.id.radioGroup39);
-        radioGroup40=findViewById(R.id.radioGroup40);
-        radioGroup41=findViewById(R.id.radioGroup41);
-        radioGroup42=findViewById(R.id.radioGroup42);
-        radioGroup43=findViewById(R.id.radioGroup43);
-        radioGroup44=findViewById(R.id.radioGroup44);
-        radioGroup45=findViewById(R.id.radioGroup45);
-        radioGroup46=findViewById(R.id.radioGroup46);
-        radioGroup47=findViewById(R.id.radioGroup47);
-        radioGroup48=findViewById(R.id.radioGroup48);
-        radioGroup49=findViewById(R.id.radioGroup49);
-        radioGroup50=findViewById(R.id.radioGroup50);
+        radioGroup1 = findViewById(R.id.radioGroup1);
+        radioGroup2 = findViewById(R.id.radioGroup2);
+        radioGroup3 = findViewById(R.id.radioGroup3);
+        radioGroup4 = findViewById(R.id.radioGroup4);
+        radioGroup5 = findViewById(R.id.radioGroup5);
+        radioGroup6 = findViewById(R.id.radioGroup6);
+        radioGroup7 = findViewById(R.id.radioGroup7);
+        radioGroup8 = findViewById(R.id.radioGroup8);
+        radioGroup9 = findViewById(R.id.radioGroup9);
+        radioGroup10 = findViewById(R.id.radioGroup10);
+        radioGroup11 = findViewById(R.id.radioGroup11);
+        radioGroup12 = findViewById(R.id.radioGroup12);
+        radioGroup13 = findViewById(R.id.radioGroup13);
+        radioGroup14 = findViewById(R.id.radioGroup14);
+        radioGroup15 = findViewById(R.id.radioGroup15);
+        radioGroup16 = findViewById(R.id.radioGroup16);
+        radioGroup17 = findViewById(R.id.radioGroup17);
+        radioGroup18 = findViewById(R.id.radioGroup18);
+        radioGroup19 = findViewById(R.id.radioGroup19);
+        radioGroup20 = findViewById(R.id.radioGroup20);
+        radioGroup21 = findViewById(R.id.radioGroup21);
+        radioGroup22 = findViewById(R.id.radioGroup22);
+        radioGroup23 = findViewById(R.id.radioGroup23);
+        radioGroup24 = findViewById(R.id.radioGroup24);
+        radioGroup25 = findViewById(R.id.radioGroup25);
+        radioGroup26 = findViewById(R.id.radioGroup26);
+        radioGroup27 = findViewById(R.id.radioGroup27);
+        radioGroup28 = findViewById(R.id.radioGroup28);
+        radioGroup29 = findViewById(R.id.radioGroup29);
+        radioGroup30 = findViewById(R.id.radioGroup30);
+        radioGroup31 = findViewById(R.id.radioGroup31);
+        radioGroup32 = findViewById(R.id.radioGroup32);
+        radioGroup33 = findViewById(R.id.radioGroup33);
+        radioGroup34 = findViewById(R.id.radioGroup34);
+        radioGroup35 = findViewById(R.id.radioGroup35);
+        radioGroup36 = findViewById(R.id.radioGroup36);
+        radioGroup37 = findViewById(R.id.radioGroup37);
+        radioGroup38 = findViewById(R.id.radioGroup38);
+        radioGroup39 = findViewById(R.id.radioGroup39);
+        radioGroup40 = findViewById(R.id.radioGroup40);
+        radioGroup41 = findViewById(R.id.radioGroup41);
+        radioGroup42 = findViewById(R.id.radioGroup42);
+        radioGroup43 = findViewById(R.id.radioGroup43);
+        radioGroup44 = findViewById(R.id.radioGroup44);
+        radioGroup45 = findViewById(R.id.radioGroup45);
+        radioGroup46 = findViewById(R.id.radioGroup46);
+        radioGroup47 = findViewById(R.id.radioGroup47);
+        radioGroup48 = findViewById(R.id.radioGroup48);
+        radioGroup49 = findViewById(R.id.radioGroup49);
+        radioGroup50 = findViewById(R.id.radioGroup50);
         scroll = findViewById(R.id.scrollView2);
     }
 
     public void submit(View view) {
-        if (allOK) reset();
-        else verify();
+        /*if (allOK) reset();
+        else verify();*/
+
+        //todo remove this testing function
+        int i = 0;
+        Random rand = new Random();
+        while (i < 50) {
+            i++;
+            answers[i] = rand.nextInt(6);
+        }
+        calculate();
+        //todo remove this testing function
     }
 
     // verify all checkboxes and codify them into an array
@@ -1119,7 +1131,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //calculates score using mod 5 and mod 2 and special cases according to IPIP scoring key at
-    /** http://ipip.ori.org/New_IPIP-50-item-scale.htm */
+
+    /**
+     * http://ipip.ori.org/New_IPIP-50-item-scale.htm
+     */
     public void calculate() {
         int i = 0;
         extraversion = 0;
@@ -1180,10 +1195,8 @@ public class MainActivity extends AppCompatActivity {
         series.setValuesOnTopColor(Color.BLACK);
 
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setHorizontalLabels(new String[]{"Extraversion\n"+extraversion, "Agreeableness\n"+agreeableness, "Conscientiousness\n"+conscientiousness, "Emotional\nStability\n"+emotionalStability, "Intellect/\nImagination\n"+intellectImagination});
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"A\n" + extraversion, "B\n" + agreeableness, "C\n" + conscientiousness, "D\n" + emotionalStability, "E\n" + intellectImagination});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-
-        graph.setVisibility(View.VISIBLE);
     }
 
     //function that switches display from questions to scores, and calls resultsTextAuto()
@@ -1210,12 +1223,10 @@ public class MainActivity extends AppCompatActivity {
         //generate customized test results
         resultsTextAuto();
 
-        //show graph and text and wiki button
+        //generate graph and show results
         graph();
-        TextView textView7 = findViewById(R.id.results_text);
-        textView7.setVisibility(View.VISIBLE);
-        Button button = findViewById(R.id.wiki);
-        button.setVisibility(View.VISIBLE);
+        ScrollView resultsScroll = findViewById(R.id.resultsScroll);
+        resultsScroll.setVisibility(View.VISIBLE);
 
         //change Submit button to reset and flip
         /** @param allOK reset flag */
@@ -1307,8 +1318,6 @@ public class MainActivity extends AppCompatActivity {
         //update result text with findings
         TextView textView = findViewById(R.id.results_text_auto);
         textView.setText(resultsText.toString());
-        textView.setVisibility(View.VISIBLE);
-
     }
 
     // function to open wikipedia article regarding Big Five Markers
@@ -1322,7 +1331,7 @@ public class MainActivity extends AppCompatActivity {
 
     // reset function
     public void reset() {
-        //set reset bootlean
+        //reset reset bootlean
         allOK = false;
 
         //reset title and button text
@@ -1331,9 +1340,8 @@ public class MainActivity extends AppCompatActivity {
         Button button2 = findViewById(R.id.button);
         button2.setText("Submit");
 
-        //reset and hide graph series
+        //reset the graph series
         GraphView graph = findViewById(R.id.graph);
-        graph.setVisibility(View.INVISIBLE);
         graph.removeAllSeries();
 
         //reset variables
@@ -1398,6 +1406,8 @@ public class MainActivity extends AppCompatActivity {
         radioGroup50.clearCheck();
 
         //set visibility back to default
+        ScrollView resultsScroll = findViewById(R.id.resultsScroll);
+        resultsScroll.setVisibility(View.INVISIBLE);
         scroll.scrollTo(0, 0);
         scroll.setVisibility(View.VISIBLE);
         TextView textView = findViewById(R.id.textView2);
@@ -1412,11 +1422,6 @@ public class MainActivity extends AppCompatActivity {
         textView5.setVisibility(View.VISIBLE);
         TextView textView6 = findViewById(R.id.textView19);
         textView6.setVisibility(View.VISIBLE);
-        TextView textView7 = findViewById(R.id.results_text);
-        textView7.setVisibility(View.INVISIBLE);
-        Button button = findViewById(R.id.wiki);
-        button.setVisibility(View.INVISIBLE);
-        TextView textView9 = findViewById(R.id.results_text_auto);
-        textView9.setVisibility(View.INVISIBLE);
+
     }
 }
