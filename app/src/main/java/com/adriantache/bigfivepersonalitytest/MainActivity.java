@@ -647,18 +647,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submit(View view) {
-        /*if (allOK) reset();
-        else verify();*/
+        if (allOK) reset();
+        else verify();
 
-        //todo remove this testing function
-        int i = 0;
+        //testing function [disabled]
+        /*int i = 0;
         Random rand = new Random();
         while (i < 50) {
             i++;
             answers[i] = rand.nextInt(6);
         }
-        calculate();
-        //todo remove this testing function
+        calculate();*/
     }
 
     // verify all checkboxes and codify them into an array
@@ -1205,16 +1204,6 @@ public class MainActivity extends AppCompatActivity {
         scroll.setVisibility(View.INVISIBLE);
         TextView textView = findViewById(R.id.textView2);
         textView.setVisibility(View.INVISIBLE);
-        TextView textView2 = findViewById(R.id.textView14);
-        textView2.setVisibility(View.INVISIBLE);
-        TextView textView3 = findViewById(R.id.textView16);
-        textView3.setVisibility(View.INVISIBLE);
-        TextView textView4 = findViewById(R.id.textView17);
-        textView4.setVisibility(View.INVISIBLE);
-        TextView textView5 = findViewById(R.id.textView18);
-        textView5.setVisibility(View.INVISIBLE);
-        TextView textView6 = findViewById(R.id.textView19);
-        textView6.setVisibility(View.INVISIBLE);
 
         //change title text
         TextView tV = findViewById(R.id.textView);
@@ -1412,16 +1401,6 @@ public class MainActivity extends AppCompatActivity {
         scroll.setVisibility(View.VISIBLE);
         TextView textView = findViewById(R.id.textView2);
         textView.setVisibility(View.VISIBLE);
-        TextView textView2 = findViewById(R.id.textView14);
-        textView2.setVisibility(View.VISIBLE);
-        TextView textView3 = findViewById(R.id.textView16);
-        textView3.setVisibility(View.VISIBLE);
-        TextView textView4 = findViewById(R.id.textView17);
-        textView4.setVisibility(View.VISIBLE);
-        TextView textView5 = findViewById(R.id.textView18);
-        textView5.setVisibility(View.VISIBLE);
-        TextView textView6 = findViewById(R.id.textView19);
-        textView6.setVisibility(View.VISIBLE);
 
     }
 }
