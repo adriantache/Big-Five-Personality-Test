@@ -3289,7 +3289,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:text="D - Emotional Stability  E - Intellect/Imagination"
+                android:text="D - Neuroticism  E - Openness"
                 app:layout_constraintBottom_toTopOf="@+id/results_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -3347,7 +3347,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- RadioButton labels -->
 
 </android.support.constraint.ConstraintLayout>

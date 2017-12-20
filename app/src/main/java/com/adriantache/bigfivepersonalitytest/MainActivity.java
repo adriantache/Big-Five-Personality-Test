@@ -331,8 +331,8 @@ public class MainActivity extends AppCompatActivity {
     int extraversion;
     int agreeableness;
     int conscientiousness;
-    int emotionalStability;
-    int intellectImagination;
+    int neuroticism;
+    int openness;
 
     //define reset flag
     boolean allOK = false;
@@ -650,7 +650,7 @@ public class MainActivity extends AppCompatActivity {
         if (allOK) reset();
         else verify();
 
-        //testing function [disabled]
+        //testing function /*disabled*/
         /*int i = 0;
         Random rand = new Random();
         while (i < 50) {
@@ -1119,18 +1119,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //shows a message with the first question that hasn't been answered
-    //todo move ScrollView to that question
     public void notCompleted(int i, RadioGroup v) {
         Toast toast = Toast.makeText(MainActivity.this, "Please answer question " + i + " before proceeding!", Toast.LENGTH_SHORT);
         toast.show();
 
+        //todo move ScrollView to that question
         /** sadly, does not work*/
         /*int yPos = v.getTop();
         scroll.scrollTo(0,yPos);*/
     }
 
     //calculates score using mod 5 and mod 2 and special cases according to IPIP scoring key at
-
     /**
      * http://ipip.ori.org/New_IPIP-50-item-scale.htm
      */
@@ -1139,8 +1138,8 @@ public class MainActivity extends AppCompatActivity {
         extraversion = 0;
         agreeableness = 0;
         conscientiousness = 0;
-        emotionalStability = 0;
-        intellectImagination = 0;
+        neuroticism = 0;
+        openness = 0;
 
         while (i < 50) {
             i++;
@@ -1160,14 +1159,14 @@ public class MainActivity extends AppCompatActivity {
                     else conscientiousness += answers[i];
                     break;
                 case 4:
-                    if (i == 29 | i == 39 | i == 49) emotionalStability -= answers[i];
-                    else if (i % 2 == 0) emotionalStability -= answers[i];
-                    else emotionalStability += answers[i];
+                    if (i == 29 | i == 39 | i == 49) neuroticism -= answers[i];
+                    else if (i % 2 == 0) neuroticism -= answers[i];
+                    else neuroticism += answers[i];
                     break;
                 case 0:
-                    if (i == 40 | i == 50) intellectImagination += answers[i];
-                    else if (i % 2 == 0) intellectImagination -= answers[i];
-                    else intellectImagination += answers[i];
+                    if (i == 40 | i == 50) openness += answers[i];
+                    else if (i % 2 == 0) openness -= answers[i];
+                    else openness += answers[i];
                     break;
             }
         }
@@ -1183,8 +1182,8 @@ public class MainActivity extends AppCompatActivity {
                 new DataPoint(0, extraversion),
                 new DataPoint(1, agreeableness),
                 new DataPoint(2, conscientiousness),
-                new DataPoint(3, emotionalStability),
-                new DataPoint(4, intellectImagination)
+                new DataPoint(3, neuroticism),
+                new DataPoint(4, openness)
         });
 
         graph.addSeries(series);
@@ -1194,7 +1193,7 @@ public class MainActivity extends AppCompatActivity {
         series.setValuesOnTopColor(Color.BLACK);
 
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setHorizontalLabels(new String[]{"A\n" + extraversion, "B\n" + agreeableness, "C\n" + conscientiousness, "D\n" + emotionalStability, "E\n" + intellectImagination});
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"A=" + extraversion, "B=" + agreeableness, "C=" + conscientiousness, "D=" + neuroticism, "E=" + openness});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
     }
 
@@ -1229,7 +1228,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder resultsText = new StringBuilder();
 
         //generate text for top trait(s)
-        int max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(emotionalStability, intellectImagination))));
+        int max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(neuroticism, openness))));
         StringBuilder selectedTraits = new StringBuilder();
         boolean plural = false;
 
@@ -1245,16 +1244,16 @@ public class MainActivity extends AppCompatActivity {
                 selectedTraits.append(" and Conscientiousness");
                 plural = true;
             } else selectedTraits.append("Conscientiousness");
-        } else if (emotionalStability == max) {
+        } else if (neuroticism == max) {
             if (selectedTraits.length() > 0) {
-                selectedTraits.append(" and Emotional Stability");
+                selectedTraits.append(" and Neuroticism");
                 plural = true;
-            } else selectedTraits.append("Emotional Stability");
+            } else selectedTraits.append("Neuroticism");
         } else {
             if (selectedTraits.length() > 0) {
-                selectedTraits.append(" and Intellect/Imagination");
+                selectedTraits.append(" and Openness");
                 plural = true;
-            } else selectedTraits.append("Intellect/Imagination");
+            } else selectedTraits.append("Openness");
         }
 
         resultsText.append("It seems ");
@@ -1266,7 +1265,7 @@ public class MainActivity extends AppCompatActivity {
         else resultsText.append(" marker.");
 
         // same for top negative trait(s)
-        int min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(emotionalStability, intellectImagination))));
+        int min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(neuroticism, openness))));
         selectedTraits = new StringBuilder();
         plural = false;
 
@@ -1282,16 +1281,16 @@ public class MainActivity extends AppCompatActivity {
                 selectedTraits.append(" and Conscientiousness");
                 plural = true;
             } else selectedTraits.append("Conscientiousness");
-        } else if (emotionalStability == min) {
+        } else if (neuroticism == min) {
             if (selectedTraits.length() > 0) {
-                selectedTraits.append(" and Emotional Stability");
+                selectedTraits.append(" and Neuroticism");
                 plural = true;
-            } else selectedTraits.append("Emotional Stability");
+            } else selectedTraits.append("Neuroticism");
         } else {
             if (selectedTraits.length() > 0) {
-                selectedTraits.append(" and Intellect/Imagination");
+                selectedTraits.append(" and Openness");
                 plural = true;
-            } else selectedTraits.append("Intellect/Imagination");
+            } else selectedTraits.append("Openness");
         }
 
         resultsText.append(" It seems ");
@@ -1338,8 +1337,8 @@ public class MainActivity extends AppCompatActivity {
         extraversion = 0;
         agreeableness = 0;
         conscientiousness = 0;
-        emotionalStability = 0;
-        intellectImagination = 0;
+        neuroticism = 0;
+        openness = 0;
         allOK = false;
 
         //reset all RadioGroups
