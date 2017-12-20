@@ -1306,6 +1306,9 @@ public class MainActivity extends AppCompatActivity {
         //update result text with findings
         TextView textView = findViewById(R.id.results_text_auto);
         textView.setText(resultsText.toString());
+
+        //todo program legend text for devices that won't see graph
+        //legend:score
     }
 
     // function to open wikipedia article regarding Big Five Markers
