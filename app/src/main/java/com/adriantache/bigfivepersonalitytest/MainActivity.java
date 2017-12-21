@@ -1354,7 +1354,7 @@ public class MainActivity extends AppCompatActivity {
         sharedText.append(legend2);
         sharedText.append("\n\n");
         sharedText.append(resultsText);
-        sharedText.append("\nhttps://en.wikipedia.org/wiki/Big_Five_personality_traits");
+        sharedText.append("\n\nhttps://en.wikipedia.org/wiki/Big_Five_personality_traits");
 
         //trigger intent to share the message
         Intent intent = new Intent(Intent.ACTION_SEND);
