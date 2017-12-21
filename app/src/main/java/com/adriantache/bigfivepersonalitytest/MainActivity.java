@@ -333,6 +333,8 @@ public class MainActivity extends AppCompatActivity {
     int conscientiousness;
     int neuroticism;
     int openness;
+    int max;
+    int min;
 
     //define reset flag
     boolean allOK = false;
@@ -1178,6 +1180,7 @@ public class MainActivity extends AppCompatActivity {
     public void graph() {
         GraphView graph = findViewById(R.id.graph);
 
+        //add values
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
                 new DataPoint(0, extraversion),
                 new DataPoint(1, agreeableness),
@@ -1185,15 +1188,21 @@ public class MainActivity extends AppCompatActivity {
                 new DataPoint(3, neuroticism),
                 new DataPoint(4, openness)
         });
-
         graph.addSeries(series);
 
+        //set graph to more sensible Y bounds
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(min-1);
+        graph.getViewport().setMaxY(max+1);
+
+        //tweak some graphical graph stuff
         series.setSpacing(5);
         series.setDrawValuesOnTop(true);
         series.setValuesOnTopColor(Color.BLACK);
 
+        //set custom labels
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setHorizontalLabels(new String[]{"A=" + extraversion, "B=" + agreeableness, "C=" + conscientiousness, "D=" + neuroticism, "E=" + openness});
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"E", "A", "C", "N", "O"});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
     }
 
@@ -1228,7 +1237,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder resultsText = new StringBuilder();
 
         //generate text for top trait(s)
-        int max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(neuroticism, openness))));
+        max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(neuroticism, openness))));
         StringBuilder selectedTraits = new StringBuilder();
         boolean plural = false;
 
@@ -1265,7 +1274,7 @@ public class MainActivity extends AppCompatActivity {
         else resultsText.append(" marker.");
 
         // same for top negative trait(s)
-        int min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(neuroticism, openness))));
+        min = Math.min(extraversion, Math.min(agreeableness, Math.min(conscientiousness, Math.min(neuroticism, openness))));
         selectedTraits = new StringBuilder();
         plural = false;
 
@@ -1307,8 +1316,24 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.results_text_auto);
         textView.setText(resultsText.toString());
 
-        //todo program legend text for devices that won't see graph
-        //legend:score
+        //program legend text for devices that won't see graph
+        StringBuilder legend = new StringBuilder();
+        legend.append("Extraversion: ");
+        legend.append(extraversion);
+        legend.append(" Agreeableness: ");
+        legend.append(agreeableness);
+        legend.append(" Conscientiousness:");
+        legend.append(conscientiousness);
+        TextView legendText = findViewById(R.id.graph_legend);
+        legendText.setText(legend.toString());
+
+        StringBuilder legend2 = new StringBuilder();
+        legend2.append("Neuroticism: ");
+        legend2.append(neuroticism);
+        legend2.append(" Openness:");
+        legend2.append(openness);
+        TextView legend2Text = findViewById(R.id.graph_legend2);
+        legend2Text.setText(legend2.toString());
     }
 
     // function to open wikipedia article regarding Big Five Markers
