@@ -17,4 +17,4 @@ for that functionality.
 **Known issues:**
 * app is using hardcoded strings – won't fix, as translating the app would probably skew the results due to using translations that
 have not been tested by a psychologist
-* app looks weird on small DPIs (<xxhdpi) or large text sizes (>small)
+~~* app looks weird on small DPIs (<xxhdpi) or large text sizes (>small)~~
