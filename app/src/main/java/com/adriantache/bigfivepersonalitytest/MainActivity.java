@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -17,8 +18,6 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -338,6 +337,11 @@ public class MainActivity extends AppCompatActivity {
 
     //define reset flag
     boolean allOK = false;
+
+    //define string builders for the results text in order to aid easy sharing
+    StringBuilder legend = new StringBuilder();
+    StringBuilder legend2 = new StringBuilder();
+    StringBuilder resultsText = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1218,10 +1222,12 @@ public class MainActivity extends AppCompatActivity {
         //generate customized test results
         resultsTextAuto();
 
-        //generate graph and show results
+        //generate graph and show results and share button
         graph();
         ScrollView resultsScroll = findViewById(R.id.resultsScroll);
         resultsScroll.setVisibility(View.VISIBLE);
+        ImageView imageView = findViewById(R.id.shareButton);
+        imageView.setVisibility(View.VISIBLE);
 
         //change Submit button to reset and flip
         /** @param allOK reset flag */
@@ -1232,7 +1238,6 @@ public class MainActivity extends AppCompatActivity {
 
     //generate text for automatic assessment
     public void resultsTextAuto() {
-        StringBuilder resultsText = new StringBuilder();
 
         //generate text for top trait(s)
         max = Math.max(extraversion, Math.max(agreeableness, Math.max(conscientiousness, Math.max(neuroticism, openness))));
@@ -1315,20 +1320,17 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(resultsText.toString());
 
         //program legend text for devices that won't see graph
-        StringBuilder legend = new StringBuilder();
         legend.append("Extraversion: ");
         legend.append(extraversion);
         legend.append(" Agreeableness: ");
         legend.append(agreeableness);
-        legend.append(" Conscientiousness:");
+        legend.append(" Conscientiousness: ");
         legend.append(conscientiousness);
         TextView legendText = findViewById(R.id.graph_legend);
         legendText.setText(legend.toString());
-
-        StringBuilder legend2 = new StringBuilder();
         legend2.append("Neuroticism: ");
         legend2.append(neuroticism);
-        legend2.append(" Openness:");
+        legend2.append(" Openness: ");
         legend2.append(openness);
         TextView legend2Text = findViewById(R.id.graph_legend2);
         legend2Text.setText(legend2.toString());
@@ -1338,6 +1340,27 @@ public class MainActivity extends AppCompatActivity {
     public void wiki(View v) {
         Uri webPage = Uri.parse("https://en.wikipedia.org/wiki/Big_Five_personality_traits");
         Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    //function to share results
+    public void share(View view) {
+        //build the message
+        StringBuilder sharedText = new StringBuilder();
+        sharedText.append(legend);
+        sharedText.append(" ");
+        sharedText.append(legend2);
+        sharedText.append("\n\n");
+        sharedText.append(resultsText);
+        sharedText.append("\nhttps://en.wikipedia.org/wiki/Big_Five_personality_traits");
+
+        //trigger intent to share the message
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Results for the Big Five Markers Test");
+        intent.putExtra(Intent.EXTRA_TEXT, sharedText.toString());
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
@@ -1366,6 +1389,9 @@ public class MainActivity extends AppCompatActivity {
         neuroticism = 0;
         openness = 0;
         allOK = false;
+        legend = new StringBuilder();
+        legend2 = new StringBuilder();
+        resultsText = new StringBuilder();
 
         //reset all RadioGroups
         radioGroup1.clearCheck();
@@ -1424,6 +1450,7 @@ public class MainActivity extends AppCompatActivity {
         resultsScroll.setVisibility(View.INVISIBLE);
         scroll.scrollTo(0, 0);
         scroll.setVisibility(View.VISIBLE);
-
+        ImageView imageView = findViewById(R.id.shareButton);
+        imageView.setVisibility(View.INVISIBLE);
     }
 }
