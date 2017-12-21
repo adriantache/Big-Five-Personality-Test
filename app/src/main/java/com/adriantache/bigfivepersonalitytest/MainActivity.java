@@ -1210,8 +1210,6 @@ public class MainActivity extends AppCompatActivity {
     public void displayScore() {
         //hide instructions and questions
         scroll.setVisibility(View.INVISIBLE);
-        TextView textView = findViewById(R.id.textView2);
-        textView.setVisibility(View.INVISIBLE);
 
         //change title text
         TextView tV = findViewById(R.id.textView);
@@ -1426,8 +1424,6 @@ public class MainActivity extends AppCompatActivity {
         resultsScroll.setVisibility(View.INVISIBLE);
         scroll.scrollTo(0, 0);
         scroll.setVisibility(View.VISIBLE);
-        TextView textView = findViewById(R.id.textView2);
-        textView.setVisibility(View.VISIBLE);
 
     }
 }
