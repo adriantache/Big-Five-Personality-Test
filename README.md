@@ -18,3 +18,7 @@ for that functionality.
 * app is using hardcoded strings – won't fix, as translating the app would probably skew the results due to using translations that
 have not been tested by a psychologist
 * ~~app looks weird on small DPIs (<xxhdpi) or large text sizes (>small)~~
+
+**Screenshots:**
+
+![Main Screen](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/1.png) ![Results](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/2.png)
