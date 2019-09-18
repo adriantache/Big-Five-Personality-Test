@@ -24,7 +24,6 @@ const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 
 //todo implement RecyclerView instead of just laying out all the questions
 //todo implement immersion mode
-//todo display questions in random order
 //todo implement facets? => complexity
 class QuizActivity : AppCompatActivity() {
     companion object {
@@ -126,7 +125,8 @@ class QuizActivity : AppCompatActivity() {
             arrayList.add(Question(text, keyed, domain))
         }
 
-        return arrayList
+        //shuffle question order
+        return arrayList.toMutableList().apply { shuffle() }
     }
 
     private fun createRadioButtons(questions: List<Question>) {
