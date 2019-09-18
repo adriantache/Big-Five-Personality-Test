@@ -1,0 +1,722 @@
+[
+ {
+   "text": "Worry about things.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anxiety"
+ },
+ {
+   "text": "Fear for the worst.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anxiety "
+ },
+ {
+   "text": "Am afraid of many things.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anxiety "
+ },
+ {
+   "text": "Get stressed out easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anxiety "
+ },
+ {
+   "text": "Get angry easily",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anger"
+ },
+ {
+   "text": "Get irritated easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anger"
+ },
+ {
+   "text": "Lose my temper.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Anger"
+ },
+ {
+   "text": "Rarely get irritated.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Anger"
+ },
+ {
+   "text": "Often feel blue.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Depression"
+ },
+ {
+   "text": "Dislike myself.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Depression"
+ },
+ {
+   "text": "Am often down in the dumps.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Depression"
+ },
+ {
+   "text": "Have a low opinion of myself.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Depression"
+ },
+ {
+   "text": "Find it difficult to approach others.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Self-Consciousness"
+ },
+ {
+   "text": "Am easily intimidated.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Self-Consciousness"
+ },
+ {
+   "text": "Am not embarrassed easily.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Self-Consciousness"
+ },
+ {
+   "text": "Am able to stand up for myself.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Self-Consciousness"
+ },
+ {
+   "text": "Often eat too much.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Immoderation "
+ },
+ {
+   "text": "Go on binges.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Immoderation "
+ },
+ {
+   "text": "Rarely overindulge.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Immoderation "
+ },
+ {
+   "text": "Am able to control my cravings.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Immoderation "
+ },
+ {
+   "text": "Feel that I’m unable to deal with things.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Vulnerability "
+ },
+ {
+   "text": "Know how to cope.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Vulnerability "
+ },
+ {
+   "text": "Am calm even in tense situations.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Vulnerability "
+ },
+ {
+   "text": "Remain calm under pressure.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Vulnerability "
+ },
+ {
+   "text": "Make friends easily.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Friendliness "
+ },
+ {
+   "text": "Warm up quickly to others.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Friendliness "
+ },
+ {
+   "text": "Feel comfortable around people.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Friendliness "
+ },
+ {
+   "text": "Act comfortably with others.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Friendliness "
+ },
+ {
+   "text": "Love large parties.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Gregariousness "
+ },
+ {
+   "text": "Talk to a lot of different people at parties.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Gregariousness "
+ },
+ {
+   "text": "Don’t like crowded events.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Gregariousness "
+ },
+ {
+   "text": "Avoid crowds.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Gregariousness "
+ },
+ {
+   "text": "Take charge.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Try to lead others.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Take control of things.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Wait for others to lead the way.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Am always busy.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Activity Level"
+ },
+ {
+   "text": "Am always on the go.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Activity Level"
+ },
+ {
+   "text": "Do a lot in my spare time.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Activity Level"
+ },
+ {
+   "text": "Can manage many things at the same time.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Activity Level"
+ },
+ {
+   "text": "Love excitement.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Excitement-Seeking"
+ },
+ {
+   "text": "Seek adventure.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Excitement-Seeking"
+ },
+ {
+   "text": "Love action.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Excitement-Seeking"
+ },
+ {
+   "text": "Enjoy being reckless.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Excitement-Seeking"
+ },
+ {
+   "text": "Radiate joy.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Cheerfulness "
+ },
+ {
+   "text": "Have a lot of fun.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Cheerfulness "
+ },
+ {
+   "text": "Love life.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Cheerfulness "
+ },
+ {
+   "text": "Laugh aloud.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Cheerfulness "
+ },
+ {
+   "text": "Have a vivid imagination.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Imagination "
+ },
+ {
+   "text": "Enjoy wild flights of fantasy.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Imagination "
+ },
+ {
+   "text": "Love to daydream.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Imagination "
+ },
+ {
+   "text": "Like to get lost in thought.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Imagination "
+ },
+ {
+   "text": "See beauty in things that others might not notice.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Artistic Interests"
+ },
+ {
+   "text": "Do not like art.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Artistic Interests"
+ },
+ {
+   "text": "Do not like poetry.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Artistic Interests"
+ },
+ {
+   "text": "Do not enjoy going to art museums.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Artistic Interests"
+ },
+ {
+   "text": "Experience my emotions intensely.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Emotionality "
+ },
+ {
+   "text": "Seldom get emotional.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Emotionality "
+ },
+ {
+   "text": "Am not easily affected by my emotions.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Emotionality "
+ },
+ {
+   "text": "Experience very few emotional highs and lows.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Emotionality "
+ },
+ {
+   "text": "Prefer to stick with things that I know.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Adventurousness "
+ },
+ {
+   "text": "Dislike changes.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Adventurousness "
+ },
+ {
+   "text": "Don’t like the idea of change.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Adventurousness "
+ },
+ {
+   "text": "Am attached to conventional ways.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Adventurousness "
+ },
+ {
+   "text": "Am not interested in abstract ideas.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect "
+ },
+ {
+   "text": "Avoid philosophical discussions.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect "
+ },
+ {
+   "text": "Have difficulty understanding abstract ideas.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect "
+ },
+ {
+   "text": "Am not interested in theoretical discussions.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect "
+ },
+ {
+   "text": "Tend to vote for liberal political candidates.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Liberalism "
+ },
+ {
+   "text": "Believe in one true religion.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Liberalism "
+ },
+ {
+   "text": "Tend to vote for conservative political candidates.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Liberalism "
+ },
+ {
+   "text": "Like to stand during the national anthem.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Liberalism "
+ },
+ {
+   "text": "Trust others.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Trust"
+ },
+ {
+   "text": "Believe that others have good intentions.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Trust"
+ },
+ {
+   "text": "Trust what people say.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Trust"
+ },
+ {
+   "text": "Distrust people.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Trust"
+ },
+ {
+   "text": "Use flattery to get ahead.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Morality "
+ },
+ {
+   "text": "Know how to get around the rules.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Morality "
+ },
+ {
+   "text": "Cheat to get ahead.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Morality "
+ },
+ {
+   "text": "Take advantage of others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Morality "
+ },
+ {
+   "text": "Make people feel welcome.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Altruism "
+ },
+ {
+   "text": "Love to help others.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Altruism "
+ },
+ {
+   "text": "Am concerned about others.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Altruism "
+ },
+ {
+   "text": "Turn my back on others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Altruism "
+ },
+ {
+   "text": "Love a good fight.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Cooperation "
+ },
+ {
+   "text": "Yell at people.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Cooperation "
+ },
+ {
+   "text": "Insult people.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Cooperation "
+ },
+ {
+   "text": "Get back at others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Cooperation "
+ },
+ {
+   "text": "Believe that I am better than others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Modesty "
+ },
+ {
+   "text": "Think highly of myself.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Modesty "
+ },
+ {
+   "text": "Have a high opinion of myself.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Modesty "
+ },
+ {
+   "text": "Make myself the center of attention.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Modesty "
+ },
+ {
+   "text": "Sympathize with the homeless.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Sympathy "
+ },
+ {
+   "text": "Feel sympathy for those who are worse off than myself.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Sympathy "
+ },
+ {
+   "text": "Suffer from others’ sorrows.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Sympathy "
+ },
+ {
+   "text": "Am not interested in other people’s problems.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Sympathy "
+ },
+ {
+   "text": "Complete tasks successfully",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Self-Efficacy"
+ },
+ {
+   "text": "Excel in what I do.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Self-Efficacy"
+ },
+ {
+   "text": "Handle tasks smoothly.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Self-Efficacy"
+ },
+ {
+   "text": "Know how to get things done.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Self-Efficacy"
+ },
+ {
+   "text": "Like order.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness "
+ },
+ {
+   "text": "Like to tidy up.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness "
+ },
+ {
+   "text": "Leave a mess in my room.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Orderliness "
+ },
+ {
+   "text": "Leave my belongings around.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Orderliness "
+ },
+ {
+   "text": "Keep my promises.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Dutifulness "
+ },
+ {
+   "text": "Tell the truth.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Dutifulness "
+ },
+ {
+   "text": "Break my promises.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Dutifulness "
+ },
+ {
+   "text": "Get others to do my duties.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Dutifulness "
+ },
+ {
+   "text": "Work hard.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Achievement-Striving"
+ },
+ {
+   "text": "Do more than what’s expected of me.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Achievement-Striving"
+ },
+ {
+   "text": "Set high standards for myself and others.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Achievement-Striving"
+ },
+ {
+   "text": "Am not highly motivated to succeed.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Achievement-Striving"
+ },
+ {
+   "text": "Start tasks right away.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Self-Discipline"
+ },
+ {
+   "text": "Find it difficult to get down to work.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Self-Discipline"
+ },
+ {
+   "text": "Need a push to get started.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Self-Discipline"
+ },
+ {
+   "text": "Have difficulty starting tasks.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Self-Discipline"
+ },
+ {
+   "text": "Jump into things without thinking.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Cautiousness"
+ },
+ {
+   "text": "Make rash decisions.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Cautiousness"
+ },
+ {
+   "text": "Rush into things.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Cautiousness"
+ },
+ {
+   "text": "Act without thinking.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Cautiousness"
+ }
+]

@@ -15,11 +15,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         private val TAG = MainActivity::class.java.simpleName
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //set listeners for each button
+        mini20.setOnClickListener(this)
+        ipip50.setOnClickListener(this)
+        dqp100.setOnClickListener(this)
+        johnson120.setOnClickListener(this)
+        maples120.setOnClickListener(this)
+        costamccrae300.setOnClickListener(this)
+    }
+
     override fun onClick(v: View?) {
         val filename: String = when (v?.id) {
+            R.id.mini20 -> "mini_ipip.json"
             R.id.ipip50 -> "ipip50.json"
+            R.id.dqp100 -> "deyoung_quilty_peterson100.json"
             R.id.johnson120 -> "johnson120.json"
-            R.id.costamccrae300 -> "costamccrae300.json"
+            R.id.maples120 -> "maples120.json"
+            R.id.costamccrae300 -> "costa_mcrae300.json"
             else -> ERROR
         }
 
@@ -34,15 +50,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             putExtra(JSON_FILE, filename)
         }
         startActivity(intent)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        //set listeners for each button
-        ipip50.setOnClickListener(this)
-        johnson120.setOnClickListener(this)
-        costamccrae300.setOnClickListener(this)
     }
 }

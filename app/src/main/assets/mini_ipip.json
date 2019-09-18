@@ -1,0 +1,102 @@
+[
+ {
+   "text": "Am the life of the party.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Talk to a lot of different people at parties.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Don't talk a lot.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Keep in the background.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Sympathize with others' feelings.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Feel others' emotions.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Am not really interested in others.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Am not interested in other people's problems.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Get chores done right away.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Like order.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Often forget to put things back in their proper place.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Make a mess of things.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Have frequent mood swings.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Get upset easily.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Am relaxed most of the time.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Seldom feel blue.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Have a vivid imagination.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Have difficulty understanding abstract ideas.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Am not interested in abstract ideas.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Do not have a good imagination.",
+   "keyed": "minus",
+   "domain": "O"
+ }
+]

@@ -25,6 +25,7 @@ const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 //todo implement RecyclerView instead of just laying out all the questions
 //todo implement immersion mode
 //todo display questions in random order
+//todo implement facets? => complexity
 class QuizActivity : AppCompatActivity() {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
@@ -97,7 +98,11 @@ class QuizActivity : AppCompatActivity() {
         for (i in 0 until root.length()) {
             val element = root.getJSONObject(i)
 
-            val text = element.getString("text")
+            var text = element.getString("text")
+
+            //if the sentence doesn't end in a period, add one
+            if (text.takeLast(1) != ".") text += "."
+
             val keyed = element.getString("keyed")
             val domain = when (element.getString("domain")) {
                 "O" -> "Openness"
@@ -108,7 +113,15 @@ class QuizActivity : AppCompatActivity() {
                 else -> ERROR
             }
 
-            if (domain == ERROR) return emptyList()
+            if (domain == ERROR) {
+                Log.e(TAG, "Error detecting question domain!")
+                continue
+            }
+
+            if (TextUtils.isEmpty(text) || TextUtils.isEmpty(keyed) || TextUtils.isEmpty(domain)) {
+                Log.e(TAG, "Empty question found!")
+                continue
+            }
 
             arrayList.add(Question(text, keyed, domain))
         }
@@ -147,8 +160,7 @@ class QuizActivity : AppCompatActivity() {
 
             //make question text TextView
             val questionTextView = TextView(this)
-            val text = question.text + "."
-            questionTextView.text = text
+            questionTextView.text = question.text
             questionTextView.gravity = Gravity.CENTER_VERTICAL or Gravity.START
             questionTextView.setPadding(0, 10.px, 10.px, 10.px)
 

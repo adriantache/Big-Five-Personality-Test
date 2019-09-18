@@ -1,0 +1,602 @@
+[
+ {
+   "text": "Get angry easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Get upset easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Change my mood a lot.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Am a person whose moods go up and down easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Get easily agitated.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Can be stirred up easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Rarely get irritated.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Keep my emotions under control.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Rarely lose my composure.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Am not easily annoyed.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Volatility"
+ },
+ {
+   "text": "Am filled with doubts about things.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Feel threatened easily.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Worry about things.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Am easily discouraged.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Become overwhelmed by events.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Am afraid of many things.",
+   "keyed": "plus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Seldom feel blue.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Feel comfortable with myself.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Rarely feel depressed.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Am not embarrassed easily.",
+   "keyed": "minus",
+   "domain": "N",
+   "facet": "Withdrawal"
+ },
+ {
+   "text": "Feel others’ emotions.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Inquire about others’ well-being.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Sympathize with others’ feelings.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Take an interest in other people’s lives.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Like to do things for others.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Am not interested in other people’s problems.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Can’t be bothered with other’s needs.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Am indifferent to the feelings of others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Take no time for others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Don’t have a soft side.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Compassion"
+ },
+ {
+   "text": "Respect authority.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Hate to seem pushy.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Avoid imposing my will on others.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Rarely put people under pressure.",
+   "keyed": "plus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Insult people.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Believe that I am better than others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Take advantage of others.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Seek conflict.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Love a good fight.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Am out for my own personal gain.",
+   "keyed": "minus",
+   "domain": "A",
+   "facet": "Politeness"
+ },
+ {
+   "text": "Carry out my plans.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Finish what I start.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Get things done quickly.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Always know what I am doing.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Waste my time.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Find it difficult to get down to work.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Mess things up.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Don’t put my mind on the task at hand.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Postpone decisions.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Am easily distracted.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Industriousness"
+ },
+ {
+   "text": "Like order.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Keep things tidy.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Follow a schedule.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Want everything to be “just right.”",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "See that rules are observed.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Want every detail taken care of.",
+   "keyed": "plus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Leave my belongings around.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Am not bothered by messy people.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Am not bothered by disorder.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Dislike routine.",
+   "keyed": "minus",
+   "domain": "C",
+   "facet": "Orderliness"
+ },
+ {
+   "text": "Make friends easily.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Warm up quickly to others.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Show my feelings when I’m happy.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Have a lot of fun.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Laugh a lot.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Am hard to get to know.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Keep others at a distance.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Reveal little about myself.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Rarely get caught up in the excitement.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Am not a very enthusiastic person.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Enthusiasm"
+ },
+ {
+   "text": "Take charge.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Have a strong personality.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Know how to captivate people.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "See myself as a good leader.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Can talk others into doing things.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Am the first to act.",
+   "keyed": "plus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Do not have an assertive personality.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Lack the talent for influencing people.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Wait for others to lead the way.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Hold back my opinions.",
+   "keyed": "minus",
+   "domain": "E",
+   "facet": "Assertiveness"
+ },
+ {
+   "text": "Am quick to understand things.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Can handle a lot of information.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Like to solve complex problems.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Have a rich vocabulary.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Think quickly.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Formulate ideas clearly.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Have difficulty understanding abstract ideas.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Avoid philosophical discussions.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Avoid difficult reading material.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Learn things slowly.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Intellect"
+ },
+ {
+   "text": "Enjoy the beauty of nature.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Believe in the importance of art.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Love to reflect on things.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Get deeply immersed in music.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "See beauty in things that others might not notice.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Need a creative outlet.",
+   "keyed": "plus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Do not like poetry.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Seldom get lost in thought.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Seldom daydream.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Openness"
+ },
+ {
+   "text": "Seldom notice the emotional aspects of paintings and pictures.",
+   "keyed": "minus",
+   "domain": "O",
+   "facet": "Openness"
+ }
+]

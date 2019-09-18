@@ -30,9 +30,12 @@ class ResultsActivity : AppCompatActivity() {
         val filename = intent.getStringExtra(JSON_FILE)
         descriptionText = "Thank you for completing the " +
                 when (filename) {
+                    "mini_ipip.json" -> "20 item Mini-IPIP"
                     "ipip50.json" -> "50 item IPIP-NEO-PI-R"
+                    "deyoung_quilty_peterson100.json" -> "DeYoung, Quilty and Peterson 100-item NEO-PI-R"
                     "johnson120.json" -> "Johnson 120 item IPIP-NEO-PI-R"
-                    "costamccrae300.json" -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
+                    "maples120.json"-> "Maples 120 item IPIP NEO-PI-R"
+                    "costa_mcrae300.json" -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
                     else -> ERROR
                 } + " version of the Big Five Markers personality test. You can find additional details " +
                 "about this test by going to ipip.ori.org or visiting the Wikipedia entry using the button " +
@@ -84,8 +87,8 @@ class ResultsActivity : AppCompatActivity() {
 
         //set color of chart column based on value
         series.valueDependentColor = ValueDependentColor { data ->
-            val percent: Double = abs(data.y / max)
-            return@ValueDependentColor Color.rgb(100, (percent * 255 / 2).toInt(), 100)
+            val percent: Double = abs((data.y - min) / (max - min))
+            return@ValueDependentColor Color.rgb(50, (percent * 255).toInt(), 50)
         }
 
         //tweak some graphical graph stuff
