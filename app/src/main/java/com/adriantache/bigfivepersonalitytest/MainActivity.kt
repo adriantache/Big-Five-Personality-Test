@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //set listeners for each button
         mini20.setOnClickListener(this)
         ipip50.setOnClickListener(this)
+        neo50.setOnClickListener(this)
+        neo100.setOnClickListener(this)
         dqp100.setOnClickListener(this)
         johnson120.setOnClickListener(this)
         maples120.setOnClickListener(this)
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val filename: String = when (v?.id) {
             R.id.mini20 -> "mini_ipip.json"
             R.id.ipip50 -> "ipip50.json"
+            R.id.neo50 -> "neo_pi_r50.json"
+            R.id.neo100 -> "neo_pi_r100.json"
             R.id.dqp100 -> "deyoung_quilty_peterson100.json"
             R.id.johnson120 -> "johnson120.json"
             R.id.maples120 -> "maples120.json"

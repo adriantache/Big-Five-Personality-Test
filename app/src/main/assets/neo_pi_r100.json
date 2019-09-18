@@ -1,0 +1,502 @@
+[
+ {
+   "text": "Often feel blue.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Dislike myself.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Am often down in the dumps.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Have frequent mood swings.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Panic easily.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Am filled with doubts about things.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Feel threatened easily.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Get stressed out easily.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Fear for the worst.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Worry about things.",
+   "keyed": "plus",
+   "domain": "N"
+ },
+ {
+   "text": "Seldom feel blue.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Feel comfortable with myself.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Rarely get irritated.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Am not easily bothered by things.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Am very pleased with myself.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Am relaxed most of the time.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Seldom get mad.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Am not easily frustrated.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Remain calm under pressure.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Rarely lose my composure.",
+   "keyed": "minus",
+   "domain": "N"
+ },
+ {
+   "text": "Feel comfortable around people.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Make friends easily.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Am skilled in handling social situations.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Am the life of the party.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Know how to captivate people.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Start conversations.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Warm up quickly to others.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Talk to a lot of different people at parties.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Don't mind being the center of attention.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Cheer people up.",
+   "keyed": "plus",
+   "domain": "E"
+ },
+ {
+   "text": "Have little to say.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Keep in the background.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Would describe my experiences as somewhat dull.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Don't like to draw attention to myself.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Don't talk a lot.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Avoid contacts with others.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Am hard to get to know.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Retreat from others.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Find it difficult to approach others.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Keep others at a distance.",
+   "keyed": "minus",
+   "domain": "E"
+ },
+ {
+   "text": "Believe in the importance of art.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Have a vivid imagination.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Tend to vote for liberal political candidates.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Carry the conversation to a higher level.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Enjoy hearing new ideas.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Enjoy thinking about things.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Can say things beautifully.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Enjoy wild flights of fantasy.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Get excited by new ideas.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Have a rich vocabulary.",
+   "keyed": "plus",
+   "domain": "O"
+ },
+ {
+   "text": "Am not interested in abstract ideas.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Do not like art.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Avoid philosophical discussions.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Do not enjoy going to art museums.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Tend to vote for conservative political candidates.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Do not like poetry.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Rarely look for a deeper meaning in things.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Believe that too much tax money goes to support artists.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Am not interested in theoretical discussions.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Have difficulty understanding abstract ideas.",
+   "keyed": "minus",
+   "domain": "O"
+ },
+ {
+   "text": "Have a good word for everyone.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Believe that others have good intentions.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Respect others.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Accept people as they are.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Make people feel at ease.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Am concerned about others.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Trust what people say.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Sympathize with others' feelings.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Am easy to satisfy.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Treat all people equally.",
+   "keyed": "plus",
+   "domain": "A"
+ },
+ {
+   "text": "Have a sharp tongue.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Cut others to pieces.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Suspect hidden motives in others.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Get back at others.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Insult people.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Believe that I am better than others.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Contradict others.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Make demands on others.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Hold a grudge.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Am out for my own personal gain.",
+   "keyed": "minus",
+   "domain": "A"
+ },
+ {
+   "text": "Am always prepared.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Pay attention to details.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Get chores done right away.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Carry out my plans.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Make plans and stick to them.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Complete tasks successfully.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Do things according to a plan.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Am exacting in my work.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Finish what I start.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Follow through with my plans.",
+   "keyed": "plus",
+   "domain": "C"
+ },
+ {
+   "text": "Waste my time.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Find it difficult to get down to work.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Do just enough work to get by.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Don't see things through.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Shirk my duties.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Mess things up.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Leave things unfinished.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Don't put my mind on the task at hand.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Make a mess of things.",
+   "keyed": "minus",
+   "domain": "C"
+ },
+ {
+   "text": "Need a push to get started.",
+   "keyed": "minus",
+   "domain": "C"
+ }
+]

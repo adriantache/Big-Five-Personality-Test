@@ -45,11 +45,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="IPIP 50-item"
-        app:layout_constraintBottom_toTopOf="@+id/dqp100"
+        app:layout_constraintBottom_toTopOf="@+id/neo50"
         app:layout_constraintEnd_toEndOf="@+id/label"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/label"
         app:layout_constraintTop_toBottomOf="@+id/mini20" />
+
+    <Button
+        android:id="@+id/neo50"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="50-item NEO-PI-R"
+        app:layout_constraintBottom_toTopOf="@+id/neo100"
+        app:layout_constraintEnd_toEndOf="@+id/label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/label"
+        app:layout_constraintTop_toBottomOf="@+id/ipip50" />
+
+    <Button
+        android:id="@+id/neo100"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="100-item NEO-PI-R"
+        app:layout_constraintBottom_toTopOf="@+id/dqp100"
+        app:layout_constraintEnd_toEndOf="@+id/label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/label"
+        app:layout_constraintTop_toBottomOf="@+id/neo50" />
 
     <Button
         android:id="@+id/dqp100"
@@ -60,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="@+id/label"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/label"
-        app:layout_constraintTop_toBottomOf="@+id/ipip50"
+        app:layout_constraintTop_toBottomOf="@+id/neo100"
         app:layout_constraintBottom_toTopOf="@+id/johnson120"/>
 
     <Button
