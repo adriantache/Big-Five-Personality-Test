@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.dqp100 -> "deyoung_quilty_peterson100.json"
             R.id.johnson120 -> "johnson120.json"
             R.id.maples120 -> "maples120.json"
-            R.id.costamccrae300 -> "costa_mcrae300.json"
+            R.id.costamccrae300 -> "costa_mccrae300.json"
             else -> ERROR
         }
 

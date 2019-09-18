@@ -32,12 +32,12 @@ class ResultsActivity : AppCompatActivity() {
                 when (filename) {
                     "mini_ipip.json" -> "20 item Mini-IPIP"
                     "ipip50.json" -> "50 item IPIP-NEO-PI-R"
-                     "neo_pi_r50.json" -> "50 item NEO-PI-R"
+                    "neo_pi_r50.json" -> "50 item NEO-PI-R"
                     "neo_pi_r100.json" -> "100 item NEO-PI-R"
                     "deyoung_quilty_peterson100.json" -> "DeYoung, Quilty and Peterson 100-item NEO-PI-R"
                     "johnson120.json" -> "Johnson 120 item IPIP-NEO-PI-R"
-                    "maples120.json"-> "Maples 120 item IPIP NEO-PI-R"
-                    "costa_mcrae300.json" -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
+                    "maples120.json" -> "Maples 120 item IPIP NEO-PI-R"
+                    "costa_mccrae300.json" -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
                     else -> ERROR
                 } + " version of the Big Five Markers personality test. You can find additional details " +
                 "about this test by going to ipip.ori.org or visiting the Wikipedia entry using the button " +

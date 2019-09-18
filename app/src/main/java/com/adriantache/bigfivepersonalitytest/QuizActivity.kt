@@ -1,7 +1,9 @@
 package com.adriantache.bigfivepersonalitytest
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 import org.json.JSONArray
 import java.io.IOException
 import java.nio.charset.Charset
+
 
 const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 
@@ -41,6 +44,29 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var answers: IntArray
 
     private lateinit var filename: String
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+
+        //if available, enter immersive mode while in the Quiz activity
+        if (hasFocus && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) hideSystemUI()
+    }
+
+    @SuppressLint("InlinedApi")
+    private fun hideSystemUI() {
+        // Enables regular immersive mode.
+        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                // Set the content to appear under the system bars so that the
+                // content doesn't resize when the system bars hide and show.
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +92,12 @@ class QuizActivity : AppCompatActivity() {
         } else {
             Log.e(TAG, "Error getting Question array!")
             finish()
+        }
+
+        Runnable {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                isImmersive = true
+            }
         }
     }
 
