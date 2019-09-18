@@ -23,4 +23,4 @@ have not been tested by a psychologist
 
 **Screenshots:**
 
-![Main Screen](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/1.png) ![Results](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/2.png)
+![Main Screen](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/0.png) ![Quiz Screen](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/1.png) ![Results](https://github.com/adriantache/Big-Five-Personality-Test/blob/master/2.png)
