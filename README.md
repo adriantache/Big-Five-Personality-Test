@@ -10,6 +10,8 @@ instructions and questions from [this page](http://ipip.ori.org/New_IPIP-50-item
 In order to show the results of the test I used a [GraphView](https://github.com/appsthatmatter/GraphView) so thanks to @appsthatmatter
 for that functionality. 
 
+**UPDATE 09/2019: Completely rewrote app in Kotlin and replaced the fixed layout with one that is programatically generated. There was also an issue with scoring that is now fixed. Added extra test variants (from @alheimsins) and improved the automatically generated results text. Still some improvements to be made so keep an eye on the commits.**
+
 **Please try out the app and report any bugs.**
 
 **Features I'd like to implement:** Please see the [Issues section](https://github.com/adriantache/Big-Five-Personality-Test/issues)
