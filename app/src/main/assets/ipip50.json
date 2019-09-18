@@ -1,0 +1,302 @@
+[
+  {
+    "id": "f5987fe0-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Believe in the importance of art",
+    "keyed": "plus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe1-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Have a vivid imagination",
+    "keyed": "plus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe2-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Tend to vote for liberal political candidates",
+    "keyed": "plus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe3-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Carry the conversation to a higher level",
+    "keyed": "plus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe4-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Enjoy hearing new ideas",
+    "keyed": "plus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe5-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am not interested in abstract ideas",
+    "keyed": "minus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe6-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Do not like art",
+    "keyed": "minus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe7-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Avoid philosophical discussions",
+    "keyed": "minus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe8-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Do not enjoy going to art museums",
+    "keyed": "minus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fe9-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Tend to vote for conservative political candidates",
+    "keyed": "minus",
+    "domain": "O"
+  },
+  {
+    "id": "f5987fea-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Often feel blue",
+    "keyed": "plus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987feb-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Dislike myself",
+    "keyed": "plus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987fec-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am often down in the dumps",
+    "keyed": "plus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987fed-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Have frequent mood swings",
+    "keyed": "plus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987fee-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Panic easily",
+    "keyed": "plus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987fef-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Rarely get irritated",
+    "keyed": "minus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987ff0-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Seldom feel blue",
+    "keyed": "minus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987ff1-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Feel comfortable with myself",
+    "keyed": "minus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987ff2-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am not easily bothered by things",
+    "keyed": "minus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987ff3-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am very pleased with myself",
+    "keyed": "minus",
+    "domain": "N"
+  },
+  {
+    "id": "f5987ff4-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Feel comfortable around people",
+    "keyed": "plus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ff5-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Make friends easily",
+    "keyed": "plus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ff6-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am skilled in handling social situations",
+    "keyed": "plus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ff7-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am the life of the party",
+    "keyed": "plus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ff8-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Know how to captivate people",
+    "keyed": "plus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ff9-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Have little to say",
+    "keyed": "minus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ffa-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Keep in the background",
+    "keyed": "minus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ffb-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Would describe my experiences as somewhat dull",
+    "keyed": "minus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ffc-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Don't like to draw attention to myself",
+    "keyed": "minus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ffd-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Don't talk a lot",
+    "keyed": "minus",
+    "domain": "E"
+  },
+  {
+    "id": "f5987ffe-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Am always prepared",
+    "keyed": "plus",
+    "domain": "C"
+  },
+  {
+    "id": "f5987fff-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Pay attention to details",
+    "keyed": "plus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988000-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Get chores done right away",
+    "keyed": "plus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988001-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Carry out my plans",
+    "keyed": "plus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988002-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Make plans and stick to them",
+    "keyed": "plus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988003-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Waste my time",
+    "keyed": "minus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988004-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Find it difficult to get down to work",
+    "keyed": "minus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988005-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Do just enough work to get by",
+    "keyed": "minus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988006-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Don't see things through",
+    "keyed": "minus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988007-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Shirk my duties",
+    "keyed": "minus",
+    "domain": "C"
+  },
+  {
+    "id": "f5988008-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Have a good word for everyone",
+    "keyed": "plus",
+    "domain": "A"
+  },
+  {
+    "id": "f5988009-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Believe that others have good intentions",
+    "keyed": "plus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f0-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Respect others",
+    "keyed": "plus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f1-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Accept people as they are",
+    "keyed": "plus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f2-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Make people feel at ease",
+    "keyed": "plus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f3-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Have a sharp tongue",
+    "keyed": "minus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f4-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Cut others to pieces",
+    "keyed": "minus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f5-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Suspect hidden motives in others",
+    "keyed": "minus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f6-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Get back at others",
+    "keyed": "minus",
+    "domain": "A"
+  },
+  {
+    "id": "f598a6f7-ca1b-11e8-99c5-7b2468b8a6ec",
+    "text": "Insult people",
+    "keyed": "minus",
+    "domain": "A"
+  }
+]

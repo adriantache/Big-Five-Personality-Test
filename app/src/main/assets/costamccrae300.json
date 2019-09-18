@@ -1,0 +1,2102 @@
+[
+  {
+    "text": "Worry about things",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 1,
+    "id": "6fc75954-2833-460e-b02d-e0ad0601b2b2"
+  },
+  {
+    "text": "Fear for the worst",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 1,
+    "id": "519d3982-75b7-45f0-b014-836982372a58"
+  },
+  {
+    "text": "Am afraid of many things",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 1,
+    "id": "01ae3285-bc31-43fb-aa69-a36a1ae0677c"
+  },
+  {
+    "text": "Get stressed out easily",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 1,
+    "id": "e036a2eb-2984-412c-8783-63a44a55ff08"
+  },
+  {
+    "text": "Get caught up in my problems",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 1,
+    "id": "960b8f2c-f0c5-4945-a99d-456a27a3a045"
+  },
+  {
+    "text": "Am not easily bothered by things",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 1,
+    "id": "c283c5bd-4708-432e-92c1-63213aa28f59"
+  },
+  {
+    "text": "Am relaxed most of the time",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 1,
+    "id": "63d1d0eb-810b-4bec-a046-cd1045de615d"
+  },
+  {
+    "text": "Am not easily disturbed by events",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 1,
+    "id": "91a4597b-fcd5-49f2-a7e9-9864a0401424"
+  },
+  {
+    "text": "Don't worry about things that have already happened",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 1,
+    "id": "7ee1575a-5d81-471d-aa7f-ca0bcef11172"
+  },
+  {
+    "text": "Adapt easily to new situations",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 1,
+    "id": "8ea0191c-cd35-4d01-a5c6-fea2aa251854"
+  },
+  {
+    "text": "Get angry easily",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 2,
+    "id": "764d1136-41b9-4bf8-9bd8-1450c30b1be4"
+  },
+  {
+    "text": "Get irritated easily",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 2,
+    "id": "2491cc05-b4db-4ed1-b340-3d735d940d7f"
+  },
+  {
+    "text": "Get upset easily",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 2,
+    "id": "05ee94b9-fb7e-487a-8677-18d872252ac1"
+  },
+  {
+    "text": "Am often in a bad mood",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 2,
+    "id": "3b157ca6-51da-489c-aab0-b6ba350c0e62"
+  },
+  {
+    "text": "Lose my temper",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 2,
+    "id": "1a9bc6f7-e5a5-4181-88c7-1195131dc557"
+  },
+  {
+    "text": "Rarely get irritated",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 2,
+    "id": "fc8c518e-30b7-4ccd-a7a3-bc7452b888d8"
+  },
+  {
+    "text": "Seldom get mad",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 2,
+    "id": "6f1a23df-1140-4f49-b2c2-8208bd33247f"
+  },
+  {
+    "text": "Am not easily annoyed",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 2,
+    "id": "3ad9e3a1-451b-4bc2-95a9-232b612abde2"
+  },
+  {
+    "text": "Keep my cool",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 2,
+    "id": "48a11455-7fa1-4b65-aaa4-fcea85e7ca26"
+  },
+  {
+    "text": "Rarely complain",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 2,
+    "id": "1fec5a65-4bea-431c-95b4-d7ec0b38b7f4"
+  },
+  {
+    "text": "Often feel blue",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "3216d422-6650-4e7b-b9fb-bc62694bffdd"
+  },
+  {
+    "text": "Dislike myself",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "c3b13cf0-b22d-4c0b-948f-763c37d8ce77"
+  },
+  {
+    "text": "Am often down in the dumps",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "9d3416ba-8b6d-42e4-a431-92b74a79c163"
+  },
+  {
+    "text": "Have a low opinion of myself",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "a6e1fe76-6c5a-4dea-b42b-b3dbbeae1ccd"
+  },
+  {
+    "text": "Have frequent mood swings",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "815e5ed1-f142-4fde-8c66-c1c2908355a7"
+  },
+  {
+    "text": "Feel desperate",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "75becbce-0173-43c4-a6e0-d47c832f59a8"
+  },
+  {
+    "text": "Feel that my life lacks direction",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 3,
+    "id": "588cad98-abb6-4b0b-8360-8df4b92de2a9"
+  },
+  {
+    "text": "Seldom feel blue",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 3,
+    "id": "d588951f-9f6f-43ac-bb56-733e3ad31ea5"
+  },
+  {
+    "text": "Feel comfortable with myself",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 3,
+    "id": "779ff959-11b5-4ead-8dfc-e5e9875e8601"
+  },
+  {
+    "text": "Am very pleased with myself",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 3,
+    "id": "7e20a189-d1cd-4864-814e-e814e778e53d"
+  },
+  {
+    "text": "Am easily intimidated",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 4,
+    "id": "99980530-a7ff-46f3-8601-662c4536b896"
+  },
+  {
+    "text": "Am afraid that I will do the wrong thing",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 4,
+    "id": "f5bb463a-58b2-476f-9d3e-1a0fa5913d8f"
+  },
+  {
+    "text": "Find it difficult to approach others",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 4,
+    "id": "a02679cb-97ac-4d17-aac1-a7954493dc68"
+  },
+  {
+    "text": "Am afraid to draw attention to myself",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 4,
+    "id": "0238af9e-0100-46ca-82fa-c5ffdf26566c"
+  },
+  {
+    "text": "Only feel comfortable with friends",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 4,
+    "id": "5fe567e9-fc74-4595-9a69-e715db94d7c5"
+  },
+  {
+    "text": "Stumble over my words",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 4,
+    "id": "ff4bb73e-a7ef-4994-aa59-5fdbf546bd4b"
+  },
+  {
+    "text": "Am not embarrassed easily",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 4,
+    "id": "377927b2-d1e3-41ce-836f-f582d9879757"
+  },
+  {
+    "text": "Am comfortable in unfamiliar situations",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 4,
+    "id": "1718ccf5-ae6d-49f8-87ba-7b3d82ca4bb3"
+  },
+  {
+    "text": "Am not bothered by difficult social situations",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 4,
+    "id": "c600557a-bbac-41f4-9d39-bd70cba98b17"
+  },
+  {
+    "text": "Am able to stand up for myself",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 4,
+    "id": "d5f545b5-3f64-4bd6-a658-09d08b08703a"
+  },
+  {
+    "text": "Often eat too much",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 5,
+    "id": "3c0982f1-9d45-4448-88ca-801f7baa17ef"
+  },
+  {
+    "text": "Don't know why I do some of the things I do",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 5,
+    "id": "4ac94939-eefb-47cc-83b7-4ad17fc81b87"
+  },
+  {
+    "text": "Do things I later regret",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 5,
+    "id": "3204c1b7-0d1f-487a-a0c1-305305d23481"
+  },
+  {
+    "text": "Go on binges",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 5,
+    "id": "9876c42f-87c3-44e6-9ce3-d9c3d72c01e9"
+  },
+  {
+    "text": "Love to eat",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 5,
+    "id": "1def64fa-0981-4a67-a8c1-6cd72b89dc2b"
+  },
+  {
+    "text": "Rarely overindulge",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 5,
+    "id": "65ccf846-e425-4c9c-afae-d3f2698a6be0"
+  },
+  {
+    "text": "Easily resist temptations",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 5,
+    "id": "f1335b50-fa57-46d5-b118-f2dcc7441dd6"
+  },
+  {
+    "text": "Am able to control my cravings",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 5,
+    "id": "6b7846e1-4fda-44a4-807a-1baae198acbe"
+  },
+  {
+    "text": "Never spend more than I can afford",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 5,
+    "id": "44de0f88-b8e8-44c3-8ef9-c53bc468066f"
+  },
+  {
+    "text": "Never splurge",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 5,
+    "id": "22db2b4a-a15e-4258-8e81-8380248bc7ab"
+  },
+  {
+    "text": "Panic easily",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 6,
+    "id": "9a348dc1-7e95-43b3-81cd-5e5e49d6995d"
+  },
+  {
+    "text": "Become overwhelmed by events",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 6,
+    "id": "391053b9-5752-4d4d-af98-bceddee16b9d"
+  },
+  {
+    "text": "Feel that I'm unable to deal with things",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 6,
+    "id": "ef0e557a-a7a9-423a-9400-e6cf01c9c55c"
+  },
+  {
+    "text": "Can't make up my mind",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 6,
+    "id": "169ce733-2821-4209-9d69-09d06f6b8ae7"
+  },
+  {
+    "text": "Get overwhelmed by emotions",
+    "keyed": "plus",
+    "domain": "N",
+    "facet": 6,
+    "id": "667c41be-5acc-4094-a897-b364cc4de1cc"
+  },
+  {
+    "text": "Remain calm under pressure",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 6,
+    "id": "42d1948d-eb3a-4152-936d-4d082e6ade4d"
+  },
+  {
+    "text": "Can handle complex problems",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 6,
+    "id": "91894864-34eb-45aa-afe2-4b5b663767c1"
+  },
+  {
+    "text": "Know how to cope",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 6,
+    "id": "6020ab5f-16cb-4c3d-a99b-ca8013a21f03"
+  },
+  {
+    "text": "Readily overcome setbacks",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 6,
+    "id": "68c47289-d359-42fa-a588-475a0bd973c9"
+  },
+  {
+    "text": "Am calm even in tense situations",
+    "keyed": "minus",
+    "domain": "N",
+    "facet": 6,
+    "id": "6993c4d3-6659-4937-bc92-736f49bc9da6"
+  },
+  {
+    "text": "Make friends easily",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 1,
+    "id": "bca49adc-eaeb-474d-ad55-9c6cd5f92770"
+  },
+  {
+    "text": "Make friends easily",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 1,
+    "id": "d3adbc45-54f6-49f4-8162-4d1f2c410362"
+  },
+  {
+    "text": "Feel comfortable around people",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 1,
+    "id": "41cfbd36-5a3a-4d12-be8f-94ec1bc8ccf3"
+  },
+  {
+    "text": "Act comfortably with others",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 1,
+    "id": "95d2c594-e11e-4dd7-b3e9-a48a820dbe45"
+  },
+  {
+    "text": "Cheer people up",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 1,
+    "id": "258aed7a-13ed-4da0-bf0e-9edb3513199e"
+  },
+  {
+    "text": "Am hard to get to know",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 1,
+    "id": "134c83fd-fe4f-4668-b3cd-898914832f78"
+  },
+  {
+    "text": "Often feel uncomfortable around others",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 1,
+    "id": "c2abb50d-930b-44bf-b730-12846a784e7a"
+  },
+  {
+    "text": "Avoid contacts with others",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 1,
+    "id": "9527b6cf-daac-4f2b-9163-5d2b53df99cb"
+  },
+  {
+    "text": "Am not really interested in others",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 1,
+    "id": "c74ded17-0df6-4e6f-97ca-dfcabe6de625"
+  },
+  {
+    "text": "Keep others at a distance",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 1,
+    "id": "08d1fafc-9c05-46b1-a32c-9b18880f5b22"
+  },
+  {
+    "text": "Love large parties",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 2,
+    "id": "22832d1e-88f0-44ec-ad98-eb834deb64e2"
+  },
+  {
+    "text": "Talk to a lot of different people at parties",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 2,
+    "id": "8fbb10bd-de01-482f-b41f-a472ecf6bbdc"
+  },
+  {
+    "text": "Enjoy being part of a group",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 2,
+    "id": "c5104d6e-fc00-4204-b8f2-2ca9c7a91044"
+  },
+  {
+    "text": "Involve others in what I am doing",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 2,
+    "id": "a3fcbb62-36a6-4803-b400-640be5dd478c"
+  },
+  {
+    "text": "Love surprise parties",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 2,
+    "id": "51347542-799a-49fb-9bd7-74dbbdc66a25"
+  },
+  {
+    "text": "Prefer to be alone",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 2,
+    "id": "90811d4c-3a26-4236-aed6-4c6076c04189"
+  },
+  {
+    "text": "Want to be left alone",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 2,
+    "id": "114aacc4-179c-4760-a01c-41dc525a4344"
+  },
+  {
+    "text": "Don't like crowded events",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 2,
+    "id": "177f1aee-085a-4a94-a288-a510c8a02234"
+  },
+  {
+    "text": "Avoid crowds",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 2,
+    "id": "9a716238-f978-4a01-a2ac-f3ab9b08f170"
+  },
+  {
+    "text": "Seek quiet",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 2,
+    "id": "29d801e2-a1cf-4b7e-9f6c-b48235bf33dc"
+  },
+  {
+    "text": "Take charge",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 3,
+    "id": "873d400d-177c-494b-af7c-d75f6a5ec135"
+  },
+  {
+    "text": "Try to lead others",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 3,
+    "id": "fd80358c-6ec1-4b42-9b3c-b3aaa0583f6f"
+  },
+  {
+    "text": "Can talk others into doing things",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 3,
+    "id": "dc24a21a-70ad-4830-94ae-4c15a5d14c58"
+  },
+  {
+    "text": "Seek to influence others",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 3,
+    "id": "376b2fb8-baa6-45b1-88b0-2a7970a24ba3"
+  },
+  {
+    "text": "Take control of things",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 3,
+    "id": "f745bf3f-1513-4228-916c-8f8bcba2c3d1"
+  },
+  {
+    "text": "Wait for others to lead the way",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 3,
+    "id": "5dd6fd2e-d03f-4f08-936b-d0433808b467"
+  },
+  {
+    "text": "Keep in the background",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 3,
+    "id": "e98b7166-6e28-4b07-adb8-a37b107d8259"
+  },
+  {
+    "text": "Have little to say",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 3,
+    "id": "9cafc31e-9798-48dd-86b8-3140092836e3"
+  },
+  {
+    "text": "Don't like to draw attention to myself",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 3,
+    "id": "7e3469cc-5b19-472d-9efe-1ae4544ff533"
+  },
+  {
+    "text": "Hold back my opinions",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 3,
+    "id": "fce1f1ba-fc50-48b0-96a8-acdcbcefe6a9"
+  },
+  {
+    "text": "Am always busy",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 4,
+    "id": "345ff3ca-0b2a-4e66-be2e-5367a98efa91"
+  },
+  {
+    "text": "Am always on the go",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 4,
+    "id": "00716fdb-ab8f-49d8-9071-a5105b56f5a6"
+  },
+  {
+    "text": "Do a lot in my spare time",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 4,
+    "id": "3851f1f9-7a04-467c-b525-708ac18600f7"
+  },
+  {
+    "text": "Can manage many things at the same time",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 4,
+    "id": "76234c40-1caa-46c3-ba7d-c14e9f1ea490"
+  },
+  {
+    "text": "React quickly",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 4,
+    "id": "621858e9-a1fe-46b3-95f6-669245c30dd2"
+  },
+  {
+    "text": "Like to take it easy",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 4,
+    "id": "954a04fa-c18f-4361-b74e-0917b20ee841"
+  },
+  {
+    "text": "Like to take my time",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 4,
+    "id": "5e418561-ab9d-4a94-baf8-6fd883740298"
+  },
+  {
+    "text": "Like a leisurely lifestyle",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 4,
+    "id": "4a0732cc-3fed-4cfd-875c-f96dd19c556f"
+  },
+  {
+    "text": "Let things proceed at their own pace",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 4,
+    "id": "933dea00-d64e-46de-ac3f-5a17697ac8e0"
+  },
+  {
+    "text": "React slowly",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 4,
+    "id": "9dc306d8-6bda-4226-acee-351988d87f30"
+  },
+  {
+    "text": "Love excitement",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "c8b619c6-2d53-4c6e-8d3c-fa0756e6414a"
+  },
+  {
+    "text": "Seek adventure",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "7c22ae6a-d0cb-4dcc-8e10-b1f78f8233ef"
+  },
+  {
+    "text": "Love action",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "9b49574b-8f22-4ba9-9526-eda3925379a1"
+  },
+  {
+    "text": "Enjoy being part of a loud crowd",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "552fd5b2-c451-4799-ae3d-e25a353bb025"
+  },
+  {
+    "text": "Enjoy being reckless",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "12d4782f-8e62-4ce2-a94d-01a966a44235"
+  },
+  {
+    "text": "Act wild and crazy",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "06d3df4e-bd2c-4737-bf80-751f12b30446"
+  },
+  {
+    "text": "Am willing to try anything once",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "d890d6ac-8fd7-40cb-8c05-952dff490cc9"
+  },
+  {
+    "text": "Seek danger",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 5,
+    "id": "7bf0bb4c-9a45-4e03-a5e8-feca61ce262b"
+  },
+  {
+    "text": "Would never go hang gliding or bungee jumping",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 5,
+    "id": "0b9d1c26-ac35-4559-b069-3031c602e9ca"
+  },
+  {
+    "text": "Dislike loud music",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 5,
+    "id": "ed095509-8bf9-49f9-96e1-3eb57c2a43f8"
+  },
+  {
+    "text": "Radiate joy",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "905b34ce-fc90-41c0-9fc4-e89ee16160dc"
+  },
+  {
+    "text": "Have a lot of fun",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "9a9ee557-7023-44e5-b16c-c29467f98c74"
+  },
+  {
+    "text": "Express childlike joy",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "651838ec-44b1-4e00-b577-1a10e895ed99"
+  },
+  {
+    "text": "Laugh my way through life",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "f33b5f83-35b9-4b28-b303-be2d0defd452"
+  },
+  {
+    "text": "Love life",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "e5761bdb-481e-4930-b328-ee4b14c95d4e"
+  },
+  {
+    "text": "Look at the bright side of life",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "b49f1e95-c0c7-41fc-900c-9d3b3b9b23ad"
+  },
+  {
+    "text": "Laugh aloud",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "43074d68-071f-4dd0-9929-b87d923248f2"
+  },
+  {
+    "text": "Amuse my friends",
+    "keyed": "plus",
+    "domain": "E",
+    "facet": 6,
+    "id": "fda25ed6-33db-4da7-bb3a-1dfc0be494e9"
+  },
+  {
+    "text": "Am not easily amused",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 6,
+    "id": "7418faa6-cdfe-4890-ac83-0ef751df5627"
+  },
+  {
+    "text": "Seldom joke around",
+    "keyed": "minus",
+    "domain": "E",
+    "facet": 6,
+    "id": "588256fc-b70a-4c8d-b5ee-4bef3823760b"
+  },
+  {
+    "text": "Have a vivid imagination",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 1,
+    "id": "a6af1b8a-b0b8-49e7-9493-e14843d2d08b"
+  },
+  {
+    "text": "Enjoy wild flights of fantasy",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 1,
+    "id": "f83df8ad-e2e4-4a6f-8d39-f35c4c3dddc8"
+  },
+  {
+    "text": "Love to daydream",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 1,
+    "id": "2efd44dc-a9ee-4f30-8154-9d9b979c05d3"
+  },
+  {
+    "text": "Like to get lost in thought",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 1,
+    "id": "b74bb1bc-9122-438c-8ce2-c0b9b9711836"
+  },
+  {
+    "text": "Indulge in my fantasies",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 1,
+    "id": "ca2633aa-03aa-437d-b274-59056113fd9d"
+  },
+  {
+    "text": "Spend time reflecting on things",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 1,
+    "id": "09bec973-85ca-45ca-b749-0815645b3dd8"
+  },
+  {
+    "text": "Seldom daydream",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 1,
+    "id": "65075f79-0618-4405-a30a-bddd2033e488"
+  },
+  {
+    "text": "Do not have a good imagination",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 1,
+    "id": "1596ddd9-f814-44ce-a8b3-b022b05c1be4"
+  },
+  {
+    "text": "Seldom get lost in thought",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 1,
+    "id": "672dd713-e45a-4db2-83fb-a343672ef0e5"
+  },
+  {
+    "text": "Have difficulty imagining things",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 1,
+    "id": "e750f9bc-e5a2-4be0-a1d9-9bd44404c8f4"
+  },
+  {
+    "text": "Believe in the importance of art",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 2,
+    "id": "2811c270-0a1f-41d4-b8e4-9f66b5fe5d9a"
+  },
+  {
+    "text": "Like music",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 2,
+    "id": "00e5db36-c57a-493a-a247-e930ba4adab8"
+  },
+  {
+    "text": "See beauty in things that others might not notice",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 2,
+    "id": "14b1909c-f8a5-438b-96e5-4bafb6e48e4e"
+  },
+  {
+    "text": "Love flowers",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 2,
+    "id": "484b254d-a6e6-48c9-8260-b80993c827dd"
+  },
+  {
+    "text": "Enjoy the beauty of nature",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 2,
+    "id": "56882cde-d659-4362-b671-9edf4c9e8776"
+  },
+  {
+    "text": "Do not like art",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 2,
+    "id": "0f7c46a9-206f-4904-878c-cc04c80b2b73"
+  },
+  {
+    "text": "Do not like poetry",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 2,
+    "id": "d2a20236-cbe2-454d-9c4f-c9431594e290"
+  },
+  {
+    "text": "Do not enjoy going to art museums",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 2,
+    "id": "2700cd47-3bf0-4a02-88e7-4371b0118b9f"
+  },
+  {
+    "text": "Do not like concerts",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 2,
+    "id": "e0146dc4-3bd6-4bf3-9333-c395903b7634"
+  },
+  {
+    "text": "Do not enjoy watching dance performances",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 2,
+    "id": "1dd6562b-1f2f-40ef-bc3b-de9cf29726bd"
+  },
+  {
+    "text": "Experience my emotions intensely",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 3,
+    "id": "e02863d6-675e-40e5-be03-0c01583c3cc3"
+  },
+  {
+    "text": "Feel others' emotions",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 3,
+    "id": "6177fab6-7991-4fa5-a1f4-f1414204a212"
+  },
+  {
+    "text": "Am passionate about causes",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 3,
+    "id": "d88e4d0c-8244-4963-b8a1-da2abb5b05be"
+  },
+  {
+    "text": "Enjoy examining myself and my life",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 3,
+    "id": "570cafed-f31d-4a20-8cd4-f6f7f6bcc041"
+  },
+  {
+    "text": "Try to understand myself",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 3,
+    "id": "3b2aac98-1dc1-4008-aa0f-49c724131ab4"
+  },
+  {
+    "text": "Seldom get emotional",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 3,
+    "id": "0950ed48-be00-4bfb-90a1-ca74c4afa698"
+  },
+  {
+    "text": "Am not easily affected by my emotions",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 3,
+    "id": "0335272e-776e-41bc-be96-41bcff2fb2fa"
+  },
+  {
+    "text": "Rarely notice my emotional reactions",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 3,
+    "id": "29106f95-b15b-4644-ab47-63cc19a5d2fe"
+  },
+  {
+    "text": "Experience very few emotional highs and lows",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 3,
+    "id": "6b6d9f8e-c369-4c4f-a0bb-9a5718bc3251"
+  },
+  {
+    "text": "Don't understand people who get emotional",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 3,
+    "id": "cbd346d0-deaf-488e-a367-e2b0f2365976"
+  },
+  {
+    "text": "Prefer variety to routine",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 4,
+    "id": "e6ef4591-3a72-4afe-b972-657a88968612"
+  },
+  {
+    "text": "Like to visit new places",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 4,
+    "id": "cb119de9-19c1-447e-8425-36917f083129"
+  },
+  {
+    "text": "Am interested in many things",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 4,
+    "id": "67e2f7cb-4a6c-4ca1-a43b-07379a1062b4"
+  },
+  {
+    "text": "Like to begin new things",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 4,
+    "id": "9e5019c0-2c79-4e1b-99b5-c8ab4cfb7757"
+  },
+  {
+    "text": "Prefer to stick with things that I know",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 4,
+    "id": "f1c8a514-2ada-4909-ac0c-ad96200e4abb"
+  },
+  {
+    "text": "Dislike changes",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 4,
+    "id": "8f26d8b0-6d90-4aa8-b80b-ddcd01276610"
+  },
+  {
+    "text": "Don't like the idea of change",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 4,
+    "id": "17400f8f-5e63-49c0-98d2-271dcaac5dfa"
+  },
+  {
+    "text": "Am a creature of habit",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 4,
+    "id": "43773f0f-f52c-4d3e-b235-09ae1618dfe2"
+  },
+  {
+    "text": "Dislike new foods",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 4,
+    "id": "9801494a-ff22-4454-b8e8-d9a3d40b65ba"
+  },
+  {
+    "text": "Am attached to conventional ways",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 4,
+    "id": "19aa16ad-dcd8-4625-ba83-d853df428063"
+  },
+  {
+    "text": "Like to solve complex problems",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 5,
+    "id": "77389cb7-4795-487d-8b2a-8f39b3bb3fd7"
+  },
+  {
+    "text": "Love to read challenging material",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 5,
+    "id": "e5529ccc-a2c0-4c64-8ca4-5067d6cdca9b"
+  },
+  {
+    "text": "Have a rich vocabulary",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 5,
+    "id": "e171f17e-f024-4bc2-a517-78de27112b2d"
+  },
+  {
+    "text": "Can handle a lot of information",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 5,
+    "id": "44f39de6-0aad-4b39-8ff7-f83d4a6c2f4e"
+  },
+  {
+    "text": "Enjoy thinking about things",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 5,
+    "id": "1b35542b-400f-4717-b9ce-b71ccf025782"
+  },
+  {
+    "text": "Am not interested in abstract ideas",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 5,
+    "id": "b99a005c-090c-454d-a905-dd0082a33ee3"
+  },
+  {
+    "text": "Avoid philosophical discussions",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 5,
+    "id": "f32c5265-ef8f-495d-8a2a-49a1518c94a1"
+  },
+  {
+    "text": "Have difficulty understanding abstract ideas",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 5,
+    "id": "114ee7b7-7bad-4ccd-9a42-64ee995ead0c"
+  },
+  {
+    "text": "Am not interested in theoretical discussions",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 5,
+    "id": "8da65a81-1037-48b8-b7c0-46104164d980"
+  },
+  {
+    "text": "Avoid difficult reading material",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 5,
+    "id": "77ab2d67-c94e-4789-bea0-4fdc25bd1f5f"
+  },
+  {
+    "text": "Tend to vote for liberal political candidates",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 6,
+    "id": "c7d8b21a-bcad-44b2-8064-916b520d7653"
+  },
+  {
+    "text": "Believe that there is no absolute right and wrong",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 6,
+    "id": "fb22d2fd-e87c-4b43-8267-5bcab7a41754"
+  },
+  {
+    "text": "Believe that criminals should receive help rather than punishment",
+    "keyed": "plus",
+    "domain": "O",
+    "facet": 6,
+    "id": "03f5706f-0963-4c30-a760-58b60ab7385c"
+  },
+  {
+    "text": "Believe in one true religion",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "6b752044-700e-4247-a5d4-041dd7205f36"
+  },
+  {
+    "text": "Tend to vote for conservative political candidates",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "05197664-1356-410f-a7ea-404a8870cd56"
+  },
+  {
+    "text": "Believe that too much tax money goes to support artists",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "a5ada539-65bb-4210-b1bd-671d20265258"
+  },
+  {
+    "text": "Believe laws should be strictly enforced",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "c1d74094-d74f-4f8f-8498-a8661871b8de"
+  },
+  {
+    "text": "Believe that we coddle criminals too much",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "300cc19d-0250-40b2-99b3-66889c755974"
+  },
+  {
+    "text": "Believe that we should be tough on crime",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "14b539a4-e556-44aa-b971-6f55a3f51085"
+  },
+  {
+    "text": "Like to stand during the national anthem",
+    "keyed": "minus",
+    "domain": "O",
+    "facet": 6,
+    "id": "d6cfa490-4f8e-480b-bbbc-8ad28c4be253"
+  },
+  {
+    "text": "Trust others",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 1,
+    "id": "994d90c7-e508-4620-a11c-6f712d348a24"
+  },
+  {
+    "text": "Believe that others have good intentions",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 1,
+    "id": "c2470197-feb1-4464-bdde-9d286e1a125f"
+  },
+  {
+    "text": "Trust what people say",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 1,
+    "id": "5f12c699-9d2c-4672-b177-cae4c88be53c"
+  },
+  {
+    "text": "Believe that people are basically moral",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 1,
+    "id": "e58d66f8-54d0-4780-bbd2-a3bc59a81b22"
+  },
+  {
+    "text": "Believe in human goodness",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 1,
+    "id": "c6c28ea2-99ea-44eb-8ac8-3c27503ff71e"
+  },
+  {
+    "text": "Think that all will be well",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 1,
+    "id": "a61647a1-8580-4345-9486-ebd813e12bea"
+  },
+  {
+    "text": "Distrust people",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 1,
+    "id": "03cbbe84-c3d0-4652-ba46-0d92316c9963"
+  },
+  {
+    "text": "Suspect hidden motives in others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 1,
+    "id": "9ab95f24-5f94-429e-be1e-2275a806b5db"
+  },
+  {
+    "text": "Am wary of others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 1,
+    "id": "ddb00e19-948a-4ab7-aa41-2f3e762ba683"
+  },
+  {
+    "text": "Believe that people are essentially evil",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 1,
+    "id": "ced7ecd7-6691-4d74-a884-75131a07ba87"
+  },
+  {
+    "text": "Would never cheat on my taxes",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 2,
+    "id": "1c12e62d-073f-4caf-be9c-bf4686e979cf"
+  },
+  {
+    "text": "Stick to the rules",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 2,
+    "id": "72657d06-482e-4ef6-afdd-69cf8b4c7b11"
+  },
+  {
+    "text": "Use flattery to get ahead",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "3d8359f5-9439-43c1-a3eb-c1f60730bd79"
+  },
+  {
+    "text": "Use others for my own ends",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "a8d3f337-a6e7-485f-8eb0-541d73a8873c"
+  },
+  {
+    "text": "Know how to get around the rules",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "60cf6936-ebc3-41ce-862b-9bb7e7489130"
+  },
+  {
+    "text": "Cheat to get ahead",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "41f72f01-4e68-4d87-958f-28e752cabded"
+  },
+  {
+    "text": "Put people under pressure",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "dcee7b69-8782-4bde-88f9-8bc5714029d4"
+  },
+  {
+    "text": "Pretend to be concerned for others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "dcc021c4-1277-4a55-92af-3fad1183cfc5"
+  },
+  {
+    "text": "Take advantage of others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "05863ff1-1c05-4453-a0ad-5c1678be1801"
+  },
+  {
+    "text": "Obstruct others' plans",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 2,
+    "id": "eb715333-e856-47f1-95e5-e4aa6d605d1f"
+  },
+  {
+    "text": "Make people feel welcome",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 3,
+    "id": "b634d72c-a843-486b-a6db-cbc2a6272411"
+  },
+  {
+    "text": "Anticipate the needs of others",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 3,
+    "id": "1060c00e-0076-434a-85be-2fe8b569f01e"
+  },
+  {
+    "text": "Love to help others",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 3,
+    "id": "61eab458-5201-41c9-81ad-46308370d075"
+  },
+  {
+    "text": "Am concerned about others",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 3,
+    "id": "1c776a7b-b1c1-4978-ae65-7039ff2c6f9f"
+  },
+  {
+    "text": "Have a good word for everyone",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 3,
+    "id": "4b4e9c5d-78d4-4b0a-b1ea-820077bb700a"
+  },
+  {
+    "text": "Look down on others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 3,
+    "id": "e2f5fd6f-2eb2-4799-8b80-5be13d5105aa"
+  },
+  {
+    "text": "Am indifferent to the feelings of others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 3,
+    "id": "3dcfcd14-b5a5-42b3-816f-ddd54ed23236"
+  },
+  {
+    "text": "Make people feel uncomfortable",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 3,
+    "id": "c1eb9122-7026-498f-93e7-198de26459dd"
+  },
+  {
+    "text": "Turn my back on others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 3,
+    "id": "f8082669-7fe0-4984-8d0f-c5ca501fa164"
+  },
+  {
+    "text": "Take no time for others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 3,
+    "id": "e4457630-1e61-4bbd-b469-ccf6fe39d14d"
+  },
+  {
+    "text": "Am easy to satisfy",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 4,
+    "id": "1f7abb76-7b6d-4404-a584-822049d4f3cd"
+  },
+  {
+    "text": "Can't stand confrontations",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 4,
+    "id": "8b5c52b7-4806-46e4-aeb0-c373d03cd57e"
+  },
+  {
+    "text": "Hate to seem pushy",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 4,
+    "id": "e834ae33-0184-4e27-b181-b62f96fd5bfb"
+  },
+  {
+    "text": "Have a sharp tongue",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "027a663a-217d-4b3b-b9c7-c26498a9ab47"
+  },
+  {
+    "text": "Contradict others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "f88c75dc-b754-4019-9d57-cd460f4a240a"
+  },
+  {
+    "text": "Love a good fight",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "2d2373e0-9c5d-40b3-9154-3751190e2a30"
+  },
+  {
+    "text": "Yell at people",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "0b418fdf-3799-4914-b33e-fdbbd9adf36f"
+  },
+  {
+    "text": "Insult people",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "c888948b-db19-4994-8146-a00ed56338b3"
+  },
+  {
+    "text": "Get back at others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "a92ec5d8-ebdd-496a-9c09-83749cca9f07"
+  },
+  {
+    "text": "Hold a grudge",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 4,
+    "id": "f0760f11-2667-47be-a38c-1e4bb60e9016"
+  },
+  {
+    "text": "Dislike being the center of attention",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 5,
+    "id": "0d986f84-25ff-4238-9de5-e5583e367c84"
+  },
+  {
+    "text": "Dislike talking about myself",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 5,
+    "id": "f57aaef2-d82a-469c-9e0c-c6414c2465fa"
+  },
+  {
+    "text": "Consider myself an average person",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 5,
+    "id": "71bf51dc-b78a-4726-8746-bc24f07e2358"
+  },
+  {
+    "text": "Seldom toot my own horn",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 5,
+    "id": "7144b66c-6309-40c3-92d7-fcab6cb1880c"
+  },
+  {
+    "text": "Believe that I am better than others",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 5,
+    "id": "1ce56e3c-9532-465d-8c90-1401c2c452aa"
+  },
+  {
+    "text": "Think highly of myself",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 5,
+    "id": "65a66207-5878-4ddf-aa87-879238118c69"
+  },
+  {
+    "text": "Have a high opinion of myself",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 5,
+    "id": "0b4e3ec1-a903-48d4-bcba-004efdf2c49f"
+  },
+  {
+    "text": "Know the answers to many questions",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 5,
+    "id": "f3b75fb2-954f-4f1a-8e21-c9bfec48f13f"
+  },
+  {
+    "text": "Boast about my virtues",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 5,
+    "id": "30b96645-c840-47e0-a234-f493042ca271"
+  },
+  {
+    "text": "Make myself the center of attention",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 5,
+    "id": "c6387505-d460-4d2c-9b53-6de11dca6bd7"
+  },
+  {
+    "text": "Sympathize with the homeless",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 6,
+    "id": "2876c9a5-8eed-4c66-a7c1-4fa85160b67b"
+  },
+  {
+    "text": "Feel sympathy for those who are worse off than myself",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 6,
+    "id": "a8fd3569-970b-441c-bb91-1c80d345b7ae"
+  },
+  {
+    "text": "Value cooperation over competition",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 6,
+    "id": "e92157d1-0ffd-48bc-ab2d-55debd8bfb7a"
+  },
+  {
+    "text": "Suffer from others' sorrows",
+    "keyed": "plus",
+    "domain": "A",
+    "facet": 6,
+    "id": "bf41eadf-db57-4f77-a167-5a54f31ee3ac"
+  },
+  {
+    "text": "Am not interested in other people's problems",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 6,
+    "id": "67831f48-fc0e-41a5-ba21-6c11439cd0f2"
+  },
+  {
+    "text": "Tend to dislike soft-hearted people",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 6,
+    "id": "3a2734c7-7009-4f93-bc32-731d795f18ae"
+  },
+  {
+    "text": "Believe in an eye for an eye",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 6,
+    "id": "4f291823-e354-4a06-9234-f72aa97d0948"
+  },
+  {
+    "text": "Try not to think about the needy",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 6,
+    "id": "1f44531f-9c9d-4157-9cc5-43abcaec8f0c"
+  },
+  {
+    "text": "Believe people should fend for themselves",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 6,
+    "id": "66d1af62-ade3-43fd-895f-3ffc508d1562"
+  },
+  {
+    "text": "Can't stand weak people",
+    "keyed": "minus",
+    "domain": "A",
+    "facet": 6,
+    "id": "8ccfff55-81af-4e3c-9370-f1e0aee38c4b"
+  },
+  {
+    "text": "Complete tasks successfully",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 1,
+    "id": "e9a05b4b-86ec-424b-baa3-4f7e662ba3bc"
+  },
+  {
+    "text": "Excel in what I do",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 1,
+    "id": "7bfa8136-d5f5-4c45-97fe-0136e43c0adf"
+  },
+  {
+    "text": "Handle tasks smoothly",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 1,
+    "id": "50cd8405-5616-4802-a76a-a8ff5f5543e7"
+  },
+  {
+    "text": "Am sure of my ground",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 1,
+    "id": "463f8ce2-80cf-45af-b1c5-c18e8af457dd"
+  },
+  {
+    "text": "Come up with good solutions",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 1,
+    "id": "04949c7c-bd1e-42d9-b323-4b98e0d27313"
+  },
+  {
+    "text": "Know how to get things done",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 1,
+    "id": "0fdcd99c-964a-427d-8764-c9fca6a67fd4"
+  },
+  {
+    "text": "Misjudge situations",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 1,
+    "id": "5df93585-564d-4f11-96ab-2a11d2586785"
+  },
+  {
+    "text": "Don't understand things",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 1,
+    "id": "48971f35-374a-437c-9530-df37c002881f"
+  },
+  {
+    "text": "Have little to contribute",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 1,
+    "id": "4cb9dae3-be63-4909-9fed-975349c8b3f9"
+  },
+  {
+    "text": "Don't see the consequences of things",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 1,
+    "id": "301b5227-b668-4d01-b13b-f26f2c98628a"
+  },
+  {
+    "text": "Like order",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 2,
+    "id": "8499753e-f6a6-4da2-b422-a90d2d2b1ccb"
+  },
+  {
+    "text": "Like to tidy up",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 2,
+    "id": "0d6749f3-3938-4ecf-a6db-baf352e500aa"
+  },
+  {
+    "text": "Want everything to be 'just right'",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 2,
+    "id": "e3917c20-c6cb-40e6-8e55-db1867980fe5"
+  },
+  {
+    "text": "Love order and regularity",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 2,
+    "id": "f9feae1a-af97-414d-9acc-646e7489bd95"
+  },
+  {
+    "text": "Do things according to a plan",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 2,
+    "id": "11b84279-d608-4dc1-9bc7-d3e89c9a7a54"
+  },
+  {
+    "text": "Often forget to put things back in their proper place",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 2,
+    "id": "f9e80153-f660-4e57-8bf5-f9e8519178a5"
+  },
+  {
+    "text": "Leave a mess in my room",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 2,
+    "id": "bda2a84f-8848-4e1d-9e2d-c2825bf1b444"
+  },
+  {
+    "text": "Leave my belongings around",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 2,
+    "id": "ae1d2f2d-bde7-4874-a18b-7060396b0881"
+  },
+  {
+    "text": "Am not bothered by messy people",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 2,
+    "id": "c1234450-706b-4957-b3d7-951a709dc5ec"
+  },
+  {
+    "text": "Am not bothered by disorder",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 2,
+    "id": "9eb317ce-e924-4746-886c-68b57350b625"
+  },
+  {
+    "text": "Try to follow the rules",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 3,
+    "id": "2d25c586-be58-4f56-8f85-c3bce7e35d68"
+  },
+  {
+    "text": "Keep my promises",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 3,
+    "id": "8af9b7e5-1895-462a-8fa7-31e0fc7fe835"
+  },
+  {
+    "text": "Pay my bills on time",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 3,
+    "id": "7122e8b4-25bc-41e0-91d0-75f36efca8b3"
+  },
+  {
+    "text": "Tell the truth",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 3,
+    "id": "089f7c9b-fd46-4d9f-8969-2e0bed648ba4"
+  },
+  {
+    "text": "Listen to my conscience",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 3,
+    "id": "c444f6a1-161c-438c-90e4-9472358ed8cb"
+  },
+  {
+    "text": "Break rules",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 3,
+    "id": "7465f64c-606b-483f-8821-e05f7ba63b99"
+  },
+  {
+    "text": "Break my promises",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 3,
+    "id": "7e9bbf18-18d9-437a-8f55-b0dd75fa2e39"
+  },
+  {
+    "text": "Get others to do my duties",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 3,
+    "id": "7a1efb6f-3dec-4a92-a7cd-596639efddec"
+  },
+  {
+    "text": "Do the opposite of what is asked",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 3,
+    "id": "8b3dbf42-ee9b-4331-8a30-7e074bea4671"
+  },
+  {
+    "text": "Misrepresent the facts",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 3,
+    "id": "a540a084-723c-4848-9b8b-cbba87a9927f"
+  },
+  {
+    "text": "Go straight for the goal",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "69da6943-0b08-4624-8154-6154069a557a"
+  },
+  {
+    "text": "Work hard",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "2a807dbd-04c6-4452-bf67-c49520a0af98"
+  },
+  {
+    "text": "Turn plans into actions",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "aaeb3c9a-aefa-4628-ad58-ceaa374c87c3"
+  },
+  {
+    "text": "Plunge into tasks with all my heart",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "2ae3bbea-37b8-47e0-ae09-3ba05a49dc67"
+  },
+  {
+    "text": "Do more than what's expected of me",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "a54d25bd-c978-411e-9f3d-ff4612a9a2f3"
+  },
+  {
+    "text": "Set high standards for myself and others",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "13cc6183-efc0-4dc0-b8f2-9a122acd30af"
+  },
+  {
+    "text": "Demand quality",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 4,
+    "id": "a4541bcb-8131-4226-9f0f-e2973f5908b6"
+  },
+  {
+    "text": "Am not highly motivated to succeed",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 4,
+    "id": "8dda8225-3655-4450-9ec6-23de9db03cdb"
+  },
+  {
+    "text": "Do just enough work to get by",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 4,
+    "id": "06248b39-32e1-42b5-b470-c25a266b8253"
+  },
+  {
+    "text": "Put little time and effort into my work",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 4,
+    "id": "543ead14-84d6-4400-87c0-f4c6d21dd119"
+  },
+  {
+    "text": "Get chores done right away",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 5,
+    "id": "ed516b6b-2686-453e-8a7a-05fc1d8f1f64"
+  },
+  {
+    "text": "Am always prepared",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 5,
+    "id": "fd2b5e09-9660-4fd6-bbd3-351196e0e556"
+  },
+  {
+    "text": "Start tasks right away",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 5,
+    "id": "404582d1-0ff4-4c2d-8276-f5d7ed440f62"
+  },
+  {
+    "text": "Get to work at once",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 5,
+    "id": "de2fcdb3-b060-438e-829d-2dcb8c033a52"
+  },
+  {
+    "text": "Carry out my plans",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 5,
+    "id": "b890ac2a-c773-4c9e-82a1-bb751404cdb1"
+  },
+  {
+    "text": "Find it difficult to get down to work",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 5,
+    "id": "f39aced8-60d5-4371-962e-b0d390dec3d3"
+  },
+  {
+    "text": "Waste my time",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 5,
+    "id": "6857ac6d-6167-4036-9d93-91377e09ed0b"
+  },
+  {
+    "text": "Need a push to get started",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 5,
+    "id": "3e1158c3-1169-4e2e-b629-6c8e73268184"
+  },
+  {
+    "text": "Have difficulty starting tasks",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 5,
+    "id": "87052477-7169-4e42-b9c3-22df4c0d1015"
+  },
+  {
+    "text": "Postpone decisions",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 5,
+    "id": "4a542cc3-6c37-4944-aa07-998e40fa7d58"
+  },
+  {
+    "text": "Avoid mistakes",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 6,
+    "id": "c73100a1-5464-46a2-bbc4-263c933535ff"
+  },
+  {
+    "text": "Choose my words with care",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 6,
+    "id": "4c421d92-686f-44e9-b334-5da2528d58e9"
+  },
+  {
+    "text": "Stick to my chosen path",
+    "keyed": "plus",
+    "domain": "C",
+    "facet": 6,
+    "id": "734e0b05-95a4-4e2b-aa4c-ec18301acf74"
+  },
+  {
+    "text": "Jump into things without thinking",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "6670c291-b4e4-4ae7-a78f-8cc5415d3121"
+  },
+  {
+    "text": "Make rash decisions",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "9df208d5-16d9-4338-8b30-70f9760e55ca"
+  },
+  {
+    "text": "Like to act on a whim",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "8f9daa5a-95e1-47d8-a5b3-6099d1bc11c3"
+  },
+  {
+    "text": "Rush into things",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "267b02ce-0909-4e8e-9715-295ab902eb31"
+  },
+  {
+    "text": "Do crazy things",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "bf4e4595-f398-4eb6-8870-fcd078625381"
+  },
+  {
+    "text": "Act without thinking",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "ccc228a0-b997-410c-bc0b-23d543bd27e6"
+  },
+  {
+    "text": "Often make last-minute plans",
+    "keyed": "minus",
+    "domain": "C",
+    "facet": 6,
+    "id": "b1529b5e-4536-46e4-9969-d3206850a9a5"
+  }
+]

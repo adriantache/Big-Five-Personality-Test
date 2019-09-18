@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -13,4 +12,14 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <!-- label for quiz checkboxes -->
+    <style name="checkboxLabel">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
 </resources>
