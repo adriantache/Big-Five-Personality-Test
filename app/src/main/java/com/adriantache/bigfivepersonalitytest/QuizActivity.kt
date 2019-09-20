@@ -71,6 +71,8 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             layoutManager = LinearLayoutManager(this@QuizActivity)
             questionListAdapter = QuestionListAdapter(this@QuizActivity)
             adapter = questionListAdapter
+            //this is probably a bad idea
+            setItemViewCacheSize(questions.size)
         }
         questionListAdapter.submitList(questions)
     }
