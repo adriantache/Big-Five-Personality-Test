@@ -2,21 +2,13 @@ package com.adriantache.bigfivepersonalitytest
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.util.Log
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.RelativeLayout
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_quiz.*
 import org.json.JSONArray
 import java.io.IOException
@@ -25,47 +17,22 @@ import java.nio.charset.Charset
 
 const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 
-//todo implement RecyclerView instead of just laying out all the questions
-//todo implement immersion mode
 //todo implement facets? => complexity
-class QuizActivity : AppCompatActivity() {
+class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
-
-        //helper to convert dp value to pixels
-        val Int.px: Int
-            get() = (this * Resources.getSystem().displayMetrics.density).toInt()
     }
 
     //holds all questions as a regular array
     private lateinit var questions: List<Question>
 
-    //holds all answers as Ints
-    private lateinit var answers: IntArray
-
     private lateinit var filename: String
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
+    //RecyclerView implementation
+    private lateinit var questionListAdapter: QuestionListAdapter
 
-        //if available, enter immersive mode while in the Quiz activity
-        if (hasFocus && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) hideSystemUI()
-    }
-
-    @SuppressLint("InlinedApi")
-    private fun hideSystemUI() {
-        // Enables regular immersive mode.
-        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                // Set the content to appear under the system bars so that the
-                // content doesn't resize when the system bars hide and show.
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                // Hide the nav bar and status bar
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    override fun onItemSelected() {
+        clickedRadio()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,10 +52,8 @@ class QuizActivity : AppCompatActivity() {
 
         //generate the layout
         if (questions.isNotEmpty()) {
-            createRadioButtons(questions)
-
-            //also create the answers array which automatically sets all values to 0
-            answers = IntArray(questions.size)
+            //RecyclerView implementation
+            initRecyclerView()
         } else {
             Log.e(TAG, "Error getting Question array!")
             finish()
@@ -99,6 +64,40 @@ class QuizActivity : AppCompatActivity() {
                 isImmersive = true
             }
         }
+    }
+
+    private fun initRecyclerView() {
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@QuizActivity)
+            questionListAdapter = QuestionListAdapter(this@QuizActivity)
+            adapter = questionListAdapter
+        }
+        questionListAdapter.submitList(questions)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+
+        //if available, enter immersive mode while in the Quiz activity
+        if (hasFocus && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            hideSystemUI()
+        }
+    }
+
+    @SuppressLint("InlinedApi")
+    private fun hideSystemUI() {
+        // Enables regular immersive mode.
+        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                // Set the content to appear under the system bars so that the
+                // content doesn't resize when the system bars hide and show.
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 
     private fun loadJSONFromAsset(filename: String): String {
@@ -137,10 +136,10 @@ class QuizActivity : AppCompatActivity() {
             val keyed = element.getString("keyed")
             val domain = when (element.getString("domain")) {
                 "O" -> "Openness"
-                "N" -> "Neuroticism"
-                "E" -> "Extraversion"
                 "C" -> "Conscientiousness"
+                "E" -> "Extraversion"
                 "A" -> "Agreeableness"
+                "N" -> "Neuroticism"
                 else -> ERROR
             }
 
@@ -154,74 +153,19 @@ class QuizActivity : AppCompatActivity() {
                 continue
             }
 
-            arrayList.add(Question(text, keyed, domain))
+            arrayList.add(Question(i, text, keyed, domain))
         }
 
         //shuffle question order
-        return arrayList.toMutableList().apply { shuffle() }
-    }
-
-    private fun createRadioButtons(questions: List<Question>) {
-        questions.forEachIndexed { index, question ->
-            //create RelativeLayout for each question
-            val relativeLayout = RelativeLayout(this)
-            relativeLayout.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-
-            //create RadioGroup of choices
-            val radioGroup = RadioGroup(this)
-            radioGroup.id = index + 1000
-            radioGroup.orientation = RadioGroup.HORIZONTAL
-            radioGroup.gravity = Gravity.CENTER_VERTICAL or Gravity.CENTER
-            radioGroup.setOnCheckedChangeListener { group, checkedId -> clickedRadio(group, checkedId) }
-
-            //create each RadioButton in the group
-            for (j in 0..4) {
-                val radioButton = RadioButton(this)
-                radioButton.gravity = Gravity.CENTER
-                radioButton.id = j + 100
-                radioGroup.addView(radioButton)
-            }
-
-            //set layout parameters to position RadioGroup in RelativeLayout
-            val radioGroupParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT)
-            radioGroupParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
-            radioGroupParams.addRule(RelativeLayout.CENTER_IN_PARENT)
-            radioGroupParams.addRule(RelativeLayout.LEFT_OF, radioGroup.id)
-            relativeLayout.addView(radioGroup, radioGroupParams)
-
-            //make question text TextView
-            val questionTextView = TextView(this)
-            questionTextView.text = question.text
-            questionTextView.gravity = Gravity.CENTER_VERTICAL or Gravity.START
-            questionTextView.setPadding(0, 10.px, 10.px, 10.px)
-
-            //set layout parameters to position TextView in RelativeLayout
-            val tVParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT)
-            tVParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
-            tVParams.addRule(RelativeLayout.CENTER_IN_PARENT)
-            tVParams.addRule(RelativeLayout.LEFT_OF, radioGroup.id)
-            relativeLayout.addView(questionTextView, tVParams)
-
-            //then add the whole RelativeLayout to the layout
-            questionLayout.addView(relativeLayout)
-        }
+        return arrayList.toMutableList().apply { shuffle() } as ArrayList<Question>
     }
 
     //when the user clicks a RadioButton, update the score
-    private fun clickedRadio(group: RadioGroup, checkedId: Int) {
-        val questionIndex = group.id - 1000
-        val answerValue = checkedId - 100 + 1
-
-        val question = questions[questionIndex]
-
-        answers[questionIndex] = if (question.keyed == "plus") answerValue else 5 - answerValue + 1
-
+    private fun clickedRadio() {
         //activate and set up submit button if appropriate
         if (submit.visibility != View.VISIBLE && answeredAllQuestions()) {
-            //scroll ScrollView to bottom to match layout change
-            scrollView.post { scrollView.fullScroll(View.FOCUS_DOWN) }
+            //scroll RecyclerView to bottom to match layout change
+            recyclerView.scrollToPosition(questions.size - 1)
 
             //show submit button to move to next activity
             submit.visibility = View.VISIBLE
@@ -241,19 +185,25 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun calculateResult(): HashMap<String, Int> {
-        val map = hashMapOf("Extraversion" to 0,
-                "Agreeableness" to 0,
-                "Conscientiousness" to 0,
+        val map = hashMapOf(
                 "Openness" to 0,
+                "Conscientiousness" to 0,
+                "Extraversion" to 0,
+                "Agreeableness" to 0,
                 "Neuroticism" to 0
         )
 
-        for (i in answers.indices) {
-            map[questions[i].domain] = map[questions[i].domain]!!.plus(answers[i])
+        questions.forEach { question ->
+            val answer = if (question.keyed == "plus") question.answer else 5 - question.answer + 1
+            val previousValue = map[question.domain] ?: -1
+
+            if(previousValue == -1) Log.e(TAG, "Error calculating answer scores!")
+
+            map[question.domain] = map[question.domain]?.plus(answer) ?: 0
         }
 
         return map
     }
 
-    private fun answeredAllQuestions(): Boolean = answers.all { it != 0 }
+    private fun answeredAllQuestions(): Boolean = questions.all { it.answer != 0 }
 }
