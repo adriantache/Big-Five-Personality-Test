@@ -205,5 +205,5 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
         return map
     }
 
-    private fun answeredAllQuestions(): Boolean = questions.all { it.answer != 0 }
+    private fun answeredAllQuestions(): Boolean = !(questions.any { it.answer == 0 })
 }

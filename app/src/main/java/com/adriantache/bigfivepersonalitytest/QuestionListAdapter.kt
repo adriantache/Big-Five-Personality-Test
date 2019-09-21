@@ -63,31 +63,30 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
     ) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Question) = with(itemView) {
-            itemView.textView.text = item.text
+            textView.text = item.text
+            radioButton.isChecked = item.answer == 1
+            radioButton2.isChecked = item.answer == 2
+            radioButton3.isChecked = item.answer == 3
+            radioButton4.isChecked = item.answer == 4
+            radioButton5.isChecked = item.answer == 5
 
-            itemView.radioButton.isChecked = item.answer == 1
-            itemView.radioButton2.isChecked = item.answer == 2
-            itemView.radioButton3.isChecked = item.answer == 3
-            itemView.radioButton4.isChecked = item.answer == 4
-            itemView.radioButton5.isChecked = item.answer == 5
-
-            itemView.radioButton.setOnClickListener {
+            radioButton.setOnClickListener {
                 item.answer = 1
                 interaction?.onItemSelected()
             }
-            itemView.radioButton2.setOnClickListener {
+            radioButton2.setOnClickListener {
                 item.answer = 2
                 interaction?.onItemSelected()
             }
-            itemView.radioButton3.setOnClickListener {
+            radioButton3.setOnClickListener {
                 item.answer = 3
                 interaction?.onItemSelected()
             }
-            itemView.radioButton4.setOnClickListener {
+            radioButton4.setOnClickListener {
                 item.answer = 4
                 interaction?.onItemSelected()
             }
-            itemView.radioButton5.setOnClickListener {
+            radioButton5.setOnClickListener {
                 item.answer = 5
                 interaction?.onItemSelected()
             }
