@@ -1,12 +1,12 @@
 package com.adriantache.bigfivepersonalitytest
 
-import android.support.v7.recyclerview.extensions.AsyncListDiffer
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.layout_question_item.view.*
+import kotlinx.android.extensions.LayoutContainer
 
 
 class QuestionListAdapter(private val interaction: Interaction? = null) :
@@ -28,7 +28,6 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
         return QuestionViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                         R.layout.layout_question_item,
@@ -55,41 +54,42 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
         differ.submitList(list)
     }
 
-
-    class QuestionViewHolder
-    constructor(
+    class QuestionViewHolder(
             itemView: View,
             private val interaction: Interaction?
-    ) : RecyclerView.ViewHolder(itemView) {
+    ) : RecyclerView.ViewHolder(itemView), LayoutContainer {
 
-        fun bind(item: Question) = with(itemView) {
-            textView.text = item.text
-            radioButton.isChecked = item.answer == 1
-            radioButton2.isChecked = item.answer == 2
-            radioButton3.isChecked = item.answer == 3
-            radioButton4.isChecked = item.answer == 4
-            radioButton5.isChecked = item.answer == 5
+        override val containerView: View?
+            get() = itemView
 
-            radioButton.setOnClickListener {
-                item.answer = 1
-                interaction?.onItemSelected()
-            }
-            radioButton2.setOnClickListener {
-                item.answer = 2
-                interaction?.onItemSelected()
-            }
-            radioButton3.setOnClickListener {
-                item.answer = 3
-                interaction?.onItemSelected()
-            }
-            radioButton4.setOnClickListener {
-                item.answer = 4
-                interaction?.onItemSelected()
-            }
-            radioButton5.setOnClickListener {
-                item.answer = 5
-                interaction?.onItemSelected()
-            }
+        fun bind(item: Question) {
+//            textView.text = item.text
+//            radioButton.isChecked = item.answer == 1
+//            radioButton2.isChecked = item.answer == 2
+//            radioButton3.isChecked = item.answer == 3
+//            radioButton4.isChecked = item.answer == 4
+//            radioButton5.isChecked = item.answer == 5
+//
+//            radioButton.setOnClickListener {
+//                item.answer = 1
+//                interaction?.onItemSelected()
+//            }
+//            radioButton2.setOnClickListener {
+//                item.answer = 2
+//                interaction?.onItemSelected()
+//            }
+//            radioButton3.setOnClickListener {
+//                item.answer = 3
+//                interaction?.onItemSelected()
+//            }
+//            radioButton4.setOnClickListener {
+//                item.answer = 4
+//                interaction?.onItemSelected()
+//            }
+//            radioButton5.setOnClickListener {
+//                item.answer = 5
+//                interaction?.onItemSelected()
+//            }
         }
     }
 
@@ -97,3 +97,4 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
         fun onItemSelected()
     }
 }
+
