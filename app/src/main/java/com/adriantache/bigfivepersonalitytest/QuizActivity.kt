@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import kotlinx.android.synthetic.main.activity_quiz.*
+import androidx.databinding.DataBindingUtil
+import com.adriantache.bigfivepersonalitytest.databinding.ActivityQuizBinding
 import org.json.JSONArray
 import java.io.IOException
 import java.nio.charset.Charset
@@ -31,16 +32,19 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     //RecyclerView implementation
     private lateinit var questionListAdapter: QuestionListAdapter
 
+    //DataBinding
+    private lateinit var binding: ActivityQuizBinding
+
     override fun onItemSelected() {
         clickedRadio()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_quiz)
 
         //read JSON filename from intent
-        filename = intent.getStringExtra(JSON_FILE)
+        filename = intent.getStringExtra(JSON_FILE) ?: ""
 
         if (TextUtils.isEmpty(filename)) {
             Log.e(TAG, "Error getting JSON filename!")
@@ -67,7 +71,7 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     }
 
     private fun initRecyclerView() {
-        recyclerView.apply {
+        binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@QuizActivity)
             questionListAdapter = QuestionListAdapter(this@QuizActivity)
             adapter = questionListAdapter
@@ -165,15 +169,15 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     //when the user clicks a RadioButton, update the score
     private fun clickedRadio() {
         //activate and set up submit button if appropriate
-        if (submit.visibility != View.VISIBLE && answeredAllQuestions()) {
+        if (binding.submit.visibility != View.VISIBLE && answeredAllQuestions()) {
             //scroll RecyclerView to bottom to match layout change
-            recyclerView.scrollToPosition(questions.size - 1)
+            binding.recyclerView.scrollToPosition(questions.size - 1)
 
             //show submit button to move to next activity
-            submit.visibility = View.VISIBLE
+            binding.submit.visibility = View.VISIBLE
 
             //set OnClickListener to pass data to results activity
-            submit.setOnClickListener {
+            binding.submit.setOnClickListener {
                 //calculate each of the dimensions based on the results
                 val answerSummary = calculateResult()
 
