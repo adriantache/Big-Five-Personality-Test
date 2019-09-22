@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.extensions.LayoutContainer
 
+
 //todo CRITICAL rewrite this
 class QuestionListAdapter(private val interaction: Interaction? = null) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
