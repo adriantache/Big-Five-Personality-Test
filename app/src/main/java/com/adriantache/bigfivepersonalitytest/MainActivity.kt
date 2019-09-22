@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.databinding.DataBindingUtil
+import com.adriantache.bigfivepersonalitytest.databinding.ActivityMainBinding
+
 
 const val ERROR = "ERROR"
 const val JSON_FILE = "JSON_FILE"
@@ -15,19 +17,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         private val TAG = MainActivity::class.java.simpleName
     }
 
+    //DataBinding
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
 
         //set listeners for each button
-        mini20.setOnClickListener(this)
-        ipip50.setOnClickListener(this)
-        neo50.setOnClickListener(this)
-        neo100.setOnClickListener(this)
-        dqp100.setOnClickListener(this)
-        johnson120.setOnClickListener(this)
-        maples120.setOnClickListener(this)
-        costamccrae300.setOnClickListener(this)
+        binding.mini20.setOnClickListener(this)
+        binding.ipip50.setOnClickListener(this)
+        binding.neo50.setOnClickListener(this)
+        binding.neo100.setOnClickListener(this)
+        binding.dqp100.setOnClickListener(this)
+        binding.johnson120.setOnClickListener(this)
+        binding.maples120.setOnClickListener(this)
+        binding.costamccrae300.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

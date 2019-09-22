@@ -7,11 +7,12 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.helper.StaticLabelsFormatter
 import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.DataPoint
-import kotlinx.android.synthetic.main.activity_results.*
 import kotlin.math.abs
 
 
@@ -22,9 +23,12 @@ class ResultsActivity : AppCompatActivity() {
     private lateinit var resultsText: String
     private lateinit var descriptionText: String
 
+    //DataBinding
+    private lateinit var binding: ActivityResultsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_results)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_results)
 
         //get filename and use it to specify test variant in the results text
         val filename = intent.getStringExtra(JSON_FILE)
@@ -43,7 +47,7 @@ class ResultsActivity : AppCompatActivity() {
                 "about this test by going to ipip.ori.org or visiting the Wikipedia entry using the button " +
                 "below. Please note that the results of this test are not saved, so we recommend taking a " +
                 "screenshot or using the share button at the top to save them to your desired destination."
-        results_text.text = descriptionText
+        binding.resultsText.text = descriptionText
 
         //get results HashMap from intent
         @Suppress("UNCHECKED_CAST")
@@ -65,9 +69,9 @@ class ResultsActivity : AppCompatActivity() {
         //generate and set descriptive text
         generateResultsText(sortedList)
 
-        wikiButton.setOnClickListener { wikiClick() }
-        shareButton.setOnClickListener { shareClick() }
-        resetButton.setOnClickListener { resetClick() }
+        binding.wikiButton.setOnClickListener { wikiClick() }
+        binding.shareButton.setOnClickListener { shareClick() }
+        binding.resetButton.setOnClickListener { resetClick() }
     }
 
     private fun setUpGraph(min: Double, max: Double) {
@@ -80,12 +84,12 @@ class ResultsActivity : AppCompatActivity() {
                 DataPoint(4.0, resultsMap["Neuroticism"]?.toDouble() ?: -1.0)
         ))
 
-        graph.addSeries(series)
+        binding.graph.addSeries(series)
 
         //set graph to more sensible Y bounds
-        graph.viewport.isYAxisBoundsManual = true
-        graph.viewport.setMinY(min - 1)
-        graph.viewport.setMaxY(max + 1)
+        binding.graph.viewport.isYAxisBoundsManual = true
+        binding.graph.viewport.setMinY(min - 1)
+        binding.graph.viewport.setMaxY(max + 1)
 
         //set color of chart column based on value
         series.valueDependentColor = ValueDependentColor { data ->
@@ -99,9 +103,9 @@ class ResultsActivity : AppCompatActivity() {
         series.valuesOnTopColor = Color.BLACK
 
         //set custom labels
-        val staticLabelsFormatter = StaticLabelsFormatter(graph)
+        val staticLabelsFormatter = StaticLabelsFormatter(binding.graph)
         staticLabelsFormatter.setHorizontalLabels(arrayOf("O", "C", "E", "A", "N"))
-        graph.gridLabelRenderer.labelFormatter = staticLabelsFormatter
+        binding.graph.gridLabelRenderer.labelFormatter = staticLabelsFormatter
     }
 
     private fun generateSummaryText(sortedList: List<Pair<String, Int>>) {
@@ -115,7 +119,7 @@ class ResultsActivity : AppCompatActivity() {
             if (i == 2) summaryText += "\n"
         }
 
-        graph_legend.text = summaryText
+        binding.graphLegend.text = summaryText
     }
 
     //todo there's probably a smarter way to build this text
@@ -153,7 +157,7 @@ class ResultsActivity : AppCompatActivity() {
         else "${key[thirdTrait]?.first ?: ERROR}, ${key[fourthTrait]?.first
                 ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}"
 
-        results_text_auto.text = resultsText
+        binding.resultsTextAuto.text = resultsText
     }
 
     private fun wikiClick() {
