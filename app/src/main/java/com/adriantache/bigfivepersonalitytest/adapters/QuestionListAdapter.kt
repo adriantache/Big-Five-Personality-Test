@@ -1,4 +1,4 @@
-package com.adriantache.bigfivepersonalitytest
+package com.adriantache.bigfivepersonalitytest.adapters
 
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.adriantache.bigfivepersonalitytest.R
+import com.adriantache.bigfivepersonalitytest.models.Question
 import kotlinx.android.extensions.LayoutContainer
 
 
@@ -16,7 +18,7 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
     val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Question>() {
 
         override fun areItemsTheSame(oldItem: Question, newItem: Question): Boolean {
-            return oldItem.id == newItem.id && oldItem.answer == newItem.answer
+            return oldItem.uniqueId == newItem.uniqueId && oldItem.answer == newItem.answer
         }
 
 

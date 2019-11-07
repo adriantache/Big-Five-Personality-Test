@@ -4,21 +4,31 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.adriantache.bigfivepersonalitytest.adapters.JsonDomainAdapter
+import com.adriantache.bigfivepersonalitytest.adapters.QuestionListAdapter
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityQuizBinding
-import org.json.JSONArray
-import java.io.IOException
-import java.nio.charset.Charset
+import com.adriantache.bigfivepersonalitytest.json.LazyParser
+import com.adriantache.bigfivepersonalitytest.models.Question
+import com.squareup.moshi.JsonDataException
+import com.squareup.moshi.JsonReader
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okio.Okio.buffer
+import okio.Okio.source
+import java.io.FileNotFoundException
 
 
 const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 
 //todo implement facets? => complexity
+//todo [IMPORTANT] move JSON decoding off main thread
+//  add loading indicator
 class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
@@ -52,16 +62,10 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
         }
 
         //parse appropriate json file
-        questions = parseJson(loadJSONFromAsset(filename))
+        questions = parseJson()
 
-        //generate the layout
-        if (questions.isNotEmpty()) {
-            //RecyclerView implementation
-            initRecyclerView()
-        } else {
-            Log.e(TAG, "Error getting Question array!")
-            finish()
-        }
+        //RecyclerView implementation
+        initRecyclerView()
 
         Runnable {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -106,64 +110,41 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 
-    private fun loadJSONFromAsset(filename: String): String {
-        return try {
+    private fun parseJson(): List<Question> {
+        val moshi = Moshi.Builder()
+                .add(JsonDomainAdapter())
+                .add(KotlinJsonAdapterFactory())
+                .build()
+
+        try {
             val inputStream = assets.open(filename)
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            inputStream.read(buffer)
-            inputStream.close()
-            String(buffer, Charset.defaultCharset())
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            ERROR
-        }
-    }
+            val bufferedSource = buffer(source(inputStream))
+            val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList()
 
-    //todo use GSON to parse JSON
-    //todo replace GSON with Moshi to parse JSON
-    private fun parseJson(json: String): List<Question> {
-        if (json == ERROR || TextUtils.isEmpty(json)) {
-            Log.e(TAG, "Error getting JSON from file!")
-            return emptyList()
-        }
+            //process the list, by adding IDs and making sure each sentence ends with a period
+            questionList.forEachIndexed { index, question ->
+                if (question.text.takeLast(1) != ".") question.text += "."
 
-        val arrayList = arrayListOf<Question>()
-
-        val root = JSONArray(json)
-        for (i in 0 until root.length()) {
-            val element = root.getJSONObject(i)
-
-            var text = element.getString("text")
-
-            //if the sentence doesn't end in a period, add one
-            if (text.takeLast(1) != ".") text += "."
-
-            val keyed = element.getString("keyed")
-            val domain = when (element.getString("domain")) {
-                "O" -> "Openness"
-                "C" -> "Conscientiousness"
-                "E" -> "Extraversion"
-                "A" -> "Agreeableness"
-                "N" -> "Neuroticism"
-                else -> ERROR
+                question.uniqueId = index
             }
 
-            if (domain == ERROR) {
-                Log.e(TAG, "Error detecting question domain!")
-                continue
-            }
+            Log.i(TAG, questionList.toString())
 
-            if (TextUtils.isEmpty(text) || TextUtils.isEmpty(keyed) || TextUtils.isEmpty(domain)) {
-                Log.e(TAG, "Empty question found!")
-                continue
-            }
+            //ensure we close the BufferedSource, not sure if necessary
+            bufferedSource.close()
 
-            arrayList.add(Question(i, text, keyed, domain))
+            //if all is okay, return the shuffled list
+            if (questionList.isNotEmpty()) {
+                return questionList.shuffled()
+            } else throw JsonDataException("No questions found!")
+        } catch (e: FileNotFoundException) {
+            Log.e(TAG, "Cannot find JSON file $filename!")
+            e.printStackTrace()
+        } catch (e: JsonDataException) {
+            e.printStackTrace()
         }
 
-        //shuffle question order
-        return arrayList.toMutableList().apply { shuffle() } as ArrayList<Question>
+        return emptyList()
     }
 
     //when the user clicks a RadioButton, update the score
@@ -200,10 +181,14 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
         )
 
         questions.forEach { question ->
-            val answer = if (question.keyed == "plus") question.answer else 5 - question.answer + 1
+            val answer = if (question.keyed == "plus") {
+                question.answer
+            } else {
+                5 - question.answer + 1
+            }
             val previousValue = map[question.domain] ?: -1
 
-            if(previousValue == -1) Log.e(TAG, "Error calculating answer scores!")
+            if (previousValue == -1) Log.e(TAG, "Error calculating answer scores!")
 
             map[question.domain] = map[question.domain]?.plus(answer) ?: 0
         }

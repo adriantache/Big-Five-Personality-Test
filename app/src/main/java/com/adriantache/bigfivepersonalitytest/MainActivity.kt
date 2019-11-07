@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-
         //set listeners for each button
         binding.mini20.setOnClickListener(this)
         binding.ipip50.setOnClickListener(this)
