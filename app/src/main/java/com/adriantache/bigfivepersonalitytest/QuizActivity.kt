@@ -28,7 +28,7 @@ const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 
 //todo implement facets? => complexity
 //todo [IMPORTANT] move JSON decoding off main thread
-//  add loading indicator
+//  add loading indicator (if it takes a long time)
 class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
@@ -37,15 +37,21 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     //holds all questions as a regular array
     private lateinit var questions: List<Question>
 
+    //selected question json filename
     private lateinit var filename: String
 
     //RecyclerView implementation
-    private lateinit var questionListAdapter: QuestionListAdapter
+    private lateinit var questionsAdapter: QuestionListAdapter
 
     //DataBinding
     private lateinit var binding: ActivityQuizBinding
 
-    override fun onItemSelected() {
+    //RecyclerView onclick action
+    override fun onItemSelected(position: Int, selection: Int) {
+        questions[position].answer = selection
+        questionsAdapter.notifyItemChanged(position)
+
+
         clickedRadio()
     }
 
@@ -77,12 +83,11 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     private fun initRecyclerView() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@QuizActivity)
-            questionListAdapter = QuestionListAdapter(this@QuizActivity)
-            adapter = questionListAdapter
-            //this is probably a bad idea
-            setItemViewCacheSize(questions.size)
+            questionsAdapter = QuestionListAdapter(this@QuizActivity)
+            adapter = questionsAdapter
         }
-        questionListAdapter.submitList(questions)
+
+        questionsAdapter.submitList(questions)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -119,23 +124,22 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
         try {
             val inputStream = assets.open(filename)
             val bufferedSource = buffer(source(inputStream))
-            val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList()
+            val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList().shuffled()
 
             //process the list, by adding IDs and making sure each sentence ends with a period
             questionList.forEachIndexed { index, question ->
                 if (question.text.takeLast(1) != ".") question.text += "."
 
+                //using this id for the RecyclerView differ
                 question.uniqueId = index
             }
-
-            Log.i(TAG, questionList.toString())
 
             //ensure we close the BufferedSource, not sure if necessary
             bufferedSource.close()
 
             //if all is okay, return the shuffled list
             if (questionList.isNotEmpty()) {
-                return questionList.shuffled()
+                return questionList
             } else throw JsonDataException("No questions found!")
         } catch (e: FileNotFoundException) {
             Log.e(TAG, "Cannot find JSON file $filename!")
