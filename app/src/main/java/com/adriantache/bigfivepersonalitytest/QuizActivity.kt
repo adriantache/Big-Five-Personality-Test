@@ -21,14 +21,15 @@ import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 import okio.Okio.buffer
 import okio.Okio.source
 import java.io.FileNotFoundException
 
 
 //todo implement facets? => complexity
-//todo [IMPORTANT] move JSON decoding off main thread
-//  add loading indicator (if it takes a long time)
 class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
@@ -70,8 +71,9 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             finish()
         }
 
-        //parse appropriate json file
-        questions = parseJson()
+        CoroutineScope(IO).launch {
+            parseJson()
+        }
 
         //RecyclerView implementation
         initRecyclerView()
@@ -101,8 +103,6 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             questionsAdapter = QuestionListAdapter(this@QuizActivity)
             adapter = questionsAdapter
         }
-
-        questionsAdapter.submitList(questions)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -130,7 +130,7 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 
-    private fun parseJson(): List<Question> {
+    private fun parseJson() {
         val moshi = Moshi.Builder()
                 .add(JsonDomainAdapter())
                 .add(KotlinJsonAdapterFactory())
@@ -140,6 +140,9 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             val inputStream = assets.open(filename)
             val bufferedSource = buffer(source(inputStream))
             val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList().shuffled()
+
+            //throw an exception if the list is empty
+            if (questionList.isEmpty()) throw JsonDataException("No questions found!")
 
             //process the list, by adding IDs and making sure each sentence ends with a period
             questionList.forEachIndexed { index, question ->
@@ -152,18 +155,23 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             //ensure we close the BufferedSource, not sure if necessary
             bufferedSource.close()
 
-            //if all is okay, return the shuffled list
-            if (questionList.isNotEmpty()) {
-                return questionList
-            } else throw JsonDataException("No questions found!")
+            //assign the list to the class variable
+            questions = questionList
         } catch (e: FileNotFoundException) {
             Log.e(TAG, "Cannot find JSON file $filename!")
+            questions = emptyList()
             e.printStackTrace()
         } catch (e: JsonDataException) {
+            Log.e(TAG, "Empty list returned from JSON!")
+            questions = emptyList()
             e.printStackTrace()
         }
 
-        return emptyList()
+        runOnUiThread {
+            binding.progressBar.visibility = View.GONE
+            binding.labels.visibility = View.VISIBLE
+            questionsAdapter.submitList(questions)
+        }
     }
 
     //when the user clicks a RadioButton, update the score

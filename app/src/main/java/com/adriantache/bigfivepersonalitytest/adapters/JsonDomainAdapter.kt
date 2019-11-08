@@ -1,7 +1,7 @@
 package com.adriantache.bigfivepersonalitytest.adapters
 
-import com.adriantache.bigfivepersonalitytest.ERROR
 import com.adriantache.bigfivepersonalitytest.json.Domain
+import com.adriantache.bigfivepersonalitytest.utils.ERROR
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 
