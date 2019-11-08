@@ -15,6 +15,8 @@ import com.adriantache.bigfivepersonalitytest.adapters.QuestionListAdapter
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityQuizBinding
 import com.adriantache.bigfivepersonalitytest.json.LazyParser
 import com.adriantache.bigfivepersonalitytest.models.Question
+import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
+import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.Moshi
@@ -23,8 +25,6 @@ import okio.Okio.buffer
 import okio.Okio.source
 import java.io.FileNotFoundException
 
-
-const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
 
 //todo implement facets? => complexity
 //todo [IMPORTANT] move JSON decoding off main thread
@@ -48,10 +48,13 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
 
     //RecyclerView onclick action
     override fun onItemSelected(position: Int, selection: Int) {
+        //update answer in list
         questions[position].answer = selection
+
+        //update list in the adapter
         questionsAdapter.notifyItemChanged(position)
 
-
+        //trigger post-click checks
         clickedRadio()
     }
 
@@ -72,6 +75,18 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
 
         //RecyclerView implementation
         initRecyclerView()
+
+        //set submit button OnClickListener to pass data to results activity
+        binding.submit.setOnClickListener {
+            //calculate each of the dimensions based on the results
+            val answerSummary = calculateResult()
+
+            val intent = Intent(this, ResultsActivity::class.java).apply {
+                putExtra(JSON_FILE, filename)
+                putExtra(ANSWER_SUMMARY, answerSummary)
+            }
+            startActivity(intent)
+        }
 
         Runnable {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -160,23 +175,11 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
 
             //show submit button to move to next activity
             binding.submit.visibility = View.VISIBLE
-
-            //set OnClickListener to pass data to results activity
-            binding.submit.setOnClickListener {
-                //calculate each of the dimensions based on the results
-                val answerSummary = calculateResult()
-
-                val intent = Intent(this, ResultsActivity::class.java).apply {
-                    putExtra(JSON_FILE, filename)
-                    putExtra(ANSWER_SUMMARY, answerSummary)
-                }
-                startActivity(intent)
-            }
         }
     }
 
     private fun calculateResult(): HashMap<String, Int> {
-        val map = hashMapOf(
+        val answerMap = hashMapOf(
                 "Openness" to 0,
                 "Conscientiousness" to 0,
                 "Extraversion" to 0,
@@ -190,14 +193,14 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             } else {
                 5 - question.answer + 1
             }
-            val previousValue = map[question.domain] ?: -1
+            val previousValue = answerMap[question.domain] ?: -1
 
             if (previousValue == -1) Log.e(TAG, "Error calculating answer scores!")
 
-            map[question.domain] = map[question.domain]?.plus(answer) ?: 0
+            answerMap[question.domain] = answerMap[question.domain]?.plus(answer) ?: 0
         }
 
-        return map
+        return answerMap
     }
 
     private fun answeredAllQuestions(): Boolean = !(questions.any { it.answer == 0 })

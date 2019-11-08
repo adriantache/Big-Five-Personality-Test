@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
+import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
+import com.adriantache.bigfivepersonalitytest.utils.ERROR
+import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.helper.StaticLabelsFormatter
 import com.jjoe64.graphview.series.BarGraphSeries

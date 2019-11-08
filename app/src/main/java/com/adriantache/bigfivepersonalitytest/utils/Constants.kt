@@ -4,4 +4,7 @@ package com.adriantache.bigfivepersonalitytest.utils
  * Contains common constants used in the app
  **/
 
-//todo populate this file
+const val ERROR = "ERROR"
+const val JSON_FILE = "JSON_FILE"
+const val ANSWER_SUMMARY = "ANSWER_SUMMARY"
+

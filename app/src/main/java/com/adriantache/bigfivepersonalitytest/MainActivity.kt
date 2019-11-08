@@ -2,15 +2,14 @@ package com.adriantache.bigfivepersonalitytest
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityMainBinding
+import com.adriantache.bigfivepersonalitytest.utils.ERROR
+import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
 
-
-const val ERROR = "ERROR"
-const val JSON_FILE = "JSON_FILE"
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
