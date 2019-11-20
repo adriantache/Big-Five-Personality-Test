@@ -22,15 +22,17 @@ import com.squareup.moshi.JsonReader
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import okio.Okio.buffer
 import okio.Okio.source
 import java.io.FileNotFoundException
+import kotlin.coroutines.CoroutineContext
 
 
 //todo implement facets? => complexity
-class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
+class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, CoroutineScope {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
     }
@@ -46,6 +48,11 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
 
     //DataBinding
     private lateinit var binding: ActivityQuizBinding
+
+    //Coroutine Scope
+    private lateinit var job: Job
+    override val coroutineContext: CoroutineContext
+        get() = job + Dispatchers.Main
 
     //RecyclerView onclick action
     override fun onItemSelected(position: Int, selection: Int) {
@@ -63,6 +70,9 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_quiz)
 
+        //init coroutine scope
+        job = Job()
+
         //read JSON filename from intent
         filename = intent.getStringExtra(JSON_FILE) ?: ""
 
@@ -71,9 +81,8 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
             finish()
         }
 
-        CoroutineScope(IO).launch {
-            parseJson()
-        }
+        //create list of questions from the file
+        parseJson()
 
         //RecyclerView implementation
         initRecyclerView()
@@ -95,6 +104,11 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
                 isImmersive = true
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
     }
 
     private fun initRecyclerView() {
@@ -136,41 +150,42 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction {
                 .add(KotlinJsonAdapterFactory())
                 .build()
 
-        try {
-            val inputStream = assets.open(filename)
-            val bufferedSource = buffer(source(inputStream))
-            val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList().shuffled()
+        launch {
+            try {
+                val inputStream = assets.open(filename)
+                val bufferedSource = buffer(source(inputStream))
+                val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList().shuffled()
 
-            //throw an exception if the list is empty
-            if (questionList.isEmpty()) throw JsonDataException("No questions found!")
+                //throw an exception if the list is empty
+                if (questionList.isEmpty()) throw JsonDataException("No questions found!")
 
-            //process the list, by adding IDs and making sure each sentence ends with a period
-            questionList.forEachIndexed { index, question ->
-                if (question.text.takeLast(1) != ".") question.text += "."
+                //process the list, by adding IDs and making sure each sentence ends with a period
+                questionList.forEachIndexed { index, question ->
+                    if (question.text.takeLast(1) != ".") question.text += "."
 
-                //using this id for the RecyclerView differ
-                question.uniqueId = index
+                    //using this id for the RecyclerView differ
+                    question.uniqueId = index
+                }
+
+                //ensure we close the BufferedSource, not sure if necessary
+                bufferedSource.close()
+
+                //assign the list to the class variable
+                questions = questionList
+
+                //update UI
+                binding.progressBar.visibility = View.GONE
+                binding.labels.visibility = View.VISIBLE
+                questionsAdapter.submitList(questions)
+            } catch (e: FileNotFoundException) {
+                Log.e(TAG, "Cannot find JSON file $filename!")
+                questions = emptyList()
+                e.printStackTrace()
+            } catch (e: JsonDataException) {
+                Log.e(TAG, "Empty list returned from JSON!")
+                questions = emptyList()
+                e.printStackTrace()
             }
-
-            //ensure we close the BufferedSource, not sure if necessary
-            bufferedSource.close()
-
-            //assign the list to the class variable
-            questions = questionList
-        } catch (e: FileNotFoundException) {
-            Log.e(TAG, "Cannot find JSON file $filename!")
-            questions = emptyList()
-            e.printStackTrace()
-        } catch (e: JsonDataException) {
-            Log.e(TAG, "Empty list returned from JSON!")
-            questions = emptyList()
-            e.printStackTrace()
-        }
-
-        runOnUiThread {
-            binding.progressBar.visibility = View.GONE
-            binding.labels.visibility = View.VISIBLE
-            questionsAdapter.submitList(questions)
         }
     }
 
