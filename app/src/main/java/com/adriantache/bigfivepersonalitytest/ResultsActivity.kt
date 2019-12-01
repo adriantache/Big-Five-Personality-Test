@@ -5,8 +5,8 @@ import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
 import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
@@ -114,6 +114,7 @@ class ResultsActivity : AppCompatActivity() {
     private fun generateSummaryText(sortedList: List<Pair<String, Int>>) {
         summaryText = ""
 
+
         for (i in sortedList.indices) {
             val element = sortedList[i]
 
@@ -136,29 +137,36 @@ class ResultsActivity : AppCompatActivity() {
                 "Neuroticism" to ("sensitive or nervous" to "secure or confident")
         )
 
-        val firstTrait = sortedList.component1().first
-        val secondTrait = sortedList.component2().first
-        val thirdTrait = sortedList.component3().first
-        val fourthTrait = sortedList.component4().first
-        val fifthTrait = sortedList.component5().first
+        val (firstTrait,
+                secondTrait,
+                thirdTrait,
+                fourthTrait,
+                fifthTrait
+        ) = sortedList.take(5).map { it.first }
 
-        //select two or three main traits, in case of equality
-        val equality = (sortedList.component1().second == sortedList.component2().second ||
-                sortedList.component2().second == sortedList.component3().second)
+        //detect oddness (check if all dimensions are equal)
+        if (sortedList.takeLast(4).all { it.second == sortedList.first().second }) {
+            resultsText = "You seem bizarrely average... \nHave you been using the cheating function?"
+        } else {
+            //select two or three main traits, in case of equality
+            val equality =
+                    (sortedList.component1().second == sortedList.component2().second ||
+                            sortedList.component2().second == sortedList.component3().second)
 
-        resultsText = "It seems that $firstTrait"
-        resultsText += if (equality) ", $secondTrait and $thirdTrait"
-        else " and $secondTrait"
-        resultsText += " are your primary traits. This means that you are probably more "
-        resultsText += key[firstTrait]?.first ?: ERROR
-        resultsText += if (equality) ", ${key[secondTrait]?.first
-                ?: ERROR} and ${key[thirdTrait]?.first ?: ERROR}"
-        else " and ${key[secondTrait]?.first ?: ERROR}"
-        resultsText += " as well as more "
-        resultsText += if (equality) "${key[fourthTrait]?.first
-                ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}."
-        else "${key[thirdTrait]?.first ?: ERROR}, ${key[fourthTrait]?.first
-                ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}"
+            resultsText = "It seems that $firstTrait"
+            resultsText += if (equality) ", $secondTrait and $thirdTrait"
+            else " and $secondTrait"
+            resultsText += " are your primary traits. This means that you are probably more "
+            resultsText += key[firstTrait]?.first ?: ERROR
+            resultsText += if (equality) ", ${key[secondTrait]?.first
+                    ?: ERROR} and ${key[thirdTrait]?.first ?: ERROR}"
+            else " and ${key[secondTrait]?.first ?: ERROR}"
+            resultsText += " as well as more "
+            resultsText += if (equality) "${key[fourthTrait]?.first
+                    ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}."
+            else "${key[thirdTrait]?.first ?: ERROR}, ${key[fourthTrait]?.first
+                    ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}"
+        }
 
         binding.resultsTextAuto.text = resultsText
     }

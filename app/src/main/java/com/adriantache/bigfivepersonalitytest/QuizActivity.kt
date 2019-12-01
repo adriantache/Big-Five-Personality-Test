@@ -21,13 +21,11 @@ import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import okio.Okio.buffer
 import okio.Okio.source
 import java.io.FileNotFoundException
+import java.lang.Runnable
 import kotlin.coroutines.CoroutineContext
 
 
@@ -82,7 +80,7 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         }
 
         //create list of questions from the file
-        parseJson()
+        launch { parseJson() }
 
         //RecyclerView implementation
         initRecyclerView()
@@ -144,14 +142,14 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 
-    private fun parseJson() {
+    private suspend fun parseJson() {
         val moshi = Moshi.Builder()
                 .add(JsonDomainAdapter())
                 .add(KotlinJsonAdapterFactory())
                 .build()
 
-        launch {
-            try {
+        try {
+            withContext(Dispatchers.IO) {
                 val inputStream = assets.open(filename)
                 val bufferedSource = buffer(source(inputStream))
                 val questionList = LazyParser(moshi).parse(JsonReader.of(bufferedSource)).toList().shuffled()
@@ -172,20 +170,19 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
 
                 //assign the list to the class variable
                 questions = questionList
-
-                //update UI
-                binding.progressBar.visibility = View.GONE
-                binding.labels.visibility = View.VISIBLE
-                questionsAdapter.submitList(questions)
-            } catch (e: FileNotFoundException) {
-                Log.e(TAG, "Cannot find JSON file $filename!")
-                questions = emptyList()
-                e.printStackTrace()
-            } catch (e: JsonDataException) {
-                Log.e(TAG, "Empty list returned from JSON!")
-                questions = emptyList()
-                e.printStackTrace()
             }
+            //update UI
+            binding.progressBar.visibility = View.GONE
+            binding.labels.visibility = View.VISIBLE
+            questionsAdapter.submitList(questions)
+        } catch (e: FileNotFoundException) {
+            Log.e(TAG, "Cannot find JSON file $filename!")
+            questions = emptyList()
+            e.printStackTrace()
+        } catch (e: JsonDataException) {
+            Log.e(TAG, "Empty list returned from JSON!")
+            questions = emptyList()
+            e.printStackTrace()
         }
     }
 
@@ -224,6 +221,24 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         }
 
         return answerMap
+    }
+
+    //seeing as how some companies use these as a way to test their candidates, I was curious if
+    // I could create a weirdly average candidate
+    private fun cheat() {
+        //option 1: make all scores equal to the average (best option, basically tells you nothing)
+        questions.forEach {
+            it.answer = 3
+        }
+
+        //option 2: make all scores minim or maximum (reverse the if for maximum)
+        questions.forEach {
+            it.answer = if (it.keyed == "plus") 1
+            else 5
+        }
+
+        //update UI to indicate which answers to pick (always middle ones for option 1)
+        questionsAdapter.notifyDataSetChanged()
     }
 
     private fun answeredAllQuestions(): Boolean = !(questions.any { it.answer == 0 })
