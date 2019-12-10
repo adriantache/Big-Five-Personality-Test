@@ -27,6 +27,7 @@ import okio.Okio.source
 import java.io.FileNotFoundException
 import java.lang.Runnable
 import kotlin.coroutines.CoroutineContext
+import kotlin.system.measureNanoTime
 
 
 //todo implement facets? => complexity
@@ -80,7 +81,10 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         }
 
         //create list of questions from the file
-        launch { parseJson() }
+        launch {
+            //todo remove performance profiling
+            Log.i(TAG, "Question JSON processing time: ${measureNanoTime { parseJson() } / 1_000_000f} ms")
+        }
 
         //RecyclerView implementation
         initRecyclerView()
@@ -148,6 +152,8 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
                 .add(KotlinJsonAdapterFactory())
                 .build()
 
+        binding.loading.visibility = View.VISIBLE
+
         try {
             withContext(Dispatchers.IO) {
                 val inputStream = assets.open(filename)
@@ -172,8 +178,12 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
                 questions = questionList
             }
             //update UI
-            binding.progressBar.visibility = View.GONE
+            binding.loading.visibility = View.GONE
             binding.labels.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
+            binding.progressBar.isIndeterminate = false
+            binding.progressBar.max = 100
+            binding.progressBar.progress = 0
             questionsAdapter.submitList(questions)
         } catch (e: FileNotFoundException) {
             Log.e(TAG, "Cannot find JSON file $filename!")
@@ -189,12 +199,19 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
     //when the user clicks a RadioButton, update the score
     private fun clickedRadio() {
         //activate and set up submit button if appropriate
-        if (binding.submit.visibility != View.VISIBLE && answeredAllQuestions()) {
-            //scroll RecyclerView to bottom to match layout change
-            binding.recyclerView.scrollToPosition(questions.size - 1)
+        if (binding.submit.visibility != View.VISIBLE) {
+            if (answeredAllQuestions()) {
+                //scroll RecyclerView to bottom to match layout change
+                binding.recyclerView.scrollToPosition(questions.size - 1)
 
-            //show submit button to move to next activity
-            binding.submit.visibility = View.VISIBLE
+                //hide progressBar
+                binding.progressBar.visibility = View.GONE
+
+                //show submit button to move to next activity
+                binding.submit.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.progress = answeredQuestions() / questions.size
+            }
         }
     }
 
@@ -242,4 +259,6 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
     }
 
     private fun answeredAllQuestions(): Boolean = !(questions.any { it.answer == 0 })
+
+    private fun answeredQuestions(): Int = questions.filter { it.answer != 0 }.size * 100
 }

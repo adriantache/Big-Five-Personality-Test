@@ -1,5 +1,6 @@
 package com.adriantache.bigfivepersonalitytest.adapters
 
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -10,6 +11,7 @@ import com.adriantache.bigfivepersonalitytest.models.Question
 import com.adriantache.bigfivepersonalitytest.utils.inflate
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.layout_question_item.view.*
+import kotlin.system.measureNanoTime
 
 /**
  * RecyclerView adapter for the questions list in QuizActivity
@@ -37,7 +39,8 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        holder.bind(differ.currentList[position])
+        //todo remove performance profiling
+        Log.i("QuestionListAdapter", "RecyclerView item processing time: ${measureNanoTime { holder.bind(differ.currentList[position]) } / 1_000_000f} ms")
     }
 
     override fun getItemCount(): Int {
