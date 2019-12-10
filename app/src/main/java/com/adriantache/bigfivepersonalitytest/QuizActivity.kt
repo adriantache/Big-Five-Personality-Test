@@ -260,5 +260,5 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
 
     private fun answeredAllQuestions(): Boolean = !(questions.any { it.answer == 0 })
 
-    private fun answeredQuestions(): Int = questions.filter { it.answer != 0 }.size * 100
+    private fun answeredQuestions(): Int = questions.count { it.answer != 0 } * 100
 }
