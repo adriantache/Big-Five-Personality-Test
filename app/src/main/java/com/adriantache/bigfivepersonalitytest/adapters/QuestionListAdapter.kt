@@ -15,6 +15,7 @@ import kotlin.system.measureNanoTime
 
 /**
  * RecyclerView adapter for the questions list in QuizActivity
+ * @param interaction callback on RadioButton click (optional)
  **/
 class QuestionListAdapter(private val interaction: Interaction? = null) :
         RecyclerView.Adapter<QuestionListAdapter.QuestionViewHolder>() {
@@ -52,48 +53,52 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
     }
 
     class QuestionViewHolder(
-            view: View,
+            v: View,
             private val interaction: Interaction?
-    ) : RecyclerView.ViewHolder(view), LayoutContainer {
-        private val v = view
+    ) : RecyclerView.ViewHolder(v), LayoutContainer {
+        private val view = v
 
         override val containerView: View?
             get() = itemView
 
-        init {
-            view.radioButton.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, 1)
-            }
-            view.radioButton2.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, 2)
-            }
-            view.radioButton3.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, 3)
-            }
-            view.radioButton4.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, 4)
-            }
-            view.radioButton5.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, 5)
-            }
-        }
-
         fun bind(question: Question) {
-            v.textView.text = question.text
-
-            v.radioGroup.setOnCheckedChangeListener(null)
-            v.radioGroup.clearCheck()
-            v.radioGroup.tag = adapterPosition
+            view.textView.text = question.text
 
             setRadios(question.answer)
+
+            if (interaction != null) {
+                view.radioButton.setOnClickListener {
+                    interaction.onItemSelected(adapterPosition, 1)
+                }
+                view.radioButton2.setOnClickListener {
+                    interaction.onItemSelected(adapterPosition, 2)
+                }
+                view.radioButton3.setOnClickListener {
+                    interaction.onItemSelected(adapterPosition, 3)
+                }
+                view.radioButton4.setOnClickListener {
+                    interaction.onItemSelected(adapterPosition, 4)
+                }
+                view.radioButton5.setOnClickListener {
+                    interaction.onItemSelected(adapterPosition, 5)
+                }
+            }
         }
 
         private fun setRadios(answer: Int) {
-            v.radioButton.isChecked = answer == 1
-            v.radioButton2.isChecked = answer == 2
-            v.radioButton3.isChecked = answer == 3
-            v.radioButton4.isChecked = answer == 4
-            v.radioButton5.isChecked = answer == 5
+            //bug fix: clear RadioGroup selection before setting the values
+            // otherwise checked answers sometimes disappear on scroll
+            view.radioGroup.clearCheck()
+
+            if (answer == 0) return //skip setting checked if no answer is selected
+
+            when (answer) {
+                1 -> view.radioButton.isChecked = true
+                2 -> view.radioButton2.isChecked = true
+                3 -> view.radioButton3.isChecked = true
+                4 -> view.radioButton4.isChecked = true
+                5 -> view.radioButton5.isChecked = true
+            }
         }
     }
 
@@ -101,4 +106,3 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
         fun onItemSelected(position: Int, selection: Int)
     }
 }
-
