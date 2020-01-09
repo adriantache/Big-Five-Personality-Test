@@ -7,8 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityMainBinding
-import com.adriantache.bigfivepersonalitytest.utils.ERROR
-import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
+import com.adriantache.bigfivepersonalitytest.utils.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -36,14 +35,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val filename: String = when (v?.id) {
-            R.id.mini20 -> "mini_ipip.json"
-            R.id.ipip50 -> "ipip50.json"
-            R.id.neo50 -> "neo_pi_r50.json"
-            R.id.neo100 -> "neo_pi_r100.json"
-            R.id.dqp100 -> "deyoung_quilty_peterson100.json"
-            R.id.johnson120 -> "johnson120.json"
-            R.id.maples120 -> "maples120.json"
-            R.id.costamccrae300 -> "costa_mccrae300.json"
+            R.id.mini20 -> IPIP_20
+            R.id.ipip50 -> IPIP_50
+            R.id.neo50 -> NEO_50
+            R.id.neo100 -> NEO_100
+            R.id.dqp100 -> DYP_100
+            R.id.johnson120 -> JOHN_120
+            R.id.maples120 -> MAPLES_120
+            R.id.costamccrae300 -> CM_300
             else -> ERROR
         }
 

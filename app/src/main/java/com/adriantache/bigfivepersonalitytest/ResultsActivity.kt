@@ -9,9 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
-import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
-import com.adriantache.bigfivepersonalitytest.utils.ERROR
-import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
+import com.adriantache.bigfivepersonalitytest.utils.*
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.helper.StaticLabelsFormatter
 import com.jjoe64.graphview.series.BarGraphSeries
@@ -37,14 +35,14 @@ class ResultsActivity : AppCompatActivity() {
         val filename = intent.getStringExtra(JSON_FILE)
         descriptionText = "Thank you for completing the " +
                 when (filename) {
-                    "mini_ipip.json" -> "20 item Mini-IPIP"
-                    "ipip50.json" -> "50 item IPIP-NEO-PI-R"
-                    "neo_pi_r50.json" -> "50 item NEO-PI-R"
-                    "neo_pi_r100.json" -> "100 item NEO-PI-R"
-                    "deyoung_quilty_peterson100.json" -> "DeYoung, Quilty and Peterson 100-item NEO-PI-R"
-                    "johnson120.json" -> "Johnson 120 item IPIP-NEO-PI-R"
-                    "maples120.json" -> "Maples 120 item IPIP NEO-PI-R"
-                    "costa_mccrae300.json" -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
+                    IPIP_20 -> "20 item Mini-IPIP"
+                    IPIP_50 -> "50 item IPIP-NEO-PI-R"
+                    NEO_50 -> "50 item NEO-PI-R"
+                    NEO_100 -> "100 item NEO-PI-R"
+                    DYP_100 -> "DeYoung, Quilty and Peterson 100-item NEO-PI-R"
+                    JOHN_120 -> "Johnson 120 item IPIP-NEO-PI-R"
+                    MAPLES_120 -> "Maples 120 item IPIP NEO-PI-R"
+                    CM_300 -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
                     else -> ERROR
                 } + " version of the Big Five Markers personality test. You can find additional details " +
                 "about this test by going to ipip.ori.org or visiting the Wikipedia entry using the button " +
