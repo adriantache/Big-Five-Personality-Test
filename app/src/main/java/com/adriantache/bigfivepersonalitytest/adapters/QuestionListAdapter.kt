@@ -48,6 +48,10 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
         return differ.currentList.size
     }
 
+    override fun getItemId(position: Int): Long {
+        return differ.currentList[position].uniqueId.toLong()
+    }
+
     fun submitList(list: List<Question>) {
         differ.submitList(list)
     }

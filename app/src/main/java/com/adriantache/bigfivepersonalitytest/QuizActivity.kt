@@ -1,6 +1,5 @@
 package com.adriantache.bigfivepersonalitytest
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -18,9 +17,11 @@ import com.adriantache.bigfivepersonalitytest.db.QuestionEntity.Companion.conver
 import com.adriantache.bigfivepersonalitytest.models.Question
 import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
 import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
-import kotlin.system.measureNanoTime
 
 
 //todo implement facets? => complexity
@@ -29,7 +30,6 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         private val TAG = QuizActivity::class.java.simpleName
     }
 
-    //holds all questions as a regular array
     private var questions = mutableListOf<Question>()
 
     //selected question json filename
@@ -71,10 +71,7 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         initRecyclerView()
 
         //create list of questions from the file
-        launch {
-            //todo remove performance profiling
-            Log.i(TAG, "Question DB processing time: ${measureNanoTime { getQuestions() } / 1_000_000f} ms")
-        }
+        launch { getQuestions() }
 
         //set submit button OnClickListener to pass data to results activity
         binding.submit.setOnClickListener {
@@ -94,6 +91,16 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         super.onDestroy()
     }
 
+    private fun initRecyclerView() {
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@QuizActivity)
+            questionsAdapter = QuestionListAdapter(this@QuizActivity).apply {
+                setHasStableIds(true)
+            }
+            adapter = questionsAdapter
+        }
+    }
+
     private suspend fun getQuestions() {
         val questionDatabase = Room
                 .databaseBuilder(applicationContext, AppDatabase::class.java, "database")
@@ -108,56 +115,24 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         questionsAdapter.submitList(questions)
     }
 
-    private fun initRecyclerView() {
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@QuizActivity)
-            questionsAdapter = QuestionListAdapter(this@QuizActivity)
-            adapter = questionsAdapter
-        }
-    }
-
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
 
         //if available, enter immersive mode while in the Quiz activity
         if (hasFocus && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            hideSystemUI()
-        }
-    }
-
-    @SuppressLint("InlinedApi")
-    private fun hideSystemUI() {
-        // Enables regular immersive mode.
-        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        launch{
-            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    // Set the content to appear under the system bars so that the
-                    // content doesn't resize when the system bars hide and show.
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    // Hide the nav bar and status bar
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN)
-        }
-    }
-
-    //when the user clicks a RadioButton, update the score
-    private fun clickedRadio() {
-        //activate and set up submit button if appropriate
-        if (binding.submit.visibility != View.VISIBLE) {
-            if (answeredAllQuestions()) {
-                //scroll RecyclerView to bottom to match layout change
-                binding.recyclerView.scrollToPosition(questions.size - 1)
-
-                //hide progressBar
-                binding.progressBar.visibility = View.GONE
-
-                //show submit button to move to next activity
-                binding.submit.visibility = View.VISIBLE
-            } else {
-                binding.progressBar.progress = answeredQuestions() / questions.size
+            // Enables regular immersive mode.
+            // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+            // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            launch {
+                window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        // Set the content to appear under the system bars so that the
+                        // content doesn't resize when the system bars hide and show.
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        // Hide the nav bar and status bar
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN)
             }
         }
     }
@@ -172,6 +147,26 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
 
         //trigger post-click checks
         clickedRadio()
+    }
+
+    //when the user clicks a RadioButton, update the score
+    private fun clickedRadio() {
+        //if submit button is already visible, do nothing
+        if (binding.submit.visibility == View.VISIBLE) return
+
+        //activate and set up submit button and progress bar if appropriate
+        if (answeredAllQuestions()) {
+            //scroll RecyclerView to bottom to match layout change
+            binding.recyclerView.scrollToPosition(questions.size - 1)
+
+            //hide progressBar
+            binding.progressBar.visibility = View.GONE
+
+            //show submit button to move to next activity
+            binding.submit.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.progress = answeredQuestions() / questions.size
+        }
     }
 
     private fun calculateResult(): HashMap<String, Int> {
