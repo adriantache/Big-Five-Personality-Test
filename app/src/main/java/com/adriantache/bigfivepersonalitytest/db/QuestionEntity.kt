@@ -21,14 +21,14 @@ data class QuestionEntity(
         @NonNull val set: String
 ) {
     companion object {
-        fun convertEntityToQuestion(questionEntity: QuestionEntity): Question = Question(
+        fun from(questionEntity: QuestionEntity): Question = Question(
                 uniqueId = questionEntity.uniqueId,
                 text = questionEntity.text,
                 keyed = questionEntity.keyed,
                 domain = questionEntity.domain
         )
 
-        fun convertQuestionToEntity(question: Question, set: String): QuestionEntity = QuestionEntity(
+        fun to(question: Question, set: String): QuestionEntity = QuestionEntity(
                 uniqueId = question.uniqueId,
                 text = question.text,
                 keyed = question.keyed,

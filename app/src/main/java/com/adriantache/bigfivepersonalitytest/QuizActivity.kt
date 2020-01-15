@@ -6,17 +6,18 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.adriantache.bigfivepersonalitytest.adapters.QuestionListAdapter
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityQuizBinding
-import com.adriantache.bigfivepersonalitytest.db.AppDatabase
-import com.adriantache.bigfivepersonalitytest.db.QuestionEntity.Companion.convertEntityToQuestion
 import com.adriantache.bigfivepersonalitytest.models.Question
 import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
 import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
+import com.adriantache.bigfivepersonalitytest.viewmodel.QuizViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -25,12 +26,12 @@ import kotlin.coroutines.CoroutineContext
 
 
 //todo implement facets? => complexity
-class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, CoroutineScope {
+class QuizActivity : AppCompatActivity(), CoroutineScope, QuestionListAdapter.Interaction {
     companion object {
         private val TAG = QuizActivity::class.java.simpleName
     }
 
-    private var questions = mutableListOf<Question>()
+    private lateinit var viewModel: QuizViewModel
 
     //selected question json filename
     private lateinit var filename: String
@@ -50,8 +51,9 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_quiz)
 
-        //init coroutine scope
         job = Job()
+
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(QuizViewModel::class.java)
 
         //enable immersive mode
         launch {
@@ -63,27 +65,52 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
         //read JSON filename from intent
         filename = intent.getStringExtra(JSON_FILE) ?: ""
 
-        if (TextUtils.isEmpty(filename)) {
+        //if we cannot identify the filename, we quit this activity
+        if (filename.isNullOrEmpty()) {
             Log.e(TAG, "Error getting JSON filename!")
+            Toast.makeText(this, "Cannot identify question set!", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
-        //RecyclerView implementation
-        initRecyclerView()
+        viewModel.setFile(filename)
 
-        //create list of questions from the file
-        launch { getQuestions() }
+        viewModel.questions.observe(this, Observer<MutableList<Question>> {
+            questionsAdapter.submitList(it)
+
+            //if submit button is already visible, don't update UI
+            if (binding.submit.visibility == View.VISIBLE) return@Observer
+
+            Log.i(TAG, viewModel.answeredAllQuestions().toString())
+
+            if (viewModel.answeredAllQuestions()) {
+                //scroll RecyclerView to bottom to match layout change
+                binding.recyclerView.scrollToPosition(it.size - 1)
+
+                //hide progressBar
+                binding.progressBar.visibility = View.GONE
+
+                //show submit button to move to next activity
+                binding.submit.visibility = View.VISIBLE
+            } else if (it.size != 0) {
+                binding.progressBar.progress = (viewModel.answeredQuestions() * 100 / it.size).toInt()
+            }
+        })
 
         //set submit button OnClickListener to pass data to results activity
         binding.submit.setOnClickListener {
             //calculate each of the dimensions based on the results
-            val answerSummary = calculateResult()
+            val answerSummary = viewModel.calculateResult()
 
             val intent = Intent(this, ResultsActivity::class.java).apply {
                 putExtra(JSON_FILE, filename)
                 putExtra(ANSWER_SUMMARY, answerSummary)
             }
+
             startActivity(intent)
         }
+
+        //RecyclerView implementation
+        initRecyclerView()
     }
 
     override fun onDestroy() {
@@ -99,20 +126,6 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
             }
             adapter = questionsAdapter
         }
-    }
-
-    private suspend fun getQuestions() {
-        val questionDatabase = Room
-                .databaseBuilder(applicationContext, AppDatabase::class.java, "database")
-                .build()
-        val questionDao = questionDatabase.questionDao()
-        val entityList = questionDao.findBySet(filename)
-
-        entityList.forEach { questionEntity ->
-            questions.add(convertEntityToQuestion(questionEntity))
-        }
-
-        questionsAdapter.submitList(questions)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -140,61 +153,9 @@ class QuizActivity : AppCompatActivity(), QuestionListAdapter.Interaction, Corou
     //RecyclerView onclick action
     override fun onItemSelected(position: Int, selection: Int) {
         //update answer in list
-        questions[position].answer = selection
+        viewModel.updateAnswer(position, selection)
 
         //update list in the adapter
         questionsAdapter.notifyItemChanged(position)
-
-        //trigger post-click checks
-        clickedRadio()
     }
-
-    //when the user clicks a RadioButton, update the score
-    private fun clickedRadio() {
-        //if submit button is already visible, do nothing
-        if (binding.submit.visibility == View.VISIBLE) return
-
-        //activate and set up submit button and progress bar if appropriate
-        if (answeredAllQuestions()) {
-            //scroll RecyclerView to bottom to match layout change
-            binding.recyclerView.scrollToPosition(questions.size - 1)
-
-            //hide progressBar
-            binding.progressBar.visibility = View.GONE
-
-            //show submit button to move to next activity
-            binding.submit.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.progress = answeredQuestions() / questions.size
-        }
-    }
-
-    private fun calculateResult(): HashMap<String, Int> {
-        val answerMap = hashMapOf(
-                "Openness" to 0,
-                "Conscientiousness" to 0,
-                "Extraversion" to 0,
-                "Agreeableness" to 0,
-                "Neuroticism" to 0
-        )
-
-        questions.forEach { question ->
-            val answer = if (question.keyed == "plus") {
-                question.answer
-            } else {
-                5 - question.answer + 1
-            }
-            val previousValue = answerMap[question.domain] ?: -1
-
-            if (previousValue == -1) Log.e(TAG, "Error calculating answer scores!")
-
-            answerMap[question.domain] = answerMap[question.domain]?.plus(answer) ?: 0
-        }
-
-        return answerMap
-    }
-
-    private fun answeredAllQuestions(): Boolean = !(questions.any { it.answer == 0 })
-
-    private fun answeredQuestions(): Int = questions.count { it.answer != 0 } * 100
 }

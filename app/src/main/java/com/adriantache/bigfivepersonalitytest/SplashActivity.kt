@@ -85,13 +85,14 @@ class SplashActivity : AppCompatActivity(), CoroutineScope {
                 startApp()
             } else { //We have failed at finding AND at saving entries to DB, SOS!
                 Log.e(TAG, "Unexpected number of entries in database! ($entries)")
-                //todo rethink this, it's inelegant. maybe implement fallback to json?
+                Toast.makeText(this@SplashActivity, "Error saving all questions to database!", Toast.LENGTH_SHORT).show()
+                finish()
             }
         }
     }
 
     private suspend fun unpackJsonToDatabase() {
-        var count = 0 //todo refactor this out
+        var count = 0
 
         withContext(Dispatchers.IO) {
             questionDao.deleteAll() //empty DB first
@@ -106,11 +107,11 @@ class SplashActivity : AppCompatActivity(), CoroutineScope {
                 }
 
                 questions.forEach {
-                    questionDao.insertAll(QuestionEntity.convertQuestionToEntity(it, file))
+                    questionDao.insertAll(QuestionEntity.to(it, file))
                     count++
                 }
 
-                Log.i(TAG, "Stored $count/$EXPECTED_DB_ENTRIES questions.")
+                Log.i(TAG, "Stored $count/$EXPECTED_DB_ENTRIES questions to database.")
             }
         }
     }

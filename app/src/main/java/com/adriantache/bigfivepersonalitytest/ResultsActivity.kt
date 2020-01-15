@@ -5,11 +5,14 @@ import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
 import com.adriantache.bigfivepersonalitytest.utils.*
+import com.adriantache.bigfivepersonalitytest.viewmodel.ResultsViewModel
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.helper.StaticLabelsFormatter
 import com.jjoe64.graphview.series.BarGraphSeries
@@ -19,10 +22,11 @@ import kotlin.math.abs
 
 //todo add option to save screenshot (seems complicated)
 class ResultsActivity : AppCompatActivity() {
-    private lateinit var resultsMap: HashMap<String, Int>
-    private lateinit var summaryText: String
-    private lateinit var resultsText: String
-    private lateinit var descriptionText: String
+    companion object {
+        private val TAG = ResultsActivity::class.java.simpleName
+    }
+
+    private lateinit var viewModel: ResultsViewModel
 
     //DataBinding
     private lateinit var binding: ActivityResultsBinding
@@ -31,44 +35,39 @@ class ResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_results)
 
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(ResultsViewModel::class.java)
+
         //get filename and use it to specify test variant in the results text
         val filename = intent.getStringExtra(JSON_FILE)
-        descriptionText = "Thank you for completing the " +
-                when (filename) {
-                    IPIP_20 -> "20 item Mini-IPIP"
-                    IPIP_50 -> "50 item IPIP-NEO-PI-R"
-                    NEO_50 -> "50 item NEO-PI-R"
-                    NEO_100 -> "100 item NEO-PI-R"
-                    DYP_100 -> "DeYoung, Quilty and Peterson 100-item NEO-PI-R"
-                    JOHN_120 -> "Johnson 120 item IPIP-NEO-PI-R"
-                    MAPLES_120 -> "Maples 120 item IPIP NEO-PI-R"
-                    CM_300 -> "Costa and McCrae 300 item IPIP-NEO-PI-R"
-                    else -> ERROR
-                } + " version of the Big Five Markers personality test. You can find additional details " +
-                "about this test by going to ipip.ori.org or visiting the Wikipedia entry using the button " +
-                "below. Please note that the results of this test are not saved, so we recommend taking a " +
-                "screenshot or using the share button at the top to save them to your desired destination."
-        binding.resultsText.text = descriptionText
+
+        //if we cannot identify the filename, we quit this activity
+        if (filename.isNullOrEmpty()) {
+            Log.e(TAG, "Error getting JSON filename!")
+            Toast.makeText(this, "Cannot identify question set!", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
+        viewModel.setDescription(filename!!)
+
+        binding.resultsText.text = viewModel.descriptionText
 
         //get results HashMap from intent
         @Suppress("UNCHECKED_CAST")
-        resultsMap = intent.getSerializableExtra(ANSWER_SUMMARY) as HashMap<String, Int>
+        val resultsMap = intent.getSerializableExtra(ANSWER_SUMMARY) as HashMap<String, Int>
 
-        if (resultsMap.isEmpty()) Toast.makeText(this, "Error getting results!", Toast.LENGTH_LONG).show()
+        if (resultsMap.isEmpty()) Toast.makeText(this, "Error getting test results!", Toast.LENGTH_LONG).show()
 
         //sort HashMap by value to help with generating text
-        val sortedList = resultsMap.toList().sortedByDescending { it.second }
+        viewModel.setList(resultsMap)
 
         //set up the chart, using min and max values
-        val min = sortedList.component5().second.toDouble()
-        val max = sortedList.component1().second.toDouble()
-        setUpGraph(min, max)
+        setUpGraph(viewModel.min, viewModel.max)
 
-        //generate and set summary text
-        generateSummaryText(sortedList)
+        //set summary text
+        binding.graphLegend.text = viewModel.summaryText
 
-        //generate and set descriptive text
-        generateResultsText(sortedList)
+        //set descriptive text
+        binding.resultsTextAuto.text = viewModel.resultsText
 
         binding.wikiButton.setOnClickListener { wikiClick() }
         binding.shareButton.setOnClickListener { shareClick() }
@@ -78,11 +77,11 @@ class ResultsActivity : AppCompatActivity() {
     private fun setUpGraph(min: Double, max: Double) {
         //add values
         val series = BarGraphSeries<DataPoint>(arrayOf(
-                DataPoint(0.0, resultsMap["Openness"]?.toDouble() ?: -1.0),
-                DataPoint(1.0, resultsMap["Conscientiousness"]?.toDouble() ?: -1.0),
-                DataPoint(2.0, resultsMap["Extraversion"]?.toDouble() ?: -1.0),
-                DataPoint(3.0, resultsMap["Agreeableness"]?.toDouble() ?: -1.0),
-                DataPoint(4.0, resultsMap["Neuroticism"]?.toDouble() ?: -1.0)
+                DataPoint(0.0, viewModel.resultsMap["Openness"]?.toDouble() ?: -1.0),
+                DataPoint(1.0, viewModel.resultsMap["Conscientiousness"]?.toDouble() ?: -1.0),
+                DataPoint(2.0, viewModel.resultsMap["Extraversion"]?.toDouble() ?: -1.0),
+                DataPoint(3.0, viewModel.resultsMap["Agreeableness"]?.toDouble() ?: -1.0),
+                DataPoint(4.0, viewModel.resultsMap["Neuroticism"]?.toDouble() ?: -1.0)
         ))
 
         binding.graph.addSeries(series)
@@ -109,66 +108,6 @@ class ResultsActivity : AppCompatActivity() {
         binding.graph.gridLabelRenderer.labelFormatter = staticLabelsFormatter
     }
 
-    private fun generateSummaryText(sortedList: List<Pair<String, Int>>) {
-        summaryText = ""
-
-
-        for (i in sortedList.indices) {
-            val element = sortedList[i]
-
-            summaryText += "${element.first}: ${element.second}  "
-
-            if (i == 2) summaryText += "\n"
-        }
-
-        binding.graphLegend.text = summaryText
-    }
-
-    //todo there's probably a smarter way to build this text
-    //todo find solution to equality between 3 and 4
-    private fun generateResultsText(sortedList: List<Pair<String, Int>>) {
-        val key = mapOf(
-                "Extraversion" to ("inventive or curious" to "consistent or cautious"),
-                "Agreeableness" to ("efficient or organized" to "easy-going or careless"),
-                "Conscientiousness" to ("outgoing or energetic" to "solitary or reserved"),
-                "Openness" to ("friendly or compassionate" to "challenging or detached"),
-                "Neuroticism" to ("sensitive or nervous" to "secure or confident")
-        )
-
-        val (firstTrait,
-                secondTrait,
-                thirdTrait,
-                fourthTrait,
-                fifthTrait
-        ) = sortedList.take(5).map { it.first }
-
-        //detect oddness (check if all dimensions are equal)
-        if (sortedList.takeLast(4).all { it.second == sortedList.first().second }) {
-            resultsText = "You seem bizarrely average... \nHave you been using the cheating function?"
-        } else {
-            //select two or three main traits, in case of equality
-            val equality =
-                    (sortedList.component1().second == sortedList.component2().second ||
-                            sortedList.component2().second == sortedList.component3().second)
-
-            resultsText = "It seems that $firstTrait"
-            resultsText += if (equality) ", $secondTrait and $thirdTrait"
-            else " and $secondTrait"
-            resultsText += " are your primary traits. This means that you are probably more "
-            resultsText += key[firstTrait]?.first ?: ERROR
-            resultsText += if (equality) ", ${key[secondTrait]?.first
-                    ?: ERROR} and ${key[thirdTrait]?.first ?: ERROR}"
-            else " and ${key[secondTrait]?.first ?: ERROR}"
-            resultsText += " as well as more "
-            resultsText += if (equality) "${key[fourthTrait]?.first
-                    ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}."
-            else "${key[thirdTrait]?.first ?: ERROR}, ${key[fourthTrait]?.first
-                    ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}"
-        }
-
-        binding.resultsTextAuto.text = resultsText
-    }
-
     private fun wikiClick() {
         val webPage = Uri.parse("https://en.wikipedia.org/wiki/Big_Five_personality_traits")
         val intent = Intent(Intent.ACTION_VIEW, webPage)
@@ -178,9 +117,9 @@ class ResultsActivity : AppCompatActivity() {
     }
 
     private fun shareClick() {
-        val sharedText = "$descriptionText \n\n " +
-                "${summaryText.replace("\n", "")} \n\n " +
-                "$resultsText  \n\n" +
+        val sharedText = "${viewModel.descriptionText} \n\n" +
+                "${viewModel.summaryText.replace("\n", "")} \n\n" +
+                "${viewModel.resultsText}  \n\n" +
                 "https://en.wikipedia.org/wiki/Big_Five_personality_traits"
 
         //trigger intent to share the message
