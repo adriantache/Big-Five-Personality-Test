@@ -23,7 +23,7 @@ import kotlin.math.abs
 
 
 //todo add option to save screenshot (seems complicated)
-//todo use DataBinding
+//todo change charting library
 class ResultsActivity : AppCompatActivity() {
     companion object {
         private val TAG = ResultsActivity::class.java.simpleName
@@ -64,21 +64,21 @@ class ResultsActivity : AppCompatActivity() {
         binding.resultsViewModel = viewModel
 
         //set up the chart, using min and max values
-        setUpGraph(viewModel.min, viewModel.max, resultsMap)
+        setUpGraph(viewModel.min, viewModel.max)
 
         binding.wikiButton.setOnClickListener { wikiClick() }
         binding.shareButton.setOnClickListener { shareClick() }
         binding.resetButton.setOnClickListener { resetClick() }
     }
 
-    private fun setUpGraph(min: Double, max: Double, resultsMap: HashMap<String, Int>) {
+    private fun setUpGraph(min: Double, max: Double) {
         //add values
         val series = BarGraphSeries<DataPoint>(arrayOf(
-                DataPoint(0.0, resultsMap["Openness"]?.toDouble() ?: -1.0),
-                DataPoint(1.0, resultsMap["Conscientiousness"]?.toDouble() ?: -1.0),
-                DataPoint(2.0, resultsMap["Extraversion"]?.toDouble() ?: -1.0),
-                DataPoint(3.0, resultsMap["Agreeableness"]?.toDouble() ?: -1.0),
-                DataPoint(4.0, resultsMap["Neuroticism"]?.toDouble() ?: -1.0)
+                DataPoint(0.0, viewModel.openness),
+                DataPoint(1.0, viewModel.conscientiousness),
+                DataPoint(2.0, viewModel.extraversion),
+                DataPoint(3.0, viewModel.agreeableness),
+                DataPoint(4.0, viewModel.neuroticism)
         ))
 
         binding.graph.addSeries(series)

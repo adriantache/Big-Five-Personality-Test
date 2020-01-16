@@ -9,8 +9,14 @@ import com.adriantache.bigfivepersonalitytest.utils.*
 
 class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: String) : ViewModel() {
     private val sortedList: List<Pair<String, Int>> = resultsMap.toList().sortedByDescending { it.second }
-    val min : Double
-    val max : Double
+    val min: Double
+    val max: Double
+    val openness = resultsMap["Openness"]?.toDouble() ?: -1.0
+    val conscientiousness = resultsMap["Conscientiousness"]?.toDouble() ?: -1.0
+    val extraversion = resultsMap["Extraversion"]?.toDouble() ?: -1.0
+    val agreeableness = resultsMap["Agreeableness"]?.toDouble() ?: -1.0
+    val neuroticism = resultsMap["Neuroticism"]?.toDouble() ?: -1.0
+
     lateinit var descriptionText: String
     lateinit var summaryText: String
     lateinit var resultsText: String
@@ -19,12 +25,12 @@ class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: S
         min = sortedList.component5().second.toDouble()
         max = sortedList.component1().second.toDouble()
 
-        setDescription()
+        generateDescription()
         generateSummaryText()
         generateResultsText()
     }
 
-    private fun setDescription() {
+    private fun generateDescription() {
         descriptionText = "Thank you for completing the " +
                 when (filename) {
                     IPIP_20 -> "20 item Mini-IPIP"
