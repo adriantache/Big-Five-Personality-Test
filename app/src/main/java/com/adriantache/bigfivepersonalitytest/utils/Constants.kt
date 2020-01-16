@@ -20,6 +20,7 @@ const val CM_300 = "costa_mccrae300.json"
 val FILES = listOf(IPIP_20, IPIP_50, NEO_50, NEO_100, DYP_100, JOHN_120, MAPLES_120, CM_300)
 
 //database constants
+const val DATABASE_NAME = "database"
 const val ROOM_TABLE_NAME = "questions"
 const val JSON_STORED_IN_DB = "json_stored"
 const val EXPECTED_DB_ENTRIES = 860

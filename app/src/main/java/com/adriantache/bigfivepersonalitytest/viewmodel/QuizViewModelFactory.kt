@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
  **/
 class QuizViewModelFactory(private val filename: String,
                            private val app: Application) : ViewModelProvider.AndroidViewModelFactory(app) {
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(QuizViewModel::class.java)) {
             return QuizViewModel(filename, app) as T

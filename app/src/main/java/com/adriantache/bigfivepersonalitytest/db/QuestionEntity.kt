@@ -14,8 +14,8 @@ import com.adriantache.bigfivepersonalitytest.utils.ROOM_TABLE_NAME
 @Fts4
 @Entity(tableName = ROOM_TABLE_NAME)
 data class QuestionEntity(
-        @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "rowid") var uniqueId: Int,
-        @NonNull var text: String,
+        @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "rowid") val uniqueId: Int,
+        @NonNull val text: String,
         @NonNull val keyed: String,
         @NonNull val domain: String,
         @NonNull val set: String

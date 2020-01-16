@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityMainBinding
 import com.adriantache.bigfivepersonalitytest.utils.*
 
+//todo implement landscape layout
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {

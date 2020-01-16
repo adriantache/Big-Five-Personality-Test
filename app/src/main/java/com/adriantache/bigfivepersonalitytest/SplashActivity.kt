@@ -53,9 +53,7 @@ class SplashActivity : AppCompatActivity(), CoroutineScope {
         //check SharedPrefs to see if database has been unpacked at first launch
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
 
-        questionDatabase = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "database")
-                .fallbackToDestructiveMigration()
-                .build()
+        questionDatabase = AppDatabase.getInstance(this)
         questionDao = questionDatabase.questionDao()
 
         val updateJob = launch {
@@ -65,7 +63,10 @@ class SplashActivity : AppCompatActivity(), CoroutineScope {
                 return@launch
             }
 
-            Toast.makeText(this@SplashActivity, "First launch: Loading questions from files.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@SplashActivity,
+                    "First launch: Loading questions from files...",
+                    Toast.LENGTH_LONG)
+                    .show()
 
             //populate database from JSON files
             withContext(Dispatchers.IO) { unpackJsonToDatabase() }
@@ -85,7 +86,10 @@ class SplashActivity : AppCompatActivity(), CoroutineScope {
                 startApp()
             } else { //We have failed at finding AND at saving entries to DB, SOS!
                 Log.e(TAG, "Unexpected number of entries in database! ($entries)")
-                Toast.makeText(this@SplashActivity, "Error saving all questions to database!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SplashActivity,
+                        "Error saving all questions to database!",
+                        Toast.LENGTH_SHORT)
+                        .show()
                 finish()
             }
         }

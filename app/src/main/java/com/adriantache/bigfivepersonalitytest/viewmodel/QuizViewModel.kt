@@ -57,9 +57,7 @@ class QuizViewModel(private val filename: String, app: Application) : AndroidVie
         val temp = mutableListOf<Question>()
 
         withContext(Dispatchers.IO) {
-            val questionDatabase = Room
-                    .databaseBuilder(getApplication(), AppDatabase::class.java, "database")
-                    .build()
+            val questionDatabase = AppDatabase.getInstance(getApplication())
             val questionDao = questionDatabase.questionDao()
             val entityList = questionDao.findBySet(filename)
 

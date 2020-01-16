@@ -23,7 +23,7 @@ import kotlin.math.abs
 
 
 //todo add option to save screenshot (seems complicated)
-//todo change charting library
+//todo change charting library to MPAndroid
 class ResultsActivity : AppCompatActivity() {
     companion object {
         private val TAG = ResultsActivity::class.java.simpleName
