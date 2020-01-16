@@ -3,22 +3,21 @@ package com.adriantache.bigfivepersonalitytest.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
 import com.adriantache.bigfivepersonalitytest.db.AppDatabase
 import com.adriantache.bigfivepersonalitytest.db.QuestionEntity
 import com.adriantache.bigfivepersonalitytest.models.Question
 import com.adriantache.bigfivepersonalitytest.utils.Utils.notifyObserver
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 /**
  * ViewModel class for QuizActivity
  **/
-class QuizViewModel(app: Application) : AndroidViewModel(app), CoroutineScope {
+//todo implement ViewModel scope
+class QuizViewModel(private val filename: String, app: Application) : AndroidViewModel(app), CoroutineScope {
     companion object {
         val TAG = QuizViewModel::class.simpleName
     }
@@ -28,11 +27,15 @@ class QuizViewModel(app: Application) : AndroidViewModel(app), CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
-    val questions = MutableLiveData<MutableList<Question>>()
-    private lateinit var filename: String
+    private val _questions = MutableLiveData<MutableList<Question>>()
+    val questions: LiveData<MutableList<Question>>
+        get() = _questions
 
     init {
-        questions.value = mutableListOf()
+        _questions.value = mutableListOf()
+
+        //get list of questions from db that match filename
+        launch { getQuestionsFromDb() }
     }
 
     override fun onCleared() {
@@ -45,32 +48,27 @@ class QuizViewModel(app: Application) : AndroidViewModel(app), CoroutineScope {
 
         question.answer = selection
 
-        questions.value?.set(position, question) ?: Log.e(TAG, "Error updating list")
+        _questions.value?.set(position, question) ?: Log.e(TAG, "Error updating list")
 
-        questions.notifyObserver() //hacky crap to force LiveData update
-    }
-
-    fun setFile(file: String) {
-        filename = file
-
-        //create list of questions from the file
-        launch { getQuestionsFromDb() }
+        _questions.notifyObserver() //hacky crap to force LiveData update
     }
 
     private suspend fun getQuestionsFromDb() {
-        val questionDatabase = Room
-                .databaseBuilder(getApplication(), AppDatabase::class.java, "database")
-                .build()
-        val questionDao = questionDatabase.questionDao()
-        val entityList = questionDao.findBySet(filename)
-
         val temp = mutableListOf<Question>()
 
-        entityList.forEach { questionEntity ->
-            temp.add(QuestionEntity.from(questionEntity))
+        withContext(Dispatchers.IO) {
+            val questionDatabase = Room
+                    .databaseBuilder(getApplication(), AppDatabase::class.java, "database")
+                    .build()
+            val questionDao = questionDatabase.questionDao()
+            val entityList = questionDao.findBySet(filename)
+
+            entityList.forEach { questionEntity ->
+                temp.add(QuestionEntity.from(questionEntity))
+            }
         }
 
-        questions.value = temp
+        _questions.value = temp
     }
 
     fun calculateResult(): HashMap<String, Int> {

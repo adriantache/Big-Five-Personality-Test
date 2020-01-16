@@ -7,18 +7,26 @@ import com.adriantache.bigfivepersonalitytest.utils.*
  * ViewModel class for ResultsActivity
  **/
 
-class ResultsViewModel : ViewModel() {
-    private lateinit var sortedList: List<Pair<String, Int>>
-    lateinit var resultsMap: HashMap<String, Int>
-    var min = 0.0
-    var max = 0.0
+class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: String) : ViewModel() {
+    private val sortedList: List<Pair<String, Int>> = resultsMap.toList().sortedByDescending { it.second }
+    val min : Double
+    val max : Double
     lateinit var descriptionText: String
     lateinit var summaryText: String
     lateinit var resultsText: String
 
-    fun setDescription(name: String) {
+    init {
+        min = sortedList.component5().second.toDouble()
+        max = sortedList.component1().second.toDouble()
+
+        setDescription()
+        generateSummaryText()
+        generateResultsText()
+    }
+
+    private fun setDescription() {
         descriptionText = "Thank you for completing the " +
-                when (name) {
+                when (filename) {
                     IPIP_20 -> "20 item Mini-IPIP"
                     IPIP_50 -> "50 item IPIP-NEO-PI-R"
                     NEO_50 -> "50 item NEO-PI-R"
@@ -32,17 +40,6 @@ class ResultsViewModel : ViewModel() {
                 "about this test by going to ipip.ori.org or visiting the Wikipedia entry using the button " +
                 "below. Please note that the results of this test are not saved, so we recommend taking a " +
                 "screenshot or using the share button at the top to save them to your desired destination."
-    }
-
-    fun setList(resultsMap: HashMap<String, Int>) {
-        this.resultsMap = resultsMap
-        sortedList = resultsMap.toList().sortedByDescending { it.second }
-
-        min = sortedList.component5().second.toDouble()
-        max = sortedList.component1().second.toDouble()
-
-        generateSummaryText()
-        generateResultsText()
     }
 
     private fun generateSummaryText() {
@@ -99,6 +96,4 @@ class ResultsViewModel : ViewModel() {
                     ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}"
         }
     }
-
-
 }

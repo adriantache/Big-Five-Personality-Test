@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
-import com.adriantache.bigfivepersonalitytest.utils.*
+import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
+import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
 import com.adriantache.bigfivepersonalitytest.viewmodel.ResultsViewModel
+import com.adriantache.bigfivepersonalitytest.viewmodel.ResultsViewModelFactory
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.helper.StaticLabelsFormatter
 import com.jjoe64.graphview.series.BarGraphSeries
@@ -21,6 +23,7 @@ import kotlin.math.abs
 
 
 //todo add option to save screenshot (seems complicated)
+//todo use DataBinding
 class ResultsActivity : AppCompatActivity() {
     companion object {
         private val TAG = ResultsActivity::class.java.simpleName
@@ -35,8 +38,6 @@ class ResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_results)
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(ResultsViewModel::class.java)
-
         //get filename and use it to specify test variant in the results text
         val filename = intent.getStringExtra(JSON_FILE)
 
@@ -47,41 +48,37 @@ class ResultsActivity : AppCompatActivity() {
             finish()
         }
 
-        viewModel.setDescription(filename!!)
-
-        binding.resultsText.text = viewModel.descriptionText
-
         //get results HashMap from intent
         @Suppress("UNCHECKED_CAST")
         val resultsMap = intent.getSerializableExtra(ANSWER_SUMMARY) as HashMap<String, Int>
 
-        if (resultsMap.isEmpty()) Toast.makeText(this, "Error getting test results!", Toast.LENGTH_LONG).show()
+        if (resultsMap.isEmpty()) {
+            Log.e(TAG, "Error getting results HashMap!")
+            Toast.makeText(this, "Error getting test results!", Toast.LENGTH_LONG).show()
+            finish()
+        }
 
-        //sort HashMap by value to help with generating text
-        viewModel.setList(resultsMap)
+        val viewModelFactory = ResultsViewModelFactory(resultsMap, filename!!)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ResultsViewModel::class.java)
+
+        binding.resultsViewModel = viewModel
 
         //set up the chart, using min and max values
-        setUpGraph(viewModel.min, viewModel.max)
-
-        //set summary text
-        binding.graphLegend.text = viewModel.summaryText
-
-        //set descriptive text
-        binding.resultsTextAuto.text = viewModel.resultsText
+        setUpGraph(viewModel.min, viewModel.max, resultsMap)
 
         binding.wikiButton.setOnClickListener { wikiClick() }
         binding.shareButton.setOnClickListener { shareClick() }
         binding.resetButton.setOnClickListener { resetClick() }
     }
 
-    private fun setUpGraph(min: Double, max: Double) {
+    private fun setUpGraph(min: Double, max: Double, resultsMap: HashMap<String, Int>) {
         //add values
         val series = BarGraphSeries<DataPoint>(arrayOf(
-                DataPoint(0.0, viewModel.resultsMap["Openness"]?.toDouble() ?: -1.0),
-                DataPoint(1.0, viewModel.resultsMap["Conscientiousness"]?.toDouble() ?: -1.0),
-                DataPoint(2.0, viewModel.resultsMap["Extraversion"]?.toDouble() ?: -1.0),
-                DataPoint(3.0, viewModel.resultsMap["Agreeableness"]?.toDouble() ?: -1.0),
-                DataPoint(4.0, viewModel.resultsMap["Neuroticism"]?.toDouble() ?: -1.0)
+                DataPoint(0.0, resultsMap["Openness"]?.toDouble() ?: -1.0),
+                DataPoint(1.0, resultsMap["Conscientiousness"]?.toDouble() ?: -1.0),
+                DataPoint(2.0, resultsMap["Extraversion"]?.toDouble() ?: -1.0),
+                DataPoint(3.0, resultsMap["Agreeableness"]?.toDouble() ?: -1.0),
+                DataPoint(4.0, resultsMap["Neuroticism"]?.toDouble() ?: -1.0)
         ))
 
         binding.graph.addSeries(series)

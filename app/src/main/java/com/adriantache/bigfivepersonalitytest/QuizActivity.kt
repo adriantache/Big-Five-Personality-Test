@@ -3,7 +3,6 @@ package com.adriantache.bigfivepersonalitytest
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -18,6 +17,7 @@ import com.adriantache.bigfivepersonalitytest.models.Question
 import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
 import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
 import com.adriantache.bigfivepersonalitytest.viewmodel.QuizViewModel
+import com.adriantache.bigfivepersonalitytest.viewmodel.QuizViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -53,8 +53,6 @@ class QuizActivity : AppCompatActivity(), CoroutineScope, QuestionListAdapter.In
 
         job = Job()
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(QuizViewModel::class.java)
-
         //enable immersive mode
         launch {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -72,15 +70,15 @@ class QuizActivity : AppCompatActivity(), CoroutineScope, QuestionListAdapter.In
             finish()
         }
 
-        viewModel.setFile(filename)
+        val viewModelFactory = QuizViewModelFactory(filename, application)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(QuizViewModel::class.java)
 
         viewModel.questions.observe(this, Observer<MutableList<Question>> {
             questionsAdapter.submitList(it)
 
             //if submit button is already visible, don't update UI
             if (binding.submit.visibility == View.VISIBLE) return@Observer
-
-            Log.i(TAG, viewModel.answeredAllQuestions().toString())
 
             if (viewModel.answeredAllQuestions()) {
                 //scroll RecyclerView to bottom to match layout change

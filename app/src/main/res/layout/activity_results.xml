@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="resultsViewModel"
+            type="com.adriantache.bigfivepersonalitytest.viewmodel.ResultsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,7 +22,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Reset"
+            android:text="@string/reset"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -31,7 +37,7 @@
             android:layout_marginRight="16dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:contentDescription="share button"
+            android:contentDescription="@string/share_button"
             android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -73,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@mipmap/wiki_logo"
                     android:drawableLeft="@mipmap/wiki_logo"
-                    android:text=" Open Wiki to interpret results"
+                    android:text="@string/open_wiki_to_interpret_results"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:text="@{resultsViewModel.descriptionText}"
                     app:layout_constraintBottom_toTopOf="@+id/results_text_auto"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -97,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:textColor="#000"
+                    android:text="@{resultsViewModel.resultsText}"
                     app:layout_constraintBottom_toTopOf="@+id/wikiButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +122,7 @@
                     android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:paddingTop="4dp"
+                    android:text="@{resultsViewModel.summaryText}"
                     app:layout_constraintBottom_toTopOf="@+id/results_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
