@@ -97,10 +97,10 @@ class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: S
 
     //calculate chart minimum value
     fun getChartMin(): Float {
-        val min = sortedList.component5().second
-        val max = sortedList.component1().second
+        val min = sortedList.component5().second.toFloat()
+        val max = sortedList.component1().second.toFloat()
 
-        if (min == max) return min - 0.1f
+        if (min == max || max == 0f) return min - 0.1f
 
         //we want more bottom space if values are close together
         val interval = (max - min) / max
