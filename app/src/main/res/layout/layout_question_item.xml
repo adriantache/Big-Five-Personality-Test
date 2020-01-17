@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Test text for layout purposes oh andd it's longer because long questions." />
+        tools:text="Test text for layout purposes oh and it's longer because long questions." />
 
     <RadioGroup
         android:id="@+id/radioGroup"

@@ -3,4 +3,21 @@
     <string name="reset">Reset</string>
     <string name="share_button">share button</string>
     <string name="open_wiki_to_interpret_results"> Open Wiki to interpret results</string>
+    <string name="please_choose_a_test">Please choose a test</string>
+    <string name="mini_ipip_20_item">Mini IPIP 20-item</string>
+    <string name="ipip_50_item">IPIP 50-item</string>
+    <string name="_50_item_neo_pi_r">50-item NEO-PI-R</string>
+    <string name="_100_item_neo_pi_r">100-item NEO-PI-R</string>
+    <string name="deyoung_quilty_peterson_100_item">DeYoung Quilty Peterson 100-item</string>
+    <string name="johnson_120_item">Johnson 120-item</string>
+    <string name="maples_120_item">Maples 120-item</string>
+    <string name="costa_mccrae_300_item">Costa McCrae 300-item</string>
+    <string name="test_instructions">Describe yourself as you generally are now, not as you wish to be in the future. Describe yourself as you honestly see yourself, in relation to other people you know of the same sex as you are, and roughly your same age. So that you can describe yourself in an honest manner, your responses will be kept in absolute confidence. Indicate for each statement whether it is 1. Very Inaccurate, 2. Moderately Inaccurate, 3. Neither Accurate Nor Inaccurate, 4. Moderately Accurate, or 5. Very Accurate as a description of you.</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="submit">Submit</string>
+    <string name="how_accurately_can_you_describe_yourself">How Accurately Can You Describe Yourself?</string>
 </resources>

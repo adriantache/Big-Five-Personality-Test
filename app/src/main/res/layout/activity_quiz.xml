@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:text="Describe yourself as you generally are now, not as you wish to be in the future. Describe yourself as you honestly see yourself, in relation to other people you know of the same sex as you are, and roughly your same age. So that you can describe yourself in an honest manner, your responses will be kept in absolute confidence. Indicate for each statement whether it is 1. Very Inaccurate, 2. Moderately Inaccurate, 3. Neither Accurate Nor Inaccurate, 4. Moderately Accurate, or 5. Very Accurate as a description of you."
+                android:text="@string/test_instructions"
                 android:textAlignment="textStart"
                 android:textColor="#000"
                 android:textSize="14sp" />
@@ -76,23 +76,23 @@
 
                 <TextView
                     style="@style/checkboxLabel"
-                    android:text="1" />
+                    android:text="@string/_1" />
 
                 <TextView
                     style="@style/checkboxLabel"
-                    android:text="2" />
+                    android:text="@string/_2" />
 
                 <TextView
                     style="@style/checkboxLabel"
-                    android:text="3" />
+                    android:text="@string/_3" />
 
                 <TextView
                     style="@style/checkboxLabel"
-                    android:text="4" />
+                    android:text="@string/_4" />
 
                 <TextView
                     style="@style/checkboxLabel"
-                    android:text="5" />
+                    android:text="@string/_5" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -111,7 +111,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Submit"
+            android:text="@string/submit"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +125,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="How Accurately Can You Describe Yourself?"
+            android:text="@string/how_accurately_can_you_describe_yourself"
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="24sp"
