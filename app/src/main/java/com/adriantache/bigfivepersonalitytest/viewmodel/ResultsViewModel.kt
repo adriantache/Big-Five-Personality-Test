@@ -9,24 +9,17 @@ import com.adriantache.bigfivepersonalitytest.utils.*
 
 class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: String) : ViewModel() {
     private val sortedList: List<Pair<String, Int>> = resultsMap.toList().sortedByDescending { it.second }
-    val min: Double
-    val max: Double
-    val openness = resultsMap["Openness"]?.toDouble() ?: -1.0
-    val conscientiousness = resultsMap["Conscientiousness"]?.toDouble() ?: -1.0
-    val extraversion = resultsMap["Extraversion"]?.toDouble() ?: -1.0
-    val agreeableness = resultsMap["Agreeableness"]?.toDouble() ?: -1.0
-    val neuroticism = resultsMap["Neuroticism"]?.toDouble() ?: -1.0
+    val openness = resultsMap["Openness"]?.toFloat() ?: -1f
+    val conscientiousness = resultsMap["Conscientiousness"]?.toFloat() ?: -1f
+    val extraversion = resultsMap["Extraversion"]?.toFloat() ?: -1f
+    val agreeableness = resultsMap["Agreeableness"]?.toFloat() ?: -1f
+    val neuroticism = resultsMap["Neuroticism"]?.toFloat() ?: -1f
 
     lateinit var descriptionText: String
-    lateinit var summaryText: String
     lateinit var resultsText: String
 
     init {
-        min = sortedList.component5().second.toDouble()
-        max = sortedList.component1().second.toDouble()
-
         generateDescription()
-        generateSummaryText()
         generateResultsText()
     }
 
@@ -48,16 +41,14 @@ class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: S
                 "screenshot or using the share button at the top to save them to your desired destination."
     }
 
-    private fun generateSummaryText() {
-        summaryText = ""
+    fun getSummaryText(): String {
+        var summaryText = ""
 
-        for (i in sortedList.indices) {
-            val element = sortedList[i]
-
-            summaryText += "${element.first}: ${element.second}  "
-
-            if (i == 2) summaryText += "\n"
+        for (pair in sortedList) {
+            summaryText += "${pair.first}: ${pair.second}  "
         }
+
+        return summaryText
     }
 
     //todo there's probably a smarter way to build this text
@@ -81,25 +72,42 @@ class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: S
         //detect oddness (check if all dimensions are equal)
         if (sortedList.takeLast(4).all { it.second == sortedList.first().second }) {
             resultsText = "You seem bizarrely average... \nHave you been using the cheating function?"
-        } else {
-            //select two or three main traits, in case of equality
-            val equality =
-                    (sortedList.component1().second == sortedList.component2().second ||
-                            sortedList.component2().second == sortedList.component3().second)
-
-            resultsText = "It seems that $firstTrait"
-            resultsText += if (equality) ", $secondTrait and $thirdTrait"
-            else " and $secondTrait"
-            resultsText += " are your primary traits. This means that you are probably more "
-            resultsText += key[firstTrait]?.first ?: ERROR
-            resultsText += if (equality) ", ${key[secondTrait]?.first
-                    ?: ERROR} and ${key[thirdTrait]?.first ?: ERROR}"
-            else " and ${key[secondTrait]?.first ?: ERROR}"
-            resultsText += " as well as more "
-            resultsText += if (equality) "${key[fourthTrait]?.first
-                    ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}."
-            else "${key[thirdTrait]?.first ?: ERROR}, ${key[fourthTrait]?.first
-                    ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}"
+            return
         }
+
+        //select two or three main traits, in case of equality
+        val equality =
+                (sortedList.component1().second == sortedList.component2().second ||
+                        sortedList.component2().second == sortedList.component3().second)
+
+        resultsText = "It seems that $firstTrait"
+        resultsText += if (equality) ", $secondTrait and $thirdTrait"
+        else " and $secondTrait"
+        resultsText += " are your primary traits. This means that you are probably more "
+        resultsText += key[firstTrait]?.first ?: ERROR
+        resultsText += if (equality) ", ${key[secondTrait]?.first
+                ?: ERROR} and ${key[thirdTrait]?.first ?: ERROR}"
+        else " and ${key[secondTrait]?.first ?: ERROR}"
+        resultsText += " as well as more "
+        resultsText += if (equality) "${key[fourthTrait]?.first
+                ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}."
+        else "${key[thirdTrait]?.first ?: ERROR}, ${key[fourthTrait]?.first
+                ?: ERROR} and ${key[fifthTrait]?.first ?: ERROR}."
     }
+
+    //calculate chart minimum value
+    fun getChartMin(): Float {
+        val min = sortedList.component5().second
+        val max = sortedList.component1().second
+
+        if (min == max) return min - 0.1f
+
+        //we want more bottom space if values are close together
+        val interval = (max - min) / max
+
+        return min * (1 - 0.05f * (1 / interval))
+    }
+
+    //calculate chart maximum value to ensure the label is visible
+    fun getChartMax(): Float = sortedList.component1().second + 0.11f
 }

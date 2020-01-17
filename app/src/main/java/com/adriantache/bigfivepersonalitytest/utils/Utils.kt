@@ -1,6 +1,5 @@
 package com.adriantache.bigfivepersonalitytest.utils
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 /**

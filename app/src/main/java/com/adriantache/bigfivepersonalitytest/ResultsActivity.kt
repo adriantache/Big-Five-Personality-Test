@@ -2,7 +2,7 @@ package com.adriantache.bigfivepersonalitytest
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
-import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -10,20 +10,20 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.adriantache.bigfivepersonalitytest.chart.NumberValueFormatter
 import com.adriantache.bigfivepersonalitytest.databinding.ActivityResultsBinding
 import com.adriantache.bigfivepersonalitytest.utils.ANSWER_SUMMARY
 import com.adriantache.bigfivepersonalitytest.utils.JSON_FILE
 import com.adriantache.bigfivepersonalitytest.viewmodel.ResultsViewModel
 import com.adriantache.bigfivepersonalitytest.viewmodel.ResultsViewModelFactory
-import com.jjoe64.graphview.ValueDependentColor
-import com.jjoe64.graphview.helper.StaticLabelsFormatter
-import com.jjoe64.graphview.series.BarGraphSeries
-import com.jjoe64.graphview.series.DataPoint
-import kotlin.math.abs
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 
 
 //todo add option to save screenshot (seems complicated)
-//todo change charting library to MPAndroid
 class ResultsActivity : AppCompatActivity() {
     companion object {
         private val TAG = ResultsActivity::class.java.simpleName
@@ -64,45 +64,64 @@ class ResultsActivity : AppCompatActivity() {
         binding.resultsViewModel = viewModel
 
         //set up the chart, using min and max values
-        setUpGraph(viewModel.min, viewModel.max)
+        setUpGraph()
 
         binding.wikiButton.setOnClickListener { wikiClick() }
         binding.shareButton.setOnClickListener { shareClick() }
         binding.resetButton.setOnClickListener { resetClick() }
     }
 
-    private fun setUpGraph(min: Double, max: Double) {
-        //add values
-        val series = BarGraphSeries<DataPoint>(arrayOf(
-                DataPoint(0.0, viewModel.openness),
-                DataPoint(1.0, viewModel.conscientiousness),
-                DataPoint(2.0, viewModel.extraversion),
-                DataPoint(3.0, viewModel.agreeableness),
-                DataPoint(4.0, viewModel.neuroticism)
-        ))
+    private fun setUpGraph() {
+        //set up separate data sets for each dimension
+        val o = listOf(BarEntry(0f, viewModel.openness))
+        val oDS = BarDataSet(o, "Openness")
+        oDS.setColor(0x002535, 0xff)
+        val c = listOf(BarEntry(1f, viewModel.conscientiousness))
+        val cDS = BarDataSet(c, "Conscientiousness")
+        cDS.setColor(0x003851, 0xff)
+        val e = listOf(BarEntry(2f, viewModel.extraversion))
+        val eDS = BarDataSet(e, "Extraversion")
+        eDS.setColor(0x22646e, 0xff)
+        val a = listOf(BarEntry(3f, viewModel.agreeableness))
+        val aDS = BarDataSet(a, "Agreeableness")
+        aDS.setColor(0xbfd2d9, 0xff)
+        val n = listOf(BarEntry(4f, viewModel.neuroticism))
+        val nDS = BarDataSet(n, "Neuroticism")
+        nDS.setColor(0x3b89ac, 0xff)
 
-        binding.graph.addSeries(series)
+        //bring all sets together
+        val barData = BarData(oDS, cDS, eDS, aDS, nDS)
 
-        //set graph to more sensible Y bounds
-        binding.graph.viewport.isYAxisBoundsManual = true
-        binding.graph.viewport.setMinY(min - 1)
-        binding.graph.viewport.setMaxY(max + 1)
+        //format numbers and text size for data labels
+        barData.setValueFormatter(NumberValueFormatter())
+        barData.setValueTextSize(16f)
+        barData.setValueTypeface(Typeface.DEFAULT)
 
-        //set color of chart column based on value
-        series.valueDependentColor = ValueDependentColor { data ->
-            val percent: Double = abs((data.y - min) / (max - min))
-            return@ValueDependentColor Color.rgb(50, (percent * 255).toInt(), 50)
-        }
+        //disable description, grid bg and touch interaction
+        binding.graph.description = Description().apply { text = "" }
+        binding.graph.setDrawGridBackground(false)
+        binding.graph.setTouchEnabled(false)
 
-        //tweak some graphical graph stuff
-        series.spacing = 5
-        series.isDrawValuesOnTop = true
-        series.valuesOnTopColor = Color.BLACK
+        //set axis bounds and disable axis drawing
+        val xAxis = binding.graph.xAxis
+        xAxis.mAxisMinimum = 0f
+        xAxis.mAxisMaximum = 4f
+        xAxis.isEnabled = false
+        val yAxisRight = binding.graph.axisRight
+        yAxisRight.isEnabled = false
+        val yAxisLeft = binding.graph.axisLeft
+        yAxisLeft.axisMinimum = viewModel.getChartMin()
+        yAxisLeft.axisMaximum = viewModel.getChartMax()
+        yAxisLeft.isEnabled = false
 
-        //set custom labels
-        val staticLabelsFormatter = StaticLabelsFormatter(binding.graph)
-        staticLabelsFormatter.setHorizontalLabels(arrayOf("O", "C", "E", "A", "N"))
-        binding.graph.gridLabelRenderer.labelFormatter = staticLabelsFormatter
+        //customize legend to hide colours
+        val legend = binding.graph.legend
+        legend.form = Legend.LegendForm.NONE
+        legend.formSize = 0f
+
+        //set chart data and refresh chart
+        binding.graph.data = barData
+        binding.graph.invalidate()
     }
 
     private fun wikiClick() {
@@ -115,7 +134,7 @@ class ResultsActivity : AppCompatActivity() {
 
     private fun shareClick() {
         val sharedText = "${viewModel.descriptionText} \n\n" +
-                "${viewModel.summaryText.replace("\n", "")} \n\n" +
+                "${viewModel.getSummaryText()} \n\n" +
                 "${viewModel.resultsText}  \n\n" +
                 "https://en.wikipedia.org/wiki/Big_Five_personality_traits"
 

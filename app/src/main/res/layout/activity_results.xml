@@ -95,7 +95,8 @@
                     app:layout_constraintBottom_toTopOf="@+id/results_text_auto"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/graph_legend" />
+                    app:layout_constraintTop_toBottomOf="@+id/graph"
+                    tools:text="RESULTS TEXT" />
 
                 <!-- initial text regarding test -->
                 <TextView
@@ -103,38 +104,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:textColor="#000"
                     android:text="@{resultsViewModel.resultsText}"
+                    android:textColor="#000"
                     app:layout_constraintBottom_toTopOf="@+id/wikiButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/results_text" />
+                    app:layout_constraintTop_toBottomOf="@+id/results_text"
+                    tools:text="RESULTS TEXT AUTO" />
 
-                <!-- auto generated text regarding results -->
-                <TextView
-                    android:id="@+id/graph_legend"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="center"
-                    android:paddingTop="4dp"
-                    android:text="@{resultsViewModel.summaryText}"
-                    app:layout_constraintBottom_toTopOf="@+id/results_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/graph" />
-
-                <!-- link to wiki -->
-                <com.jjoe64.graphview.GraphView
+                <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/graph"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:minHeight="100dp"
-                    app:layout_constraintBottom_toTopOf="@+id/graph_legend"
+                    app:layout_constraintBottom_toTopOf="@+id/results_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

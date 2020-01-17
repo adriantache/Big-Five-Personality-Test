@@ -2,5 +2,5 @@
     <string name="app_name">Big Five Personality Test</string>
     <string name="reset">Reset</string>
     <string name="share_button">share button</string>
-    <string name="open_wiki_to_interpret_results">Open Wiki to interpret results</string>
+    <string name="open_wiki_to_interpret_results"> Open Wiki to interpret results</string>
 </resources>
