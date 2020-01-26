@@ -16,7 +16,6 @@ import kotlin.coroutines.CoroutineContext
 /**
  * ViewModel class for QuizActivity
  **/
-//todo implement ViewModel scope
 class QuizViewModel(private val filename: String, app: Application) : AndroidViewModel(app), CoroutineScope {
     companion object {
         val TAG = QuizViewModel::class.simpleName
@@ -96,5 +95,6 @@ class QuizViewModel(private val filename: String, app: Application) : AndroidVie
 
     fun answeredAllQuestions(): Boolean = !questions.value.isNullOrEmpty() && (questions.value?.any { it.answer == 0 })?.not() ?: false
 
+    //returning a double to make calculations easier
     fun answeredQuestions(): Double = (questions.value?.count { it.answer != 0 } ?: 0).toDouble()
 }

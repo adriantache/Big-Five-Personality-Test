@@ -41,16 +41,6 @@ class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: S
                 "screenshot or using the share button at the top to save them to your desired destination."
     }
 
-    fun getSummaryText(): String {
-        var summaryText = ""
-
-        for (pair in sortedList) {
-            summaryText += "${pair.first}: ${pair.second}  "
-        }
-
-        return summaryText
-    }
-
     //todo there's probably a smarter way to build this text
     //todo find solution to equality between 3 and 4
     private fun generateResultsText() {
@@ -110,4 +100,7 @@ class ResultsViewModel(resultsMap: HashMap<String, Int>, private val filename: S
 
     //calculate chart maximum value to ensure the label is visible
     fun getChartMax(): Float = sortedList.component1().second + 0.11f
+
+    //list of traits and scores
+    fun getSummaryText(): String = sortedList.fold("") { acc, pair -> acc + "${pair.first}: ${pair.second}  " }
 }

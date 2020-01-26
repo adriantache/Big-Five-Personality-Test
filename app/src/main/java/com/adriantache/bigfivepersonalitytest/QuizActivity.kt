@@ -64,7 +64,7 @@ class QuizActivity : AppCompatActivity(), CoroutineScope, QuestionListAdapter.In
         filename = intent.getStringExtra(JSON_FILE) ?: ""
 
         //if we cannot identify the filename, we quit this activity
-        if (filename.isNullOrEmpty()) {
+        if (filename.isEmpty()) {
             Log.e(TAG, "Error getting JSON filename!")
             Toast.makeText(this, "Cannot identify question set!", Toast.LENGTH_SHORT).show()
             finish()
@@ -76,6 +76,9 @@ class QuizActivity : AppCompatActivity(), CoroutineScope, QuestionListAdapter.In
 
         viewModel.questions.observe(this, Observer<MutableList<Question>> {
             questionsAdapter.submitList(it)
+
+            //show labels after loading questions
+            if (binding.labels.visibility != View.VISIBLE) binding.labels.visibility = View.VISIBLE
 
             //if submit button is already visible, don't update UI
             if (binding.submit.visibility == View.VISIBLE) return@Observer

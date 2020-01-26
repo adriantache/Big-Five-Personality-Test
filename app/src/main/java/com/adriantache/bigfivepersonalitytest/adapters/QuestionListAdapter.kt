@@ -20,11 +20,11 @@ class QuestionListAdapter(private val interaction: Interaction? = null) :
 
     private val diffCallback = object : DiffUtil.ItemCallback<Question>() {
         override fun areItemsTheSame(oldItem: Question, newItem: Question): Boolean {
-            return oldItem.uniqueId == newItem.uniqueId && oldItem.answer == newItem.answer
+            return oldItem.answer == newItem.answer
         }
 
         override fun areContentsTheSame(oldItem: Question, newItem: Question): Boolean {
-            return oldItem == newItem
+            return oldItem.uniqueId == newItem.uniqueId
         }
     }
 
